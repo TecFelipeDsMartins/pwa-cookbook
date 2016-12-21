@@ -1,0 +1,23 @@
+$SIDEBAR_WIDTH: 304px;
+$HEADER_HEIGHT: 64px;
+
+.md-sidenav.md-left {
+	.md-title {
+		flex: 1;
+	}
+
+	&:not(.modal) {
+		.md-sidenav-content {
+			top: $HEADER_HEIGHT;
+		}
+
+		.md-toolbar,
+		.md-sidenav-backdrop {
+			display: none;
+		}
+
+		&.md-active + main {
+			margin-left: $SIDEBAR_WIDTH;
+		}
+	}
+}

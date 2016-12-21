@@ -1,0 +1,10 @@
+@import "colors.css";
+
+.md-title {
+	flex: 1;
+}
+
+.md-theme-default.md-toolbar {
+	background-color: $COLOR_MAIN;
+	z-index: 100;
+}
