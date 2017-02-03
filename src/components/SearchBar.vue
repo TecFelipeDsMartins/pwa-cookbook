@@ -16,7 +16,7 @@
 	          @submit.stop.prevent="submit">
 
 		    <input type="search"
-		           placeholder="Search by keyword"
+		           placeholder="Rechercher par mot-clé"
 		           v-model="query"
 		           ref="input"
 		           @input="submit">

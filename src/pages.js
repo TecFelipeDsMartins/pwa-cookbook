@@ -12,7 +12,17 @@ export const pages = {
 					title: "Qu'est-ce qu'une PWA ?",
 					link: "pwa",
 					keywords: "pwa;progressive;webapp;kesako;quoi"
-				}
+				},
+				{
+					title: "Exemples de PWA",
+					link: "examples",
+					keywords: "pwa;exemples;démo;client;poc"
+				},
+				{
+					title: "Amélioration Progressive",
+					link: "progressive-enhancement",
+					keywords: "progressive;démarche;approche;stratégie;amélioration"
+				},
 			]
 		},
 		{
@@ -27,6 +37,41 @@ export const pages = {
 					title: "Utiliser efficacement le cache client",
 					link: "cache-client",
 					keywords:"optimiser;économiser;cache;storage;client;enregistrer;bande-passante;débit"
+				}
+			]
+		},
+		{
+			title: "Engagement utilisateur",
+			sections: [
+				{
+					title: "Manifeste Web App",
+					link: "manifest",
+					keywords:"manifeste;recherche;référencement;mobile;engagement"
+				},
+				{
+					title: "SEO: Optimiser le référencement",
+					link: "seo",
+					keywords:"seo;recherche;indexation;moteur;lien;référencement"
+				},
+				{
+					title: "Notifications Push",
+					link: "push-notifications",
+					keywords:"notification;push;engagement;publicité"
+				},
+			]
+		},
+		{
+			title: "Audit qualité",
+			sections: [
+				{
+					title: "PWA Checklist",
+					link: "checklist",
+					keywords:"checklist;liste;critères;contraintes;consignes;requirements;obligations;besoins:exigences"
+				},
+				{
+					title: "Outillage d'audit",
+					link: "audit-tools",
+					keywords:"outillage;audit;vérifier;contrôler;lighthouse"
 				}
 			]
 		}

@@ -8,6 +8,7 @@ main .content {
 	padding: 1em 2em;
 	max-width: 960px;
 	font-size: 20px;
+	line-height: 30px;
 
 	.loader,
 	.error {

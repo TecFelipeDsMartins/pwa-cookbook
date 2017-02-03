@@ -19,11 +19,11 @@ module.exports = {
 		publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
 		filename  : '[name].js'
 	},
-	devtool: "eval",
 	resolve      : {
 		extensions: ['', '.js', '.vue', '.json'],
 		fallback  : [path.join(__dirname, '../node_modules')],
 		alias     : {
+			'vue$'      : 'vue/dist/vue.common.js',
 			'src'       : path.resolve(__dirname, '../src'),
 			'assets'    : path.resolve(__dirname, '../src/assets'),
 			'components': path.resolve(__dirname, '../src/components')
@@ -37,13 +37,17 @@ module.exports = {
 			{
 				test   : /\.vue$/,
 				loader : 'eslint',
-				include: projectRoot,
+				include: [
+					path.join(projectRoot, 'src')
+				],
 				exclude: /node_modules/
 			},
 			{
 				test   : /\.js$/,
 				loader : 'eslint',
-				include: projectRoot,
+				include: [
+					path.join(projectRoot, 'src')
+				],
 				exclude: /node_modules/
 			}
 		],
@@ -55,7 +59,9 @@ module.exports = {
 			{
 				test   : /\.js$/,
 				loader : 'babel',
-				include: projectRoot,
+				include: [
+					path.join(projectRoot, 'src')
+				],
 				exclude: /node_modules/
 			},
 			{
@@ -85,7 +91,7 @@ module.exports = {
 	},
 	vue          : {
 		loaders: utils.cssLoaders({sourceMap: useCssSourceMap}),
-		postcss: function() {
+		postcss: function () {
 			return [
 				require('postcss-import'),
 				require('postcss-nested'),
