@@ -5,7 +5,7 @@
 				<md-icon>menu</md-icon>
 			</md-button>
 
-			<h2 class="md-title">Progressive WebApps Cookbook</h2>
+			<h2 class="md-title">Progressive Web Apps Cookbook</h2>
 
 			<search-bar/>
 

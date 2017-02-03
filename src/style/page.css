@@ -1,3 +1,5 @@
+@import "colors.css";
+
 #main {
 	transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -21,5 +23,24 @@ main .content {
 
 	h1,h2,h3,h4,h5,h6 {
 		line-height: initial;
+	}
+}
+
+.requirements {
+	color: $COLOR_ASIDE_TEXT;
+	display: block;
+	text-align: right;
+	font-style: italic;
+	font-size: 0.8em;
+}
+
+.gallery {
+
+	ul, li {
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
 	}
 }

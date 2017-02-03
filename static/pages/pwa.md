@@ -1,3 +1,5 @@
+<span class="requirements">Prérequis: aucun</span>
+
 Qu'est-ce qu'une Progressive Web App (PWA) ?
 ============================================
 
