@@ -1,7 +1,7 @@
 <template>
 	<md-toolbar>
 		<div class="md-toolbar-container">
-			<md-button class="md-icon-button toggle-sidenav-btn" @click="toggleSidenav">
+			<md-button class="md-icon-button toggle-sidenav-btn" @click.native="toggleSidenav">
 				<md-icon>menu</md-icon>
 			</md-button>
 

@@ -1,10 +1,9 @@
 <template>
     <div class="search-bar">
-
 	    <md-button class="md-icon-button"
-	               @click="onBtnClick"
-	               @focus="checkFocus"
-	               @blur="checkFocus">
+	               @click.native="onBtnClick"
+	               @focus.native="checkFocus"
+	               @blur.native="checkFocus">
 		    <md-icon>search</md-icon>
 	    </md-button>
 
@@ -22,7 +21,7 @@
 		           @input="submit">
 
 		    <md-list class="suggestions" ref="suggestions" v-if="query && suggestions">
-			    <md-list-item v-for="(section, index) in suggestions">
+			    <md-list-item v-for="(section, index) in suggestions" :key="section.title">
 				    <router-link :to="'/pages/'+section.link" @click.native="fold">
 					    {{ section.title }}
 				    </router-link>
@@ -43,7 +42,7 @@
 	import {search} from "../utils/search";
 	import * as Vue from "vue";
 
-    export default{
+    export default {
         data(){
         	return {
 		        query: "",

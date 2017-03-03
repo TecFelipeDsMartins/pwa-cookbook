@@ -10,10 +10,10 @@
 		</md-toolbar>
 
 		<md-list>
-			<md-list-item v-for="chapter in pages.chapters">
+			<md-list-item v-for="chapter in pages.chapters" :key="chapter.title">
 				<span>{{ chapter.title }}</span>
 				<md-list-expand v-if="chapter.sections">
-					<md-list-item v-for="section in chapter.sections">
+					<md-list-item v-for="section in chapter.sections" :key="section.title">
 						<router-link :to="'/pages/'+section.link" @click.native="closeIfModal">
 							{{ section.title }}
 						</router-link>

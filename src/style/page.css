@@ -9,8 +9,13 @@ main .content {
 	margin: 0 auto;
 	padding: 1em 2em;
 	max-width: 960px;
+	box-sizing: content-box;
 	font-size: 20px;
 	line-height: 30px;
+
+	@media(min-width: 960px){
+		text-align: justify;
+	}
 
 	.loader,
 	.error {
@@ -24,6 +29,19 @@ main .content {
 	h1,h2,h3,h4,h5,h6 {
 		line-height: initial;
 	}
+
+	figure {
+		text-align: center;
+
+		img {
+			margin: auto;
+		}
+
+		figcaption {
+			color: $COLOR_ASIDE_TEXT;
+			font-style: italic;
+		}
+	}
 }
 
 .requirements {
@@ -35,12 +53,15 @@ main .content {
 }
 
 .gallery {
+	text-align: center;
 
-	ul, li {
+	ul {
+		margin: auto;
 		padding: 0;
 	}
 
 	li {
 		list-style: none;
+		display: inline-block;
 	}
 }

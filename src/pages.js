@@ -44,6 +44,11 @@ export const pages = {
 			title: "Engagement utilisateur",
 			sections: [
 				{
+					title: "Intégration avec les plates-formes",
+					link: "integration",
+					keywords:"intégration;mobile;application;installation;notification;engagement;publicité;store;appstore"
+				},
+				{
 					title: "Manifeste Web App",
 					link: "manifest",
 					keywords:"manifeste;recherche;référencement;mobile;engagement"
