@@ -40,6 +40,7 @@ main .content {
 		figcaption {
 			color: $COLOR_ASIDE_TEXT;
 			font-style: italic;
+			margin: 1em auto 2em;
 		}
 	}
 }
