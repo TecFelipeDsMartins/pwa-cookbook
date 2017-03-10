@@ -37,6 +37,11 @@ export const pages = {
 					title: "Utiliser efficacement le cache client",
 					link: "cache-client",
 					keywords:"optimiser;économiser;cache;storage;client;enregistrer;bande-passante;débit"
+				},
+				{
+					title: "Usage hors-ligne et Service Workers",
+					link: "service-workers",
+					keywords:"offline;hors-ligne;service;workers;déconnecté;background;mode;connexion"
 				}
 			]
 		},

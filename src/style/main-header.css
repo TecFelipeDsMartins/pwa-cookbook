@@ -7,4 +7,8 @@
 .md-theme-default.md-toolbar {
 	background-color: $COLOR_MAIN;
 	z-index: 100;
+	position: fixed;
+	right: 0;
+	left: 0;
+	top: 0;
 }

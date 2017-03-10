@@ -1,3 +1,5 @@
+@import "colors.css";
+
 $SIDEBAR_WIDTH: 304px;
 $HEADER_HEIGHT: 64px;
 
@@ -20,4 +22,22 @@ $HEADER_HEIGHT: 64px;
 			margin-left: $SIDEBAR_WIDTH;
 		}
 	}
+
+	.md-list.md-theme-default {
+		padding: 0;
+
+		.md-list-item-expand > .md-list-item-container {
+			border-top: 1px solid #CCCCCC;
+		}
+
+		.md-list-item-expand.md-active > .md-list-item-container {
+			font-weight: bold;
+			background: $COLOR_ACTIVE;
+		}
+
+		.md-list-item .router-link-active.md-list-item-container {
+			font-weight: bold;
+		}
+	}
+
 }

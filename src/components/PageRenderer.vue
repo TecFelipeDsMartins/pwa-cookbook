@@ -4,18 +4,20 @@
 		    <transition name="fadein">
 			    <loader :state="loading" v-if="loading"/>
 		    </transition>
-			<p class="error" v-if="error">Une erreur est survenue: {{ error }}</p>
+			<p class="error" v-if="error">{{ error }}</p>
 			<vue-markdown :source="content || ''"></vue-markdown>
 	    </div>
     </main>
 </template>
 
 <style src="../style/page.css" />
+<style src="prismjs/themes/prism.css"></style>
 
 <script>
 	import VueMarkdown from 'vue-markdown'
 	import Loader from './Loader.vue';
 	import fetch from "../utils/fetch";
+	import Prism from 'prismjs';
 
     export default{
         data(){
@@ -40,7 +42,7 @@
 	    },
 
 	    methods: {
-        	fetchContent: function(){
+        	fetchContent(){
         		const vm = this;
 		        return fetch(`static/pages/${this.$route.params.pageName}.md`)
 			        .then(content => {
@@ -50,10 +52,19 @@
 			        })
 			        .catch(error => {
 				        vm.loading = null;
-				        vm.error = `${error.status} - ${error.statusText}`;
+				        if(error.status === 404){
+				        	vm.error = "Page introuvable :("
+				        } else {
+					        vm.error = `Une erreur est survenue: ${error.status} - ${error.statusText}`;
+				        }
 				        vm.content = null;
 			        })
-	        }
+				    .then(() => this.highlightCode())
+	        },
+
+		    highlightCode(){
+			    Prism.highlightAll();
+		    }
 	    },
 
         components: {
