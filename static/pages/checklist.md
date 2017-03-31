@@ -8,7 +8,7 @@ Un récapitulatif de toutes les actions et fonctionnalités à mettre en place p
 ## Priorité 1 - Essentiel
 - Un [manifeste d'application web](#/pages/manifest) est présent
 - L' application et toutes ses ressources sont servies en HTTPS
-- L' application a un design responsive adapté à l'usage mobile
+- L' application a un design responsive adapté à l'usage mobile. [Faire le test](https://search.google.com/search-console/mobile-friendly)
 - La page d'accueil se charge en hors-connexion grâce à un [Service Worker](#pages/service-workers)
 - L' application est testée sur Chrome, Edge, Firefox et Safari
 
@@ -22,7 +22,7 @@ Un récapitulatif de toutes les actions et fonctionnalités à mettre en place p
 ## Priorité 3 - Potentiellement intéressant
 - L'application propose des notifications push lorsque c'est pertinent. Ces notifications suivent [les bonnes pratiques](#pages/push-notifications).
 - Le CSS critique à l'affichage initial est extrait et ajouté en *inline* dans le HTML du document
-- Le contenu applicatif est correctement indexé sur toutes les pages. Utilisez l'outil [Fetch As Google](https://support.google.com/webmasters/answer/6066468) pour le vérifier.
+- Le contenu applicatif est correctement indexé sur toutes les pages. [Faire le test](https://support.google.com/webmasters/answer/6066468)
 - La navigation par les boutons Précédent / Suivant conserve la position du scroll de l'utilisateur
 - Il n'y a pas de tressautements à l'affichage liés aux chargements de contenu (images, AJAX etc.)
 - L' application est pleinement utilisable en mode fullscreen

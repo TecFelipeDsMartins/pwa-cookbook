@@ -33,7 +33,7 @@ sessionStorage.setItem('temporary', JSON.stringify(tempData));
 
 Cette API fournit un ersatz de base de données stockée sur le disque dur de l'utilisateur, permettant d'effectuer des requêtes de recherche en JavaScript sur des données structurées. Elle est basée sur les événements, fonctionne avec les *Web Workers* et *Service Workers*, et est aujourd'hui [largement supportée](http://caniuse.com/#feat=indexeddb).
 
-Compte-tenu des bugs d'implémentation dans certains navigateurs
+Compte-tenu des bugs d'implémentation dans certains navigateurs, il est recommandé de passer par une bibliothèque servant de couche d'abstraction plutôt que d'utiliser directement l'API.
 
 ```javascript
 // Avec la bibliothèque Dexie.js

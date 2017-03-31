@@ -3,3 +3,6 @@
 Usage hors ligne avec les Service Workers
 ===========================================
 
+
+
+## Cache API
