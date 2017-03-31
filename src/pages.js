@@ -74,7 +74,7 @@ export const pages = {
 			title: "Audit qualité",
 			sections: [
 				{
-					title: "PWA Checklist",
+					title: "Check-list d'une PWA",
 					link: "checklist",
 					keywords:"checklist;liste;critères;contraintes;consignes;requirements;obligations;besoins:exigences"
 				},

@@ -19,6 +19,8 @@
 	import fetch from "../utils/fetch";
 	import Prism from 'prismjs';
 
+	const REGEX_SCRIPT_TAG = /<script\b[^>]*>([\s\S]*?)<\/script>/gm;
+
     export default{
         data(){
             return{
@@ -60,10 +62,16 @@
 				        vm.content = null;
 			        })
 				    .then(() => this.highlightCode())
+				    .then(() => this.evalScripts())
 	        },
 
 		    highlightCode(){
 			    Prism.highlightAll();
+		    },
+
+		    evalScripts(){
+			    let match;
+			    while (match = REGEX_SCRIPT_TAG.exec(this.content)) eval(match[1]);
 		    }
 	    },
 

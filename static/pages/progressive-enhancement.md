@@ -5,7 +5,7 @@ La démarche d'amélioration progressive
 
 Le mot *Progressive* est une référence à la démarche d'amélioration progressive (**Progressive Enhancement**). Avec le temps, ce mot a pris un sens plus large tout comme *Responsive* est aujourd'hui utilisé dans d'autres contextes que le *Responsive Web Design*.
 
-L'objectif de cette démarche est de rendre le contenu et le service accessible au plus grand nombre. En effet, pour exploiter tout leur potentiel, les PWA ont recours à diverses technologies et API très récentes disponible seulement sur les dernières versions des navigateurs et plates-formes. Or, la grande force du Web qui fait l'intérêt stratégique et économique des PWA est son **universalité** et son ouverture au plus grand panel d'utilisateurs connectés au monde: les internautes.
+L' objectif de cette démarche est de rendre le contenu et le service accessible au plus grand nombre. En effet, pour exploiter tout leur potentiel, les PWA ont recours à diverses technologies et API très récentes disponible seulement sur les dernières versions des navigateurs et plates-formes. Or, la grande force du Web qui fait l'intérêt stratégique et économique des PWA est son **universalité** et son ouverture au plus grand panel d'utilisateurs connectés au monde: les internautes.
 
 C'est pourquoi **il est essentiel de ne pas discriminer les utilisateurs et d'introduire une fracture technologique**: tous les internautes peu importe leur navigateur et leur dégré d'obscolescence logicielle et matérielle devraient être en mesure d'utiliser le service et d'exploiter le contenu fourni par une PWA.
 
