@@ -80,7 +80,7 @@ Dans cette configuration, il vous suffit de lister les navigateurs que vous deve
 
 Il existe une mécanique similaire pour les feuilles de style avec [Autoprefixer](https://github.com/postcss/autoprefixer) et [doiuse](https://github.com/anandthakker/doiuse), deux outils PostCSS qui reçoivent la même configuration que `babel-preset-env`.
 
-# Images: compression et Data URL
+## Images: compression et Data URL
 
 Les images sont souvent les ressources les plus lourdes à télécharger dans un site web, mais on dispose aujourd'hui d'excellents algorithmes de compression. 
 
@@ -88,7 +88,7 @@ Vous pouvez compresser manuellement chacune de vos images, ou utiliser un outil 
 
 Dans le cas des petites images telles que les pictogrammes, il peut être intéressant de remplacer l'URL vers l'image par le code de cette image sous forme de Data URL. Cela réduit le nombre de requêtes HTTP à effectuer et vous prémunit des éventuelles erreurs de chargement. Le plug-in Webpack [url-loader](https://webpack.js.org/loaders/url-loader/) sert justement à ça et remplacera automatiquement les URL vers de petites images par une Data URL, en dessous d'une certaine taille limite.
 
-# Code splitting: découpe intelligente des bundles
+## Code splitting: découpe intelligente des bundles
 
 Empaqueter l'intégralité du code applicatif dans un seul bundle n'est pas forcément la meilleure idée. Cela peut donner un bundle très lourd qui bloque le chargement initial de l'application.
 
