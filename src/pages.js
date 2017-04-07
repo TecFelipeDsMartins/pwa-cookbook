@@ -1,3 +1,6 @@
+import CheckListPage from "./components/pages/CheckListPage.vue";
+import ExamplesPage from "./components/pages/ExamplesPage.vue";
+
 export const pages = {
 	chapters: [
 		{
@@ -16,7 +19,8 @@ export const pages = {
 				{
 					title: "Exemples de PWA",
 					link: "examples",
-					keywords: "pwa;exemples;démo;client;poc"
+					keywords: "pwa;exemples;démo;client;poc",
+					component: ExamplesPage
 				},
 				{
 					title: "Amélioration Progressive",
@@ -76,7 +80,8 @@ export const pages = {
 				{
 					title: "Check-list d'une PWA",
 					link: "checklist",
-					keywords:"checklist;liste;critères;contraintes;consignes;requirements;obligations;besoins:exigences"
+					keywords:"checklist;liste;critères;contraintes;consignes;requirements;obligations;besoins:exigences",
+					component: CheckListPage
 				},
 				{
 					title: "Outillage d'audit",
@@ -94,3 +99,7 @@ export const sections = pages.chapters.reduce(
 		return sections;
 	}
 , []);
+
+export function getSectionByLink(link){
+	return sections.find(section => section.link === link)
+}

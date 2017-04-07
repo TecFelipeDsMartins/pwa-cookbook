@@ -1,0 +1,11 @@
+#main .content ul {
+	padding-left:0;
+}
+
+#main .content li {
+	list-style: none;
+}
+
+#main .content li input[type="checkbox"] {
+	margin-right: 1em;
+}

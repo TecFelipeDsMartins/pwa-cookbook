@@ -5,28 +5,33 @@
 			    <loader :state="loading" v-if="loading"/>
 		    </transition>
 			<p class="error" v-if="error">{{ error }}</p>
-			<vue-markdown :source="content || ''"></vue-markdown>
+		    <component v-if="section.component"
+		               :is="section.component"
+		               ref="pageComponent"
+		               :content="content">
+		    </component>
+		    <vue-markdown v-else :source="content || ''"></vue-markdown>
 	    </div>
     </main>
 </template>
 
 <style src="../style/page.css" />
-<style src="prismjs/themes/prism.css"></style>
+<style src="prismjs/themes/prism.css" />
 
 <script>
 	import VueMarkdown from 'vue-markdown'
 	import Loader from './Loader.vue';
 	import fetch from "../utils/fetch";
 	import Prism from 'prismjs';
-
-	const REGEX_SCRIPT_TAG = /<script\b[^>]*>([\s\S]*?)<\/script>/gm;
+	import {getSectionByLink} from "../pages";
 
     export default{
         data(){
-            return{
+            return {
 	            content: null,
 	            error: null,
-	            loading: "init"
+	            loading: "init",
+	            section: null
             }
         },
 
@@ -44,34 +49,35 @@
 	    },
 
 	    methods: {
-        	fetchContent(){
-        		const vm = this;
-		        return fetch(`static/pages/${this.$route.params.pageName}.md`)
-			        .then(content => {
-				        vm.loading = null;
-				        vm.error = null;
-				        vm.content = content;
-			        })
-			        .catch(error => {
-				        vm.loading = null;
-				        if(error.status === 404){
-				        	vm.error = "Page introuvable :("
-				        } else {
-					        vm.error = `Une erreur est survenue: ${error.status} - ${error.statusText}`;
-				        }
-				        vm.content = null;
-			        })
-				    .then(() => this.highlightCode())
-				    .then(() => this.evalScripts())
-	        },
+		    fetchContent(){
+			    const vm = this;
+			    const { pageName } = this.$route.params;
 
-		    highlightCode(){
-			    Prism.highlightAll();
-		    },
+			    vm.section = getSectionByLink(pageName);
 
-		    evalScripts(){
-			    let match;
-			    while (match = REGEX_SCRIPT_TAG.exec(this.content)) eval(match[1]);
+			    return fetch(`static/pages/${pageName}.md`)
+				    .then(content => {
+					    vm.loading = null;
+					    vm.error = null;
+					    vm.content = content;
+					    vm.$nextTick(() => {
+						    Prism.highlightAll();
+						    const {pageComponent} = vm.$refs;
+						    if (pageComponent && pageComponent.onLoad) {
+							    pageComponent.onLoad();
+						    }
+					    });
+				    })
+				    .catch(error => {
+					    vm.loading = null;
+					    if (error.status === 404) {
+						    vm.error = "Page introuvable :("
+					    } else {
+					    	console.error(error);
+						    vm.error = `Une erreur est survenue: ${error.status} - ${error.statusText}`;
+					    }
+					    vm.content = null;
+				    })
 		    }
 	    },
 
