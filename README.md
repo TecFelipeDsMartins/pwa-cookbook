@@ -2,7 +2,10 @@
 
 > A step-by-step guide to Progressive Web Applications
 
-## Build Setup
+- Open the cookbook PWA: (coming soon)
+- [Read the cookbook docs in plain text](./index.md)
+
+## Run the cookbook PWA locally
 
 ``` bash
 # install dependencies

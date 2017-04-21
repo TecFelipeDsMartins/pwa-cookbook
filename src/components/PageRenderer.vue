@@ -5,12 +5,10 @@
 			    <loader :state="loading" v-if="loading"/>
 		    </transition>
 			<p class="error" v-if="error">{{ error }}</p>
-		    <component v-if="section.component"
-		               :is="section.component"
+		    <component :is="pageComponent"
 		               ref="pageComponent"
 		               :content="content">
 		    </component>
-		    <vue-markdown v-else :source="content || ''"></vue-markdown>
 	    </div>
     </main>
 </template>
@@ -19,11 +17,18 @@
 <style src="prismjs/themes/prism.css" />
 
 <script>
-	import VueMarkdown from 'vue-markdown'
 	import Loader from './Loader.vue';
+	import DefaultMarkdownRenderer from './DefaultMarkdownRenderer.vue';
+	import ExamplesPage from './pages/ExamplesPage.vue';
+	import ChecklistPage from './pages/ChecklistPage.vue';
 	import fetch from "../utils/fetch";
 	import Prism from 'prismjs';
 	import {getSectionByLink} from "../pages";
+
+	const pagesComponents = {
+		examples: ExamplesPage,
+		checklist: ChecklistPage
+	};
 
     export default{
         data(){
@@ -31,7 +36,8 @@
 	            content: null,
 	            error: null,
 	            loading: "init",
-	            section: null
+	            section: null,
+	            pageComponent: null
             }
         },
 
@@ -44,6 +50,7 @@
 		    	this.loading = "change-page";
 		    	this.error = null;
 		    	this.content = null;
+		    	this.pageComponent = pagesComponents[to.params.pageName] || DefaultMarkdownRenderer;
 			    this.fetchContent();
 		    }
 	    },
@@ -82,7 +89,6 @@
 	    },
 
         components: {
-	        VueMarkdown,
 	        Loader
         }
     }
