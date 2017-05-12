@@ -86,25 +86,6 @@ Pour du stockage temporaire, le `sessionStorage` est adapté notamment pour déc
 Enfin, pour les autres données dynamiques, cela dépend de leur volume et de leur complexité. S'il n'y en a pas beaucoup (moins de 500 Ko) et qu'elles sont sérialisables en JSON, le `localStorage` est le choix de la simplicité. 
 
 Sinon, utiliser une bibliothèque autour de IndexedDB comme Dexie ou Lovefield vous fournira beaucoup plus de fonctionnalités pour chercher/trier des données. C'est par exemple utile quand la connexion est indisponible et que vous voulez reproduire côté client certaines requêtes normalement faites en back avec les données dont vous disposez localement. 
-
-## La compensation de latence (aussi appelée *Optimistic UI*)
-
-Le principe de la compensation de latence est de considérer que les requêtes serveur vont finir en succès dans la grande majorité des cas, et donc qu'il n'est pas nécessaire d'attendre le retour serveur pour continuer dans la navigation et mettre à jour l'affichage côté client. C'est une technique assez couramment utilisée dans les webmails et les messageries instantanées, là où la fluidité dans les actions est essentielle pour une bonne expérience utilisateur.
-
-<figure>
-	<img src="static/assets/optimistic-ui.png" alt="Schématisation de la compensation de latence">
-</figure>
- 
- Pour pouvoir mettre en place ce principe, il faut quelques conditions:
- - le modèle client doit pouvoir être mis à jour sans avoir besoin du retour du serveur, en admettant un succès de la requête ; cela concerne donc presque toujours les requêtes POST / PUT et non les GET
- - en cas d'erreur, l'action doit pouvoir être réversible ; en sachant que d'autres actions peuvent avoir eu lieu entre temps.
- - le feedback utilisateur en cas d'erreur doit être réfléchi de telle sorte qu'une erreur imprévue ne prenne pas l'utilisateur au dépourvu dans son action en cours ; *exemple: si l'utilisateur est en train de modifier une fiche qui a mal été créée, l'action de modification doit pouvoir se substituer à l'action de création* 
-  
- Un des pièges courants de cette technique est lorsque l'action de réversibilité (le *rollback*) vient écraser des données plus récentes ou actuellement exploitées par l'utilisateur. Pour éviter ce genre de tracas, une bibliothèque JavaScript de gestion d'état comme Redux peut aider à résoudre ces conflits. Dans les cas les plus compliqués, quelques connaissances sur les transformations opérationnelles et la gestion de conflits d'écriture peuvent aussi s'avérer utiles. 
- 
- Vous pouvez bien sûr opter pour mettre en place de la compensation de latence uniquement pour les cas les plus simples à gérer, et heureusement ils sont encore nombreux.
- 
- Au delà des avantages d'une navigation instantanée pour l'utilisateur final, la compensation de latence est aussi utile pour le développeur pour mettre au point une gestion de ses modèles de données de façon asynchrone et résistante aux conflits, et ainsi préparer le terrain pour d'autres fonctionnalités tels qu'un mode hors-ligne ou un mode d'édition collaborative.
  
  ---
  [Mode hors-ligne et Service Workers](#/pages/service-workers)

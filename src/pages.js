@@ -18,10 +18,26 @@ const pages = {
 					link: "examples",
 					keywords: "pwa;exemples;démo;client;poc;test;essayer"
 				},
+
+			]
+		},
+		{
+			title: "Méthodologie",
+			sections: [
 				{
 					title: "Amélioration Progressive",
 					link: "progressive-enhancement",
 					keywords: "progressive;démarche;approche;stratégie;amélioration"
+				},
+				{
+					title: "Compensation de latence",
+					link: "optimistic-ui",
+					keywords: "optimis;timeout;latence;réseau;requête;AJAX;state;méthodo"
+				},
+				{
+					title: "Stratégies de gestion de réseau",
+					link: "network-strategies",
+					keywords: "réseau;network;cache;requête;AJAX;approche;stratégie;offline;hors-ligne"
 				},
 			]
 		},
