@@ -37,7 +37,7 @@
 	            error: null,
 	            loading: "init",
 	            section: null,
-	            pageComponent: null
+	            pageComponent: pagesComponents[this.$route.params.pageName] || DefaultMarkdownRenderer
             }
         },
 

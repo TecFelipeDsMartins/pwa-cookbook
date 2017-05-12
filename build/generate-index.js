@@ -15,5 +15,3 @@ ${foreach(chapter.sections, section =>
 `)}`;
 
 fs.writeFileSync('index.md', md);
-
-
