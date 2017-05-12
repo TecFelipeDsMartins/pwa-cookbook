@@ -45,11 +45,6 @@ const pages = {
 			title: "Connectivité",
 			sections: [
 				{
-					title: "Réduire la taille de l'application",
-					link: "optimisation-bundle",
-					keywords:"optimiser;réduire;bundle;paquet;charge;perf;taille;lourd;minif;débit"
-				},
-				{
 					title: "Utiliser efficacement le cache client",
 					link: "cache-client",
 					keywords:"optimiser;économiser;cache;storage;client;enregistrer;débit"
@@ -84,6 +79,21 @@ const pages = {
 					link: "push-notifications",
 					keywords:"notification;push;engagement;publicité;natif"
 				},
+			]
+		},
+		{
+			title: "Optimisation",
+			sections: [
+				{
+					title: "Générer des bundles avec Webpack",
+					link: "optimisation-bundle",
+					keywords:"optimiser;réduire;bundle;paquet;webpack;charge;perf;taille;lourd;minif;débit"
+				},
+				{
+					title: "Transpilation ciblée avec browserslist",
+					link: "browserslist",
+					keywords:"transpil;outils;build;optimiser;browser;navigateur;réduire;taille"
+				}
 			]
 		},
 		{

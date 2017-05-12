@@ -51,35 +51,6 @@ Concernant la minification du CSS, il existe [cssnano](http://cssnano.co/) qui e
 
 [gzip](http://www.gnu.org/software/gzip/) est une autre amélioration essentielle pour optimiser la taille de vos bundles, à mettre en place côté serveur cette fois. Cet algorithme de compression remplace les  chaînes de caractères récurrentes dans vos fichiers par des pointeurs. Selon les fichiers, on peut observer des gains très significatifs : parfois moins de 70% de la taille originale en sortie.
 
-## Transpilation et affinage par navigateurs ciblés
-  
-Il est aujourd'hui très courant de coder son application dans un langage ou une norme plus moderne comme TypeScript ou ES6+. Dans la chaîne de build, un outil appelé *transpilateur* compile le code source et le transforme en JavaScript exploitable par les navigateurs des utilisateurs.
-
-Ces transpilateurs sont généralement configurés par défaut pour produire du code à la norme ES5, qui est bien supportée par la majorité des navigateurs depuis des années. Mais le support JavaScript s'améliore de jour en jour et plusieurs transformations ne sont probablement plus nécessaires pour le panel de navigateurs que vous voulez supporter.
-
-[Babel](https://babeljs.io/), le transpilateur JavaScript le plus connu, a résolu ce problème en recommandant une nouvelle configuration qui s'adapte aux navigateurs ciblés : [`babel-preset-env`](https://github.com/babel/babel-preset-env). 
-
-Dans cette configuration, il vous suffit de lister les navigateurs que vous devez supporter et Babel fera automatiquement le tri des fonctionnalités supportées ou non par l'ensemble de ces navigateurs, pour appliquer uniquement les transformations nécessaires. Cela se traduit par une augmentation des performances et une petite réduction de la taille des bundles.
-
-````javascript
-{ // .babelrc
-  "presets": [
-    ["env", { 
-      "targets": { // Liste des environnements ciblés
-        "browsers": [
-        	"last 2 Chrome versions", // les deux dernières versions de Chrome
-        	"Firefox ESR", // la dernière version à support allongé de Firefox
-        	"ie >= 9", // Internet Explorer 9 et versions supérieures 
-        	"> 1% in FR" // tous les navigateurs à plus de 1% de PDM en France
-        ]
-      }
-    }]
-  ]
-}
-````
-
-Il existe une mécanique similaire pour les feuilles de style avec [Autoprefixer](https://github.com/postcss/autoprefixer) et [doiuse](https://github.com/anandthakker/doiuse), deux outils PostCSS qui reçoivent la même configuration que `babel-preset-env`.
-
 ## Images: compression et Data URL
 
 Les images sont souvent les ressources les plus lourdes à télécharger dans un site web, mais on dispose aujourd'hui d'excellents algorithmes de compression. 
