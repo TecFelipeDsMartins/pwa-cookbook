@@ -15,6 +15,10 @@ main .content {
 
 	@media(min-width: 960px){
 		text-align: justify;
+
+		.pull-right {
+			float: right;
+		}
 	}
 
 	.loader,

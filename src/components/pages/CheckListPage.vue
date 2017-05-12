@@ -1,8 +1,8 @@
 <template>
-	<vue-markdown :source="content || ''"></vue-markdown>
+	<div class="checklist-page">
+		<vue-markdown :source="content || ''"></vue-markdown>
+	</div>
 </template>
-
-<style src="../../style/pages/checklist.css" />
 
 <script>
 	import VueMarkdown from 'vue-markdown'
@@ -30,3 +30,19 @@
 		}
 	}
 </script>
+
+<style>
+#main .checklist-page {
+	ul {
+		padding-left:0;
+	}
+
+	li {
+		list-style: none;
+	}
+
+	li input[type="checkbox"] {
+		margin-right: 1em;
+	}
+}
+</style>
