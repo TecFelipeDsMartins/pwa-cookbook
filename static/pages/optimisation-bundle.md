@@ -1,6 +1,6 @@
 <span class="requirements">Prérequis: expérience avec les chaînes de build, les compilateurs et les minifieurs</span>
 
-Réduire la taille de l'application
+Empaqueter et réduire la taille de l'application
 ===================================
 
 Pour atteindre les objectifs de performance (chargement initial sur un mobile bas de gamme en 3G en moins de 5 secondes), les PWA disposent très souvent d'un setup de build chargé d'empaqueter, optimiser et compresser toutes les dépendances. En sortie de ce processus, on trouve un petit nombre de fichiers paquets aussi appelés **bundles**. Le gain de performance est uniquement valable au premier chargement de l'application, ensuite la mise en cache par le Service Worker prend le relais et assure des chargements quasi-instantanés.
