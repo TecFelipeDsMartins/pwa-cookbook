@@ -97,15 +97,25 @@ const pages = {
 			]
 		},
 		{
-			title: "Audit qualité",
+			title: "Outillage et frameworks",
 			sections: [
+				{
+					title: "PWA et Frameworks",
+					link: "frameworks",
+					keywords:"framework;template;starter;boilerplate;librairie;bibliothèque;react;vue;angular"
+				},
+				{
+					title: "Templates projet pour démarrer",
+					link: "project-templates",
+					keywords:"worldline;framework;template;starter;boilerplate;démarrer;outil;hello;react;vue;angular"
+				},
 				{
 					title: "Check-list d'une PWA",
 					link: "checklist",
 					keywords:"checklist;liste;critères;contraintes;consignes;requirements;obligations;besoins:exigences"
 				},
 				{
-					title: "Outillage d'audit",
+					title: "Outillage d'audit qualité",
 					link: "audit-tools",
 					keywords:"outillage;outils;audit;vérifier;contrôler;lighthouse;qualité"
 				}

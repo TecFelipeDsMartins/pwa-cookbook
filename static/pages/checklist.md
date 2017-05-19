@@ -39,4 +39,4 @@ Vous pouvez cocher les cases, leur état sera sauvegardé à votre prochain pass
 - Les paiements se font via la [Payment Request API](https://developers.google.com/web/fundamentals/discovery-and-monetization/payment-request/)
 
  ---
- [Outillage d'audit](#/pages/audit-tools)
+ [Outillage d'audit qualité](#/pages/audit-tools)
