@@ -1,9 +1,11 @@
 <span class="requirements">Prérequis: survol de toutes les sections précédentes</span>
 
-La check-list des PWA
-======================
+La check-list de développement d'une PWA
+=========================================
 
-Un récapitulatif de toutes les actions et fonctionnalités à mettre en place pour une bonne Progressive Web Application, triées par priorité:
+Voici un récapitulatif de toutes les actions et fonctionnalités à mettre en place pour une bonne Progressive Web Application, triées par priorité. 
+
+Vous pouvez cocher les cases, leur état sera sauvegardé à votre prochain passage.
 
 ## Priorité 1 - Essentiel
 - Un [manifeste d'application web](#/pages/manifest) est présent
