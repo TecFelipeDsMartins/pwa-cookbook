@@ -3,13 +3,21 @@
 L'offre PWA au sein des frameworks web client
 ==============================================
 
+Addy Osmani a consacré un talk à ce sujet à la Google IO 2017 : 
+[Production Progressive Web Apps With JavaScript Frameworks](https://www.youtube.com/watch?v=aCMbSyngXB4)
+
 ## React: [create-react-app](https://github.com/facebookincubator/create-react-app)
 
 Les équipes de Facebook ont souvent eu une longueur d'avance en ce qui concerne la conception de Progressive Web Apps avec leur framework React. Ce choix est une valeur sûre mais React s'adresse aux développeurs JavaScript expérimentés et initiés à la programmation réactive fonctionnelle.
 
-Cet outil permettant de démarrer très rapidement un projet React avec tout l'outillage adéquat propose depuis sa version **1.0** une expérience **PWA par défaut**. Cela comprend notamment un manifeste d'application autogénéré et un Service Worker proposant une stratégie de cache Offline-First.
+Cet outil permettant de démarrer très rapidement un projet React avec tout l'outillage adéquat propose depuis sa version 1.0 une expérience PWA par défaut. Cela comprend notamment un manifeste d'application autogénéré et un Service Worker proposant une stratégie de cache Offline-First.
 
 Pour une solution avec rendu côté serveur, [Next.js](https://learnnextjs.com/) de Zeit est l'option la plus populaire et la plus simple à appréhender. L'équipe souhaite à l'instar de create-react-app proposer une approche Offline-First par défaut. Cela devrait se concrétiser dans la version 3.0 du framework.
+
+## Preact: [Preact CLI](https://github.com/developit/preact-cli)
+
+Preact est une alternative à React beaucoup plus légère (3kb) et basée sur la même API, ce qui permet de réutiliser une bonne partie de l'écosystème et de l'outillage associé à React. Sa faible taille le rend particulièrement bien adapté à l'usage mobile, et son nouvel outil en ligne de commande permet de démarrer en 30 secondes une PWA Preact avec directement un [score de 100/100 sur Lighthouse](https://googlechrome.github.io/lighthouse/viewer/?gist=142af6838482417af741d966e7804346). 
+A recommander aux développeurs React souhaitant encore aller plus loin dans l'optimisation et la simplification de leur outillage. 
 
 ## Vue.js: [Template PWA](https://github.com/vuejs-templates/pwa)
 
