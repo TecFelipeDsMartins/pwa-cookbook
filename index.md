@@ -10,12 +10,14 @@
 
 - [Amélioration Progressive](static/pages/progressive-enhancement.md)
 - [Compensation de latence](static/pages/optimistic-ui.md)
-- [Stratégies de gestion de réseau](static/pages/network-strategies.md)
+- [Couche de gestion de réseau](static/pages/network-management.md)
 
 ## Connectivité
 
-- [Utiliser efficacement le cache client](static/pages/cache-client.md)
 - [Usage hors-ligne et Service Workers](static/pages/service-workers.md)
+- [Stratégies de cache réseau](static/pages/network-strategies.md)
+- [Caches de données côté client](static/pages/data-cache.md)
+- [Gestion des requêtes en échec](static/pages/error-management.md)
 
 ## Engagement utilisateur
 

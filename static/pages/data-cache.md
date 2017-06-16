@@ -1,11 +1,11 @@
 <span class="requirements">Prérequis: connaissances de base en JavaScript</span>
 
-Utiliser efficacement le cache client
-======================================
+Les caches de données côté client
+====================================
 
-Outre la mise en cache des fichiers par le navigateur contrôlée par les headers HTTP `cache-control` et `expires`, les navigateurs disposent de plusieurs API JavaScript  permettant de stocker à court ou long terme des données localement sur le poste client. Utiliser ces caches est évidemment essentiel pour disposer d'un mode hors-ligne dans votre application, mais ces caches peuvent également servir à optimiser votre application en éliminant les requêtes redondantes et en mettant en oeuvre des stratégies de *compensation de latence*.
+Les navigateurs disposent de plusieurs API JavaScript  permettant de stocker à court ou long terme des données localement sur le poste client. Utiliser ces caches est évidemment essentiel pour disposer d'un mode hors-ligne dans votre application, mais ces caches peuvent également servir à optimiser votre application en éliminant les requêtes redondantes et en mettant en oeuvre des stratégies de *compensation de latence*.
 
-## Mécanismes de stockage local
+## Les différentes API de stockage local
 
 Tous les caches navigateurs sont isolés par navigateur, compte utilisateur et nom de domaine. Il n'est pas possible d'interagir avec le cache d'un autre domaine ou d'un autre navigateur. En revanche, ces caches sont synchronisés si le même domaine est ouvert dans plusieurs onglets.
 
@@ -56,18 +56,18 @@ db.friends.add({ name: 'Camilla', age: 25 });
 
 ### Cache API
 
-Voir la section [Service Workers](#/pages/service-workers)
+Dédié aux couples requêtes/réponses. Voir la section [Service Workers](#/pages/service-workers)
 
 ## Combien peut-on stocker de données localement ?
- 
- Cela dépend du navigateur:
-  - Chrome et Opera : il y a un quota partagé par toutes les API de stockage et spécifique à chaque nom de domaine
-  - Firefox : il n'y a pas de limite, mais un message de confirmation est affiché à l'utilisateur au delà de 50 Mo
-  - Safari Desktop : illimité et message de confirmation après 5 Mo
-  - Safari Mobile : 50 Mo max
-  - Internet Explorer 10+ : maximum 250 Mo avec confirmation à partir de 10 Mo
+
+La limite de stockage dans ces caches dépend de divers critères : le navigateur, le système d'exploitation, l'espace physique restant sur l'appareil... De plus, les navigateurs peuvent décider de supprimer tous les caches d'une origine lorsque cela s'avère nécessaire. Voici les règles identifiées en août 2016 pour les différents navigateurs, sachant qu'elles sont susceptibles d'évoluer à tout moment:
+- **Chrome et Opera** : il y a un quota partagé par toutes les API de stockage et spécifique à chaque nom de domaine
+- **Firefox** : il n'y a pas de limite, mais un message de confirmation est affiché à l'utilisateur au delà de 50 Mo
+- **Safari Desktop** : illimité et message de confirmation après 5 Mo
+- **Safari Mobile** : 50 Mo max
+- **Internet Explorer 10+** : maximum 250 Mo avec confirmation à partir de 10 Mo
   
-  Il est possible de requêter le quota disponible et utilisé en JavaScript via la [Quota Management API](https://www.w3.org/TR/quota-api/) sur les navigateurs qui la supportent.
+Il est possible de requêter le quota disponible et utilisé en JavaScript via la [Quota Management API](https://www.w3.org/TR/quota-api/) sur les navigateurs qui la supportent.
   
 ## Bibliothèques notables
 

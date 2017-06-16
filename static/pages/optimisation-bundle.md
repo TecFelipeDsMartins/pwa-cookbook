@@ -76,5 +76,5 @@ Voici un exemple de configuration incluant toutes les techniques évoquées ci-d
 //TODO
 
 ---
-[Utiliser le cache client](#pages/cache-client)
+[Utiliser les caches de données côté client](#pages/data-cache)
 [Service Workers](#/pages/service-workers)

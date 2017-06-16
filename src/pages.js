@@ -35,8 +35,8 @@ const pages = {
 					keywords: "optimis;timeout;latence;réseau;requête;AJAX;state;méthodo"
 				},
 				{
-					title: "Stratégies de gestion de réseau",
-					link: "network-strategies",
+					title: "Couche de gestion de réseau",
+					link: "network-management",
 					keywords: "réseau;network;cache;requête;AJAX;approche;stratégie;offline;hors-ligne"
 				},
 			]
@@ -45,15 +45,26 @@ const pages = {
 			title: "Connectivité",
 			sections: [
 				{
-					title: "Utiliser efficacement le cache client",
-					link: "cache-client",
-					keywords:"optimiser;économiser;cache;storage;client;enregistrer;débit"
-				},
-				{
 					title: "Usage hors-ligne et Service Workers",
 					link: "service-workers",
 					keywords:"offline;hors-ligne;service;workers;déconnecté;background;mode;connexion"
+				},
+				{
+					title: "Stratégies de cache réseau",
+					link: "network-strategies",
+					keywords:"service;workers;déconnecté;update;maj;cache;à jour;stratégie;gestion;réseau;network"
+				},
+				{
+					title: "Caches de données côté client",
+					link: "data-cache",
+					keywords:"optimiser;économiser;cache;storage;stockage;client;enregistrer;data;donnée"
+				},
+				{
+					title: "Gestion des requêtes en échec",
+					link: "error-management",
+					keywords:"échec;indispo;requête;réponse;offline;lie-fi;erreur;fail;stratégie;network;réseau"
 				}
+
 			]
 		},
 		{

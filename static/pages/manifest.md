@@ -47,7 +47,7 @@ L'existence d'un manifeste d'application est nécessaire pour pouvoir proposer l
 
 ## Liste des propriétés du manifeste
 
-Le manifeste d'application est un standard évolutif et de nouvelles propriétés viennnent s'ajouter régulièrement. La liste des propriétés actuellement utilisables peut être retrouvée sur le [Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/Manifest)
+Le manifeste d'application est un standard évolutif et de nouvelles propriétés viennnent s'ajouter régulièrement. La [liste des propriétés actuellement utilisables peut être retrouvée sur le MDN](https://developer.mozilla.org/fr/docs/Web/Manifest).
 
 ## Générateur de manifeste
 
