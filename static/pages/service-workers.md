@@ -1,8 +1,48 @@
 <span class="requirements">Prérequis: connaissances avancées en JavaScript, connaissances de base sur les échanges HTTP</span>
 
-Usage hors ligne avec les Service Workers
+Usage hors-ligne avec les Service Workers
 ===========================================
 
+Les Service Workers (SW) sont une nouvelle API avec un très grand potentiel. Tout comme les [Web Workers](https://www.w3.org/TR/workers/), ils s'exécutent dans un thread en parallèle de celui de l'application, et peuvent tourner en tâche de fond lorsque le navigateur est fermé. Le Service Worker n'a pas accès au DOM et au scope global de l'application, mais il est possible de communiquer entre SW et application via [l'API `postMessage`](https://developer.mozilla.org/fr/docs/Web/API/Worker/postMessage).
+
+Un Service Worker peut être considéré comme un proxy s'intercalant entre votre application et le réseau, et permettant d'intercepter et de modifier toutes les requêtes en partance du navigateur. Il peut ainsi effectuer des redirections d'URL, ou répondre avec des fichiers et des données en cache. Il s'agit donc de l'élément clé pour l'usage hors-ligne.
+ 
+## Comparaison avec Application Cache
+ 
+L'usage hors-ligne est également possible avec l'API [Application Cache](https://developer.mozilla.org/fr/docs/Web/HTML/Utiliser_Application_Cache), supportée plus largement mais aujourd"hui **dépréciée**. Cette API permet de lister de manière assez simple toutes les ressources à mettre en cache. Mais elle était également très limitée et les procédés de mises à jour et de listage du contenu étaient très fastidieux, là où les Service Workers offrent beaucoup plus de flexibilité et ouvrent la port à bien d'autres fonctionnalités, comme la synchronisation en arrière-plan ou les [notifications push](#/pages/push-notifications).
+
+## Installation et cycle de vie d'un Service Worker
+
+Pour installer un Service Worker sur une application, il faut l'enregistrer en JavaScript via `navigator.serviceWorker.register`. Après l'enregistrement du service worker, le navigateur tente d'installer puis d'activer le service worker sur le site. L'événement `install` est déclenché lorsque l'installation se termine avec succès. L'événement `activate` est déclenché peu après, au moment où le SW est prêt à intercepter les événements `fetch` et `message` émis respectivement par une requête serveur ou un appel via l'API `postMessage`. 
+
+- Code côté application :
+```javascript
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('sw.js')
+  .then(function(registration) {
+    // le Service Worker est enregistré    
+  })
+  .catch(function(error){
+    // l'enregistrement du SW a échoué
+    // vérifiez le chemin et la connexion HTTPS
+  })
+}
+```
+
+- Code côté Service Worker `sw.js` :
+```javascript
+this.addEventListener('install', function(event) {
+  // le Service Worker est installé	
+  event.waitUntil(
+    caches.open('v1').then(function(cache) {
+      // on charge en cache un ensemble de fichiers pour l'usage offline
+      return cache.addAll([
+        '/index.html', '/style.css', '/app.js', '/offline.jpg'
+      ]);
+    })
+  );
+});
+```
 
 
 ## Cache API
@@ -42,9 +82,31 @@ this.addEventListener('fetch', function(event) {
   )
 });
 ```
+
+Diverses approches pour la gestion de ce cache sont détaillées sur la page [Stratégies de cache réseau](#pages/network-strategies).
+
 ### Limite de stockage de l'API Cache
 
 Sur la plupart des navigateurs, la limite de stockage est la même que pour celles des caches de données : voir [la section correspondante](#/pages/data-cache)
+
+### Outils développeur
+
+Les navigateurs supportant les Service Workers proposent généralement des raccourcis dans leurs outils développeur pour les déboguer ou les retirer. Sur Chrome et Opera, ils sont accessibles via l'onglet *Application* ou via `chrome://inspect/#service-workers` et `chrome://serviceworker-internals`. Sur Firefox, ils sont disponibles via `about:serviceworkers`.
+
+### Support des navigateurs
+
+Les SW sont supportés sur Chrome, Firefox et Opera. Leur implémentation est en cours sur Edge. Rien n'est décidé côté Apple et Safari. Vous pouvez trouver des informations plus détaillées et à jour sur [IsServiceWorkerReadyYet](https://jakearchibald.github.io/isserviceworkerready/).
+
+## Le champ d'application des Service Workers
+
+Au delà du cache et de l'usage hors-ligne, les Service Workers peuvent potentiellement être utilisés à bien d'autres effets:
+- envoyer des notifications Push
+- synchroniser des données en tâche de fond
+- répondre à des requêtes venant d'autres domaines
+- centraliser la réception de données coûteuses à calculer comme la géolocalisation ou le gyroscope, afin que plusieurs pages puissent partager un seul set de données
+- effectuer des processus de build et de la compilation côté client: TypeScript, PostCSS, Babel etc.
+- gérer des templates personnalisés basés sur des patterns d'URL
+- améliorer les performances, par exemple en préchargeant des ressources
 
 ---
 [Stratégies de gestion de cache réseau](#/pages/network-strategies)

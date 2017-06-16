@@ -14,7 +14,9 @@ Lighthouse est l'outil d'audit de référence des Progressive Web Applications. 
 - outil en ligne de commande
 - [module Node.js](https://www.npmjs.com/package/lighthouse)
 
-L'outil analyse un domaine particulier en effectuant une série de tests pour générer un rapport avec **un score sur 100**.
+**Depuis Chrome 60, Lighthouse est directement intégré à l'onglet Audits des Developer Tools.** Vous n'avez plus rien à installer.
+
+Cet outil analyse un domaine particulier en effectuant une série de tests pour générer un rapport avec **un score sur 100**.
 
 <figure>
 	<img src="static/assets/lighthouse-report.png" alt="Exemple de rapport de Lighthouse">
