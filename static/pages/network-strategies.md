@@ -14,7 +14,7 @@ On a tendance à oublier que la disponibilité du réseau n'est pas quelque-chos
 
 Ces situations de conditions réseau incertaines sont donc variées mais peuvent aussi passer de l'une à l'autre au cours d'une même session. 
 
-Pour palier au problème de faible signal, on utilise [la compensation de latence](#/pages/optimistic-ui). Son principe est simple mais la gestion d'erreurs peut vite se complexifier selon les cas: empilement des requêtes, relances à intervalles croissants, gestion des rollbacks et de la resynchronisation à la récupération de la connexion...
+Pour palier au problème de faible signal qui occasionne des temps de requêtes longs et irréguliers, la solution la plus directe est [la compensation de latence](#/pages/optimistic-ui). Son principe est simple mais la gestion d'erreurs peut vite se complexifier selon les cas: empilement des requêtes, relances à intervalles croissants, gestion des rollbacks et de la resynchronisation à la récupération de la connexion...
 
 Dans le cas du Lie-Fi, les timeouts par défaut sont souvent insuffisants pour repérer le problème suffisamment rapidement pour ne pas trop perturber le scénario utilisateur. Il faut donc faire diagnostiquer l'état réseau par l'application elle-même, sur la base de ses propres contraintes de fonctionnement.
  
@@ -154,7 +154,7 @@ const requestQueue = [];
 function http(...args){
 	return new Promise(resolve => {
 		requestQueue.push({ args, resolve }); // add to the queue
-		if(requestQueue.length === 1) tryNextRequest() // if first one, try immediately
+		if(requestQueue.length === 1) tryNextRequest() // try immediately if first
 	})
 }
 
