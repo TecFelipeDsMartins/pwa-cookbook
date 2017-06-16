@@ -28,7 +28,7 @@ Du côté de Google, une bonne partie du chemin est déjà faite avec les Chrome
 
 ## Notifications push
 
-Enfin, chaque plate-forme peut utiliser ses caractéristiques spécifiques pour améliorer l'intégration des PWA. On peut citer par exemple les notifications push, très utilisées sur smartphone, et qui font peu à peu leur apparition sur desktop (MacOS, Windows).
+Enfin, chaque plate-forme peut utiliser ses caractéristiques spécifiques pour améliorer l'intégration des PWA. On peut citer par exemple les [notifications push](#/pages/push-notifications), très utilisées sur smartphone, et qui font peu à peu leur apparition sur desktop (MacOS, Windows).
 
 -------------------------------------------
 [Manifeste Web App](#/pages/manifest)

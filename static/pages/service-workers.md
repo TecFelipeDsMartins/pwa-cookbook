@@ -100,7 +100,7 @@ Les SW sont supportés sur Chrome, Firefox et Opera. Leur implémentation est en
 ## Le champ d'application des Service Workers
 
 Au delà du cache et de l'usage hors-ligne, les Service Workers peuvent potentiellement être utilisés à bien d'autres effets:
-- envoyer des notifications Push
+- envoyer des [notifications push](#/pages/push-notifications)
 - synchroniser des données en tâche de fond
 - répondre à des requêtes venant d'autres domaines
 - centraliser la réception de données coûteuses à calculer comme la géolocalisation ou le gyroscope, afin que plusieurs pages puissent partager un seul set de données
