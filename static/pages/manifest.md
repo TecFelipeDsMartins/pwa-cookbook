@@ -1,4 +1,4 @@
-<span class="requirements">Prérequis: manipulation du format JSON, configuration d'un serveur web de fichiers</span>
+<span class="requirements">Prérequis: connaissance du format JSON</span>
 
 Manifeste d'application web
 ===========================

@@ -1,4 +1,4 @@
-<span class="requirements">Prérequis: connaissances avancées en JavaScript, connaissances de base sur les échanges HTTP</span>
+<span class="requirements">Prérequis: bonne connaissance de JavaScript, connaissances de base sur les échanges HTTP</span>
 
 Usage hors-ligne avec les Service Workers
 ===========================================
@@ -61,8 +61,7 @@ Voici un exemple d'utilisation classique de l'API Cache
 
 ```javascript
 // à l'interception d'une requête réseau en partance du navigateur
-this.addEventListener('fetch', function(event) {  
-  	
+this.addEventListener('fetch', function(event) {
   event.respondWith(
   	caches.match(event.request) // on cherche dans le cache
     .catch(() => fetch(event.request)) // non trouvé, on requête le réseau

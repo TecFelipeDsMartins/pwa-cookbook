@@ -63,3 +63,8 @@ function tryNextRequest(){
 Cette stratégie convient bien aux modes offline plus complexes où on permet à l'utilisateur d'effectuer certaines actions qui dépendent d'actions précédentes n'ayant pas encore été traitées côté serveur: lorsque la connexion est retrouvée, il est alors essentiel de relancer ces requêtes dans l'ordre.
 
 Comme améliorations, on peut remplacer le délai fixe par un délai progressif comme pour la solution précédente, ou encore détecter les doublons dans la file d'attente. A vous de consolider votre stratégie progressivement.
+
+---
+
+[Couche de gestion réseau](#pages/network-management)
+[Stratégies de gestion du cache réseau](#pages/network-strategies)

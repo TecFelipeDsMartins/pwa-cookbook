@@ -1,4 +1,4 @@
-<span class="requirements">Prérequis: aucun</span>
+<span class="requirements">Prérequis: lecture de la page <a href="#pages/service-workers">Service Workers</a>, bonne connaissance de JavaScript</span>
 
 Notifications Push
 ===================
