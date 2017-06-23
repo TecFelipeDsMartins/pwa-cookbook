@@ -1,9 +1,6 @@
 <template>
     <div class="search-bar">
-	    <md-button class="md-icon-button"
-	               @click.native="onBtnClick"
-	               @focus.native="checkFocus"
-	               @blur.native="checkFocus">
+	    <md-button class="md-icon-button" @click.native="onBtnClick">
 		    <md-icon>search</md-icon>
 	    </md-button>
 
@@ -16,13 +13,14 @@
 
 		    <input type="search"
 		           placeholder="Rechercher par mot-clé"
+		           autocomplete="off"
 		           v-model="query"
 		           ref="input"
 		           @input="submit">
 
 		    <md-list class="suggestions" ref="suggestions" v-if="query && suggestions">
 			    <md-list-item v-for="(section, index) in suggestions" :key="section.title">
-				    <router-link :to="'/pages/'+section.link" @click.native="fold">
+				    <router-link :to="'/pages/'+section.link" @click.native="onBlur">
 					    {{ section.title }}
 				    </router-link>
 			    </md-list-item>
@@ -53,28 +51,28 @@
 
 	    methods: {
 		    checkFocus(){
-		    	setTimeout(() => {
-		    		let hasFocus = document.activeElement.matches(".search-bar *");
-		    		if(hasFocus){
-		    			this.expand();
+			    setTimeout(() => {
+				    let hasFocus = document.activeElement.matches(".search-bar *");
+				    if(hasFocus){
+					    this.onFocus();
 				    } else {
-		    			this.fold();
+					    this.onBlur();
 				    }
 			    }, 10);
 		    },
 
-		    expand(){
-			    this.$el.classList.add("expanded");
+		    onFocus(){
+			    this.$el.classList.add("focus");
 		    },
 
-		    fold(){
+		    onBlur(){
 			    this.resetSuggestions();
-			    this.$el.classList.remove("expanded");
+			    this.$el.classList.remove("focus");
 		    },
 
 		    onBtnClick(){
-			    this.checkFocus();
 			    this.$refs.input.focus();
+		    	this.checkFocus()
 		    },
 
 		    focusSuggestion(delta){

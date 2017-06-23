@@ -10,7 +10,7 @@ $HEADER_HEIGHT: 64px;
 
 	&:not(.modal) {
 		.md-sidenav-content {
-			padding-top: $HEADER_HEIGHT;
+			top: $HEADER_HEIGHT;
 		}
 
 		.md-toolbar,

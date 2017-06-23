@@ -7,12 +7,13 @@ $SEARCHBAR_HEIGHT: 40px;
 
 	height: $SEARCHBAR_HEIGHT;
 	position: relative;
+	background-color: rgba(0,0,0,0.25);
+	border-radius: 20px;
 
 	form {
-		width: 0;
+		width: $SEARCHBAR_WIDTH;
 		display: inline-block;
 		overflow: hidden;
-		transition: all 0.4s ease-in-out;
 	}
 
 	.md-button.md-icon-button {
@@ -20,7 +21,7 @@ $SEARCHBAR_HEIGHT: 40px;
 	}
 
 	input[type='search'] {
-		color: #757575;
+		color: $COLOR_INACTIVE;
 		border: none;
 		background: transparent;
 		outline: none;
@@ -31,14 +32,12 @@ $SEARCHBAR_HEIGHT: 40px;
 		font-size: 16px;
 	}
 
-	&.expanded {
-
+	&.focus {
 		background-color: white;
-		border-radius: 20px;
 		color: #757575;
 
-		form {
-			width: $SEARCHBAR_WIDTH;
+		input[type='search'] {
+			color: #757575;
 		}
 
 		.suggestions.md-list {
@@ -47,8 +46,13 @@ $SEARCHBAR_HEIGHT: 40px;
 	}
 
 	@media(max-width: 640px) {
+		background: transparent;
 
-		&.expanded {
+		form {
+			width: 0;
+		}
+
+		&.focus {
 			position: absolute;
 			left: 10px;
 			right: 10px;
@@ -58,9 +62,6 @@ $SEARCHBAR_HEIGHT: 40px;
 			}
 		}
 
-		form {
-			transition: none;
-		}
 	}
 
 	.suggestions.md-list {
