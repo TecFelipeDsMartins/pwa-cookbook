@@ -56,8 +56,35 @@ notification.addEventListener("click", function(){
 
 ## Notifications push via la Push API
 
-https://developer.mozilla.org/en-US/docs/Web/API/Push_API
-https://serviceworke.rs/web-push.html
+La Push API permet via un service worker de pousser des messages à l'utilisateur depuis le serveur, peu importe si la web app est chargée ou non sur l'appareil de l'utilisateur. Cela implique l'utilisation d'un [service de push](http://pushproviders.com/) tel que Google Cloud Messenger. Le processus se déroule de cette manière :
 
+<figure>
+	<img src="static/assets/push-server.png" alt="Scénario de notification push">
+</figure>
+
+1. Un Service Worker actif s'inscrit au serveur Push via la méthode `pushManager.subscribe()` qui retourne une `Promise` de `PushSubscription`. 
+2. L'objet `PushSubscription` contient notamment la propriété `endpoint` qui est l'URL d'inscription. On stocke celle-ci sur le serveur applicatif .
+3. Lorsque le serveur souhaite envoyer une notification push, il réutilise l'URL endpoint stockée et envoie une requête au serveur Push
+4. Le serveur Push s'occupe ensuite d'envoyer la notification push à l'utilisateur.
+
+Exemple d'implémentation côté client pour les étapes 1 et 2 :
+ 
+```javascript
+navigator.serviceWorker.register('service-worker.js')
+.then(registration => registration.pushManager.getSubscription())
+.then(subscription => subscription || registration.pushManager.subscribe())
+.then(subscription => {
+	// on stocke le endpoint de push de l'utilisateur sur le serveur applicatif
+	fetch('./register-push', {
+		method: "POST",
+		headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({ endpoint: subscription.endpoint })
+	})
+})
+``` 
+
+Bien d'autres options peuvent etre renseignées pour une notification: la langue, une image associée, un pattern de vibration, des actions pouvant être réalisées à partir de la notification...  Des exemples plus complets sont disponibles sur [serviceworke.rs](https://serviceworke.rs/push-rich.html).
 
 ---
+
+[Integration avec les plates-formes](#/pages/integration)
