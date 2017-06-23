@@ -69,11 +69,14 @@ Il existe des outils faisant automatiquement cette découpe en sous-bundles, mai
 
 La recommandation est d'éviter les bundles dépassant les 500 Ko.
 
-## Template de configuration Webpack
+## Pour aller plus loin
 
-Voici un exemple de configuration incluant toutes les techniques évoquées ci-dessus (à l'exception de `gzip` qui est à paramétrer côté serveur)
+<figure>
+	<img src="static/assets/optimization-fluentconf.png" alt="Outillage d'optimisation">
+	<figcaption>8 façons de réduire le temps de chargement d'une application (FluentConf 2017, Addy Osmani)</figcaption>
+</figure>
 
-//TODO
+[Addy Osmani](https://twitter.com/addyosmani) a donné [d'excellents talks](https://www.youtube.com/watch?v=7vUs5yOuv-o) et écrit [des articles très détaillés](https://medium.com/reloading/javascript-start-up-performance-69200f43b201) concernant l'outillage d'optimisation des applications web. C'est la personne à suivre si vous voulez approfondir vos connaissances en la matière.
 
 ---
 [Utiliser les caches de données côté client](#pages/data-cache)
