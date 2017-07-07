@@ -88,4 +88,5 @@ Enfin, pour les autres données dynamiques, cela dépend de leur volume et de le
 Sinon, utiliser une bibliothèque autour de IndexedDB comme Dexie ou Lovefield vous fournira beaucoup plus de fonctionnalités pour chercher/trier des données. C'est par exemple utile quand la connexion est indisponible et que vous voulez reproduire côté client certaines requêtes normalement faites en back avec les données dont vous disposez localement. 
  
  ---
+ 
  [Mode hors-ligne et Service Workers](#/pages/service-workers)

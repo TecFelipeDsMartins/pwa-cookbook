@@ -79,5 +79,7 @@ La recommandation est d'éviter les bundles dépassant les 500 Ko.
 [Addy Osmani](https://twitter.com/addyosmani) a donné [d'excellents talks](https://www.youtube.com/watch?v=7vUs5yOuv-o) et écrit [des articles très détaillés](https://medium.com/reloading/javascript-start-up-performance-69200f43b201) concernant l'outillage d'optimisation des applications web. C'est la personne à suivre si vous voulez approfondir vos connaissances en la matière.
 
 ---
+
 [Utiliser les caches de données côté client](#pages/data-cache)
+
 [Service Workers](#/pages/service-workers)

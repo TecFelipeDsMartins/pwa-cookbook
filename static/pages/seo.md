@@ -47,6 +47,9 @@ if ('serviceWorker' in navigator) { ... }
 ---
 
 [PWA et Frameworks](#pages/frameworks)
+
 [Outillage d'audit](#pages/audit-tools)
+
 [La démarche d'amélioration progressive](#/pages/progressive-enhancement)
+
 [Checklist d'une PWA](#pages/checklist)

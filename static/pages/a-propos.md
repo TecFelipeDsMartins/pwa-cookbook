@@ -16,5 +16,7 @@ Enfin, **ce cookbook est lui-même une PWA**. Si vous lisez ces lignes, alors vo
 This cookbook is also available in **English**.
 
 -------------------------------------------
+
 [Qu'est-ce qu'une PWA ?](#/pages/pwa)
+
 [La démarche d'amélioration progressive](#/pages/progressive-enhancement)

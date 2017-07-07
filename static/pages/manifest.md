@@ -19,22 +19,22 @@ Voici un exemple de fichier manifeste:
 
 ```json
 {
-  "name": "Simple web app demo",
-  "short_name": "Demo",
-  "icons": [ 
-     { 
-       "src": "icon-medium.png",
-       "sizes": "96x96"
-     }, { 
-       "src": "icon-large.png", 
-       "sizes": "192x192" 
-     }
-  ],
-  "theme_color": "#3F51B5",
-  "background_color": "#F5F5F5",
-  "display": "standalone",
-  "orientation": "portrait",
-  "start_url": "/simple-demo/?home=true"
+	"name": "Simple web app demo",
+	"short_name": "Demo",
+	"icons": [ 
+		{ 
+			"src": "icon-medium.png",
+			"sizes": "96x96"
+		}, { 
+			"src": "icon-large.png", 
+			"sizes": "192x192" 
+		}
+	],
+	"theme_color": "#3F51B5",
+	"background_color": "#F5F5F5",
+	"display": "standalone",
+	"orientation": "portrait",
+	"start_url": "/simple-demo/?home=true"
 }
 ```
 
@@ -54,5 +54,7 @@ Le manifeste d'application est un standard évolutif et de nouvelles propriété
 Pour vous aider à créer rapidement un manifeste pour votre application, il existe [ce générateur](http://www.pwabuilder.com/generator) qui préremplit certains champs et vous guide pour compléter les champs restants.
 
 ---
+
 [Intégration avec les plates-formes](#pages/integration)
+
 [Tester votre manifeste avec un outil d'audit](#/pages/audit-tools)

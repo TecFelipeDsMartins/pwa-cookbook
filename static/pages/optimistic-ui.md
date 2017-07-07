@@ -22,7 +22,7 @@ Le principe de la compensation de latence est de considérer que les requêtes s
  
  Vous pouvez bien sûr opter pour mettre en place de la compensation de latence uniquement pour les cas les plus simples à gérer, et heureusement ils sont encore nombreux.
  
- ## Avantages de cette méthodologie
+## Avantages de cette méthodologie
  
  L'avantage le plus évident est que la navigation pour ces actions optimisées devient quasiment instantanée pour l'utilisateur final. Si le temps des requêtes est inchangé, celles-ci se déroulent en tâche de fond et ne viennent pas bloquer l'utilisateur dans son élan. C'est donc un élément clé pour donner une sensation de fluidité à votre application et satisfaire vos utilisateurs.
  

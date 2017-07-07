@@ -29,6 +29,9 @@ Dans le cas du Lie-Fi, les timeouts par défaut sont souvent insuffisants pour r
 Cette couche de gestion réseau implique divers mécanismes et stratégies que nous aborderons dans les sections suivantes.
 
 ---
+
 [Usage hors-ligne avec les Service Workers](#/pages/service-workers)
+
 [Stratégies de gestion de cache réseau](#pages/network-strategies)
+
 [Stratégies de gestion des requêtes en échec](#pages/error-management)

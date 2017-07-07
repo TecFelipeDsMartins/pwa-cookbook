@@ -26,4 +26,5 @@ Cet outil analyse un domaine particulier en effectuant une série de tests pour 
 L'objectif est bien entendu d'arriver à ce fameux score de 100 sur 100. Chaque point négatif ou imparfait dans le rapport est accompagné d'un message explicatif et de liens pour en savoir plus. **Lighthouse est donc un excellent moyen pour concevoir pas à pas une PWA en partant d'une application générique.**
 
 ---
+
  [La check-list de développement d'une PWA](#/pages/checklist)

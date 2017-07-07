@@ -67,4 +67,5 @@ Comme améliorations, on peut remplacer le délai fixe par un délai progressif 
 ---
 
 [Couche de gestion réseau](#pages/network-management)
+
 [Stratégies de gestion du cache réseau](#pages/network-strategies)

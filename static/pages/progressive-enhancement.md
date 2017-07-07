@@ -26,5 +26,7 @@ On peut déjà identifier trois couches principales, intimement liées à l'hist
  Même si les PWA ne suivent pas toutes une approche stricte de l'amélioration progressive, notamment sur la question de l'indépendance vis-à-vis de JavaScript, cette méthodologie de conception a largement influencé les spécifications et fonctionnalités qui s'articulent autour des PWA, d'où le P pour "Progressive".
  
 -----------------------------------------------------
+
 [Qu'est-ce qu'une PWA ?](#/pages/pwa)
+
 [Outillage d'audit](#/pages/audit-tools)

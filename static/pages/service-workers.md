@@ -108,5 +108,7 @@ Au delà du cache et de l'usage hors-ligne, les Service Workers peuvent potentie
 - améliorer les performances, par exemple en préchargeant des ressources
 
 ---
+
 [Stratégies de gestion de cache réseau](#/pages/network-strategies)
+
 [De la nécessité d'une couche de gestion réseau](#/pages/network-management)

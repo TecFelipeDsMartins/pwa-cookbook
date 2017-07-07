@@ -95,5 +95,7 @@ D'autres stratégies avec le code commenté ont été mises à disposition par M
 ---
 
 [Les Service Workers](#/pages/service-workers)
+
 [La compensation de latence](#/pages/optimistic-ui)
+
 [Les caches de données du navigateur](#/pages/data-cache)
