@@ -23,32 +23,32 @@
 		{
 			name: "Twitter Lite",
 			url: "https://mobile.twitter.com/",
-			thumbnail: "static/assets/gallery/twitter-lite.jpg"
+			thumbnail: "static/img/gallery/twitter-lite.jpg"
 		},
 		{
 			name: "Paper Planes",
 			url: "https://paperplanes.world/",
-			thumbnail: "static/assets/gallery/paper-planes.jpg"
+			thumbnail: "static/img/gallery/paper-planes.jpg"
 		},
 		{
 			name: "Financial Times",
 			url: "https://app.ft.com/",
-			thumbnail: "static/assets/gallery/financial-times.jpg"
+			thumbnail: "static/img/gallery/financial-times.jpg"
 		},
 		{
 			name: "Google Spaces",
 			url: "https://spaces.google.com/",
-			thumbnail: "static/assets/gallery/google-spaces.jpg"
+			thumbnail: "static/img/gallery/google-spaces.jpg"
 		},
 		{
 			name: "Voice Memos",
 			url: "https://voice-memos.appspot.com/",
-			thumbnail: "static/assets/gallery/voice-memos.jpg"
+			thumbnail: "static/img/gallery/voice-memos.jpg"
 		},
 		{
 			name: "Progressive Beer",
 			url: "https://deanhume.github.io/beer/",
-			thumbnail: "static/assets/gallery/progressive-beer.jpg"
+			thumbnail: "static/img/gallery/progressive-beer.jpg"
 		}
 	];
 

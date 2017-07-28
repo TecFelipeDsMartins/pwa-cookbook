@@ -10,7 +10,7 @@ Pour atteindre les objectifs de performance (chargement initial sur un mobile ba
 Il existe de nombreux outils et chaînes de build pour les projets front-end, mais l'un d'entre eux s'est imposé récemment comme le plus populaire et le plus complet : [Webpack](https://webpack.js.org/)
 
 <figure>
-	<img src="static/assets/webpack.svg" alt="Principe de fonctionnement de Webpack">
+	<img src="static/img/webpack.svg" alt="Principe de fonctionnement de Webpack">
 	<figcaption>Principe de fonctionnement de Webpack</figcaption>
 </figure>
 
@@ -35,7 +35,7 @@ Si vous avez découplé votre code applicatif en utilisant les [modules ES2015](
 Avec l'outil [webpack-bundle-analyzer](https://github.com/th0r/webpack-bundle-analyzer), il est possible d'analyser a posteriori le contenu d'un bundle et la répartition en taille des différents modules afin d'identifier les modules trop lourds ou superflus.
 
 <figure>
-	<img src="static/assets/webpack-bundle-analyzer.gif" alt="Démonstration de l'outil webpack-bundle-analyzer">
+	<img src="static/img/webpack-bundle-analyzer.gif" alt="Démonstration de l'outil webpack-bundle-analyzer">
 	<figcaption>Démonstration de l'outil webpack-bundle-analyzer</figcaption>
 </figure>
 
@@ -72,7 +72,7 @@ La recommandation est d'éviter les bundles dépassant les 500 Ko.
 ## Pour aller plus loin
 
 <figure>
-	<img src="static/assets/optimization-fluentconf.png" alt="Outillage d'optimisation">
+	<img src="static/img/optimization-fluentconf.png" alt="Outillage d'optimisation">
 	<figcaption>8 façons de réduire le temps de chargement d'une application (FluentConf 2017, Addy Osmani)</figcaption>
 </figure>
 

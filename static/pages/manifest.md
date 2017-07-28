@@ -13,7 +13,7 @@ Le manifeste d'application est un simple fichier JSON contenant des métadonnée
 Voici un exemple de fichier manifeste:
 
  <figure class="pull-right">
- 	<img style="height: 400px" src="static/assets/pwa-manifest-demo.jpg" alt="Résultat du manifeste sur Android">
+ 	<img style="height: 400px" src="static/img/pwa-manifest-demo.jpg" alt="Résultat du manifeste sur Android">
  	<figcaption>Résultat du manifeste sur Android</figcaption>
  </figure>
 

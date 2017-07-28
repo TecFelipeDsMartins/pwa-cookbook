@@ -1,4 +1,4 @@
-const pages = {
+export const pages = {
 	chapters: [
 		{
 			title: "Introduction",
@@ -135,15 +135,13 @@ const pages = {
 	]
 };
 
-const sections = pages.chapters.reduce(
+export const sections = pages.chapters.reduce(
 	(sections, chapters) => {
 		sections.push(...chapters.sections);
 		return sections;
 	}
 , []);
 
-function getSectionByLink(link){
+export function getSectionByLink(link){
 	return sections.find(section => section.link === link)
 }
-
-module.exports = { sections, pages, getSectionByLink };

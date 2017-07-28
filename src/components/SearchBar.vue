@@ -20,7 +20,7 @@
 
 		    <md-list class="suggestions" ref="suggestions" v-if="query && suggestions">
 			    <md-list-item v-for="(section, index) in suggestions" :key="section.title">
-				    <router-link :to="'/pages/'+section.link" @click.native="onBlur">
+				    <router-link :to="'/'+section.link" @click.native="onBlur">
 					    {{ section.title }}
 				    </router-link>
 			    </md-list-item>

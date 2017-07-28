@@ -59,7 +59,7 @@ notification.addEventListener("click", function(){
 La Push API permet via un service worker de pousser des messages à l'utilisateur depuis le serveur, peu importe si la web app est chargée ou non sur l'appareil de l'utilisateur. Cela implique l'utilisation d'un [service de push](http://pushproviders.com/) tel que Google Cloud Messenger. Le processus se déroule de cette manière :
 
 <figure>
-	<img src="static/assets/push-server.png" alt="Scénario de notification push">
+	<img src="static/img/push-server.png" alt="Scénario de notification push">
 </figure>
 
 1. Un Service Worker actif s'inscrit au serveur Push via la méthode `pushManager.subscribe()` qui retourne une `Promise` de `PushSubscription`. 

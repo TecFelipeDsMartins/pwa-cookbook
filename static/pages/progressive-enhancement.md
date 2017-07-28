@@ -17,7 +17,7 @@ On peut déjà identifier trois couches principales, intimement liées à l'hist
 - la **couche interactive (JavaScript)** : cette couche particulièrement travaillée dans le cadre des PWA décrit la logique applicative et les comportements face aux évènements utilisateur et système. JavaScript offre beaucoup d'informations sur l'utilisateur et son appareil, ce qui permet d'aller très loin dans l'adaptation, l'optimisation et la personnalisation du service spécifiquement pour ce client.
 
 <figure>
-	<img src="static/assets/progressive-enhancement.jpg" alt="Les trois couches de l'amélioration progressive dans un bonbon M&M's">
+	<img src="static/img/progressive-enhancement.jpg" alt="Les trois couches de l'amélioration progressive dans un bonbon M&M's">
 	<figcaption>Une représentation imagée des trois couches de l'amélioration progressive</figcaption>
 </figure>
 
