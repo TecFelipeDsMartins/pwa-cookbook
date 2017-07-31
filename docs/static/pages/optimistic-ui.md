@@ -8,7 +8,7 @@ La compensation de latence (ou *Optimistic UI*)
 Le principe de la compensation de latence est de considérer que les requêtes serveur vont finir en succès dans la grande majorité des cas, et donc qu'il n'est pas nécessaire d'attendre le retour serveur pour continuer dans la navigation et mettre à jour l'affichage côté client. C'est une technique assez couramment utilisée dans les webmails et les messageries instantanées, là où la fluidité dans les actions est essentielle pour une bonne expérience utilisateur.
 
 <figure>
-	<img src="static/img/optimistic-ui.png" alt="Schématisation de la compensation de latence">
+	<img src="../img/optimistic-ui.png" alt="Schématisation de la compensation de latence">
 </figure>
  
  Pour pouvoir mettre en place ce principe, il faut quelques conditions:

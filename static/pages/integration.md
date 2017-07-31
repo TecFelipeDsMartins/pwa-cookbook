@@ -15,7 +15,7 @@ Les acteurs sont donc mobilisés à tous les niveaux:
  Le manifeste des PWA permet au système de récupérer des informations contextuelles sur le site actuellement consulté, d'effectuer des tests sur ses caractéristiques et son contenu, puis éventuellement de suggérer son installation aux côtés des autres applications système. Ce procédé s'est popularisé sur Android sous l'appellation *Add to home screen* issu du label de l'action.
   
   <figure>
-     <img src="static/img/add-to-home-screen.gif"
+     <img src="../img/add-to-home-screen.gif"
           alt="Démo Add to home screen sur Android" />
       <figcaption>Démonstration de la fonctionnalité "Add to home screen" sur Chrome for Android</figcaption>
   </figure>    

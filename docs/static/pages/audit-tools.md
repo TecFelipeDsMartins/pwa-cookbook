@@ -6,7 +6,7 @@ Outillage d'audit
 ## Lighthouse
 
 <figure>
-	<img src="static/img/pwa-lighthouse.png" alt="Logo de Lighthouse">
+	<img src="../img/pwa-lighthouse.png" alt="Logo de Lighthouse">
 </figure>
 
 Lighthouse est l'outil d'audit de référence des Progressive Web Applications. Cet outil open-source développé par Google peut être exécuté en tant que :
@@ -19,7 +19,7 @@ Lighthouse est l'outil d'audit de référence des Progressive Web Applications. 
 Cet outil analyse un domaine particulier en effectuant une série de tests pour générer un rapport avec **un score sur 100**.
 
 <figure>
-	<img src="static/img/lighthouse-report.png" alt="Exemple de rapport de Lighthouse">
+	<img src="../img/lighthouse-report.png" alt="Exemple de rapport de Lighthouse">
 	<figcaption>Exemple de rapport de Lighthouse</figcaption>
 </figure>
 

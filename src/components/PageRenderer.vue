@@ -57,7 +57,8 @@
 					    vm.error = null;
 					    vm.content = content
 							    .replace(/]\((.*?)\.md/g, "](#/$1")
-							    .replace(/href="(.*?)\.md/g, 'href="#/$1');
+							    .replace(/href="(.*?)\.md/g, 'href="#/$1')
+							    .replace(/src="\.\./g, 'src="static/')
 					    vm.$nextTick(() => {
 						    Prism.highlightAll();
 						    this.onLoad()
