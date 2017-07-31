@@ -45,7 +45,7 @@ $SEARCHBAR_HEIGHT: 40px;
 		}
 	}
 
-	@media(max-width: 640px) {
+	@media(max-width: 800px) {
 		background: transparent;
 
 		form {

@@ -8,6 +8,10 @@
 			<h2 class="md-title">Progressive Web Apps Cookbook</h2>
 
 			<search-bar/>
+
+			<md-button class="md-icon-button">
+				<md-icon>language</md-icon>
+			</md-button>
 		</div>
 	</md-toolbar>
 </template>
