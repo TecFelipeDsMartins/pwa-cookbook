@@ -7,14 +7,17 @@ const { pages, sections } = require("../src/pages");
 
 const foreach = (arr, fn) => arr.map(fn).join('\n');
 
-let md = `# Index
+let md = fs.readFileSync('README.md').toString().replace(/## Index[\s\S]*---/,
+`## Index
 
 ${foreach(pages.chapters, chapter => 
-`## ${ chapter.title }
+`### ${ chapter.title }
 
 ${foreach(chapter.sections, section => 
 `- [${section.title}](static/pages/${section.link}.md)`
 )}
-`)}`;
+`)}
+---
+`);
 
-fs.writeFileSync('index.md', md);
+fs.writeFileSync('README.md', md);
