@@ -1,5 +1,8 @@
 const fs = require('fs');
 
+require("babel-register")({
+	plugins: ["transform-es2015-modules-commonjs"]
+});
 const { pages, sections } = require("../src/pages");
 
 const foreach = (arr, fn) => arr.map(fn).join('\n');

@@ -80,6 +80,6 @@ La recommandation est d'éviter les bundles dépassant les 500 Ko.
 
 ---
 
-[Utiliser les caches de données côté client](#pages/data-cache)
+[Utiliser les caches de données côté client](data-cache.md)
 
-[Service Workers](#/pages/service-workers)
+[Service Workers](service-workers.md)

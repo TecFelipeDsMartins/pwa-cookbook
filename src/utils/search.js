@@ -1,5 +1,6 @@
-import { sections } from "../pages";
 import { normalize } from "./string";
+
+const { sections } = require("../pages");
 
 export function findInKeywords(keywords, query=""){
 	let queryWords = query.trim().split(/\s/).map(str => normalize(str));

@@ -13,12 +13,12 @@ Les *Progressive Web Apps* ou *PWA* désignent les **sites web** qui offrent une
   - **Attractivité**: le site doit s'intégrer naturellement à tout appareil avec une expérience utilisateur immersive
   
  
-Les grands noms du web, Google en tête, [communiquent massivement](https://developers.google.com/web/progressive-web-apps/) autour des PWA et souhaitent les mettre en avant en les [**intégrant davantage au sein des plates-formes**](#/pages/integration), en particulier sur mobile.
+Les grands noms du web, Google en tête, [communiquent massivement](https://developers.google.com/web/progressive-web-apps/) autour des PWA et souhaitent les mettre en avant en les [**intégrant davantage au sein des plates-formes**](integration.md), en particulier sur mobile.
 
 -----------------------------------------------------
 
-[Exemples de Progressive Web Apps](#/pages/examples)
+[Exemples de Progressive Web Apps](examples.md)
 
-[La démarche d'amélioration progressive](#/pages/progressive-enhancement)
+[La démarche d'amélioration progressive](progressive-enhancement.md)
 
-[Intégration avec les plates-formes](#/pages/integration)
+[Intégration avec les plates-formes](integration.md)

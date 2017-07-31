@@ -55,6 +55,6 @@ Pour vous aider à créer rapidement un manifeste pour votre application, il exi
 
 ---
 
-[Intégration avec les plates-formes](#pages/integration)
+[Intégration avec les plates-formes](integration.md)
 
-[Tester votre manifeste avec un outil d'audit](#/pages/audit-tools)
+[Tester votre manifeste avec un outil d'audit](audit-tools.md)

@@ -27,6 +27,6 @@ On peut déjà identifier trois couches principales, intimement liées à l'hist
  
 -----------------------------------------------------
 
-[Qu'est-ce qu'une PWA ?](#/pages/pwa)
+[Qu'est-ce qu'une PWA ?](pwa.md)
 
-[Outillage d'audit](#/pages/audit-tools)
+[Outillage d'audit](audit-tools.md)

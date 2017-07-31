@@ -8,10 +8,10 @@ Voici un récapitulatif de toutes les actions et fonctionnalités à mettre en p
 Vous pouvez cocher les cases, leur état sera sauvegardé à votre prochain passage.
 
 ## Priorité 1 - Essentiel
-- Un [manifeste d'application web](#/pages/manifest) est présent
+- Un [manifeste d'application web](manifest.md) est présent
 - L' application et toutes ses ressources sont servies en HTTPS
 - L' application a un design responsive adapté à l'usage mobile. [Faire le test](https://search.google.com/search-console/mobile-friendly)
-- La page d'accueil se charge en hors-connexion grâce à un [Service Worker](#pages/service-workers)
+- La page d'accueil se charge en hors-connexion grâce à un [Service Worker](service-workers.md)
 - L' application est testée sur Chrome, Edge, Firefox et Safari
 
 ## Priorité 2 - Important
@@ -25,7 +25,7 @@ Vous pouvez cocher les cases, leur état sera sauvegardé à votre prochain pass
 
 ## Priorité 3 - Potentiellement intéressant
 - Le rendu des pages peut être fait côté serveur (SSR) pour les clients sans JavaScript et pour optimiser le chargement première page première visite.
-- L'application propose des notifications push lorsque c'est pertinent. Ces notifications suivent [les bonnes pratiques](#pages/push-notifications) en vigueur.
+- L'application propose des notifications push lorsque c'est pertinent. Ces notifications suivent [les bonnes pratiques](push-notifications.md) en vigueur.
 - La navigation par les boutons Précédent / Suivant conserve la position du scroll de l'utilisateur
 - Il n'y a pas de tressautements à l'affichage liés aux chargements de contenu (images, AJAX etc.)
 - L' application informe l'utilisateur lorsqu'il perd ou retrouve sa connexion
@@ -40,4 +40,4 @@ Vous pouvez cocher les cases, leur état sera sauvegardé à votre prochain pass
 
  ---
  
- [Outillage d'audit qualité](#/pages/audit-tools)
+ [Outillage d'audit qualité](audit-tools.md)

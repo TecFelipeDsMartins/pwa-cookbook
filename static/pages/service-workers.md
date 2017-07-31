@@ -9,7 +9,7 @@ Un Service Worker peut être considéré comme un proxy s'intercalant entre votr
  
 ## Comparaison avec Application Cache
  
-L'usage hors-ligne est également possible avec l'API [Application Cache](https://developer.mozilla.org/fr/docs/Web/HTML/Utiliser_Application_Cache), supportée plus largement mais aujourd"hui **dépréciée**. Cette API permet de lister de manière assez simple toutes les ressources à mettre en cache. Mais elle était également très limitée et les procédés de mises à jour et de listage du contenu étaient très fastidieux, là où les Service Workers offrent beaucoup plus de flexibilité et ouvrent la port à bien d'autres fonctionnalités, comme la synchronisation en arrière-plan ou les [notifications push](#/pages/push-notifications).
+L'usage hors-ligne est également possible avec l'API [Application Cache](https://developer.mozilla.org/fr/docs/Web/HTML/Utiliser_Application_Cache), supportée plus largement mais aujourd"hui **dépréciée**. Cette API permet de lister de manière assez simple toutes les ressources à mettre en cache. Mais elle était également très limitée et les procédés de mises à jour et de listage du contenu étaient très fastidieux, là où les Service Workers offrent beaucoup plus de flexibilité et ouvrent la port à bien d'autres fonctionnalités, comme la synchronisation en arrière-plan ou les [notifications push](push-notifications.md).
 
 ## Installation et cycle de vie d'un Service Worker
 
@@ -49,7 +49,7 @@ this.addEventListener('install', function(event) {
 
 La mise en cache classique pilotée par le navigateur et par les headers HTTP `cache-control` et `expires` est toujours très utile, mais la marge de contrôle de ce cache par le développeur reste limitée. 
 
-L'interface Cache de l'API ServiceWorker vient apporter une solution à ce problème, puisqu'elle donne la responsabilité au développeur d'implémenter les mécaniques de mise en cache et de mise à jour. Ce qui permet d'imaginer par la suite différentes [stratégies de gestion du cache réseau](#/pages/network-strategies).
+L'interface Cache de l'API ServiceWorker vient apporter une solution à ce problème, puisqu'elle donne la responsabilité au développeur d'implémenter les mécaniques de mise en cache et de mise à jour. Ce qui permet d'imaginer par la suite différentes [stratégies de gestion du cache réseau](network-strategies.md).
 
 Cette API permet de gérer plusieurs caches nommés spécifiques au domaine sur lequel est inscrit le Service Worker. Le nom du cache peut notamment être utilisé pour le *versionning*, afin de s'assurer que le contenu d'un cache est toujours exploitable après des modifications sur le code du Service Worker. 
 
@@ -82,11 +82,11 @@ this.addEventListener('fetch', function(event) {
 });
 ```
 
-Diverses approches pour la gestion de ce cache sont détaillées sur la page [Stratégies de cache réseau](#pages/network-strategies).
+Diverses approches pour la gestion de ce cache sont détaillées sur la page [Stratégies de cache réseau](network-strategies.md).
 
 ### Limite de stockage de l'API Cache
 
-Sur la plupart des navigateurs, la limite de stockage est la même que pour celles des caches de données : voir [la section correspondante](#/pages/data-cache)
+Sur la plupart des navigateurs, la limite de stockage est la même que pour celles des caches de données : voir [la section correspondante](data-cache.md)
 
 ### Outils développeur
 
@@ -99,7 +99,7 @@ Les SW sont supportés sur Chrome, Firefox et Opera. Leur implémentation est en
 ## Le champ d'application des Service Workers
 
 Au delà du cache et de l'usage hors-ligne, les Service Workers peuvent potentiellement être utilisés à bien d'autres effets:
-- envoyer des [notifications push](#/pages/push-notifications)
+- envoyer des [notifications push](push-notifications.md)
 - synchroniser des données en tâche de fond
 - répondre à des requêtes venant d'autres domaines
 - centraliser la réception de données coûteuses à calculer comme la géolocalisation ou le gyroscope, afin que plusieurs pages puissent partager un seul set de données
@@ -109,6 +109,6 @@ Au delà du cache et de l'usage hors-ligne, les Service Workers peuvent potentie
 
 ---
 
-[Stratégies de gestion de cache réseau](#/pages/network-strategies)
+[Stratégies de gestion de cache réseau](network-strategies.md)
 
-[De la nécessité d'une couche de gestion réseau](#/pages/network-management)
+[De la nécessité d'une couche de gestion réseau](network-management.md)

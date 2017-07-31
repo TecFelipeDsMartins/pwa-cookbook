@@ -56,7 +56,7 @@ db.friends.add({ name: 'Camilla', age: 25 });
 
 ### Cache API
 
-Dédié aux couples requêtes/réponses. Voir la section [Service Workers](#/pages/service-workers)
+Dédié aux couples requêtes/réponses. Voir la section [Service Workers](service-workers.md)
 
 ## Combien peut-on stocker de données localement ?
 
@@ -79,7 +79,7 @@ Il est possible de requêter le quota disponible et utilisé en JavaScript via l
 
 ## Quel stockage utiliser et dans quelles circonstances ?
 
-Pour stocker des ressources adressables par URL, utilisez un [Service Worker et la Cache API](#/pages/service-workers)
+Pour stocker des ressources adressables par URL, utilisez un [Service Worker et la Cache API](service-workers.md)
 
 Pour du stockage temporaire, le `sessionStorage` est adapté notamment pour décharger certaines informations que vous aviez l'habitude de faire transiter par cookies, et qui encombraient inutilement chaque requête. 
 
@@ -89,4 +89,4 @@ Sinon, utiliser une bibliothèque autour de IndexedDB comme Dexie ou Lovefield v
  
  ---
  
- [Mode hors-ligne et Service Workers](#/pages/service-workers)
+ [Mode hors-ligne et Service Workers](service-workers.md)

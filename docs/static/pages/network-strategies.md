@@ -1,4 +1,4 @@
-<span class="requirements">Prérequis: lecture de la page <a href="#/pages/service-workers">Service Workers</a>, connaissances avancées en JavaScript</span>
+<span class="requirements">Prérequis: lecture de la page <a href="service-workers.md">Service Workers</a>, connaissances avancées en JavaScript</span>
 
 Stratégies communes de gestion du cache réseau 
 ===============================================
@@ -94,8 +94,8 @@ D'autres stratégies avec le code commenté ont été mises à disposition par M
 
 ---
 
-[Les Service Workers](#/pages/service-workers)
+[Les Service Workers](service-workers.md)
 
-[La compensation de latence](#/pages/optimistic-ui)
+[La compensation de latence](optimistic-ui.md)
 
-[Les caches de données du navigateur](#/pages/data-cache)
+[Les caches de données du navigateur](data-cache.md)

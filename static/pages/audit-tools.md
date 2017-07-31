@@ -27,4 +27,4 @@ L'objectif est bien entendu d'arriver à ce fameux score de 100 sur 100. Chaque 
 
 ---
 
- [La check-list de développement d'une PWA](#/pages/checklist)
+ [La check-list de développement d'une PWA](checklist.md)

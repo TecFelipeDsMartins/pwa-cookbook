@@ -28,7 +28,7 @@
 <style src="../style/sidenav.css" />
 
 <script>
-import { pages } from "../pages";
+const { pages } = require("../pages");
 
 export default {
 	mounted(){

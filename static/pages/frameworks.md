@@ -39,4 +39,4 @@ A noter que l'équipe de Polymer, un autre framework JS made-in Google, a été 
 
 ---
 
-[Outillage d'audit qualité](#/pages/audit-tools)
+[Outillage d'audit qualité](audit-tools.md)

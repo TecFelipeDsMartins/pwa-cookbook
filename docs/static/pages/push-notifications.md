@@ -1,4 +1,4 @@
-<span class="requirements">Prérequis: lecture de la page <a href="#pages/service-workers">Service Workers</a>, bonne connaissance de JavaScript</span>
+<span class="requirements">Prérequis: lecture de la page <a href="service-workers.md">Service Workers</a>, bonne connaissance de JavaScript</span>
 
 Notifications Push
 ===================
@@ -87,4 +87,4 @@ Bien d'autres options peuvent etre renseignées pour une notification: la langue
 
 ---
 
-[Integration avec les plates-formes](#/pages/integration)
+[Integration avec les plates-formes](integration.md)

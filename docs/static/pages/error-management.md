@@ -1,4 +1,4 @@
-<span class="requirements">Prérequis: lecture de la page <a href="#/pages/network-management">Couche de gestion réseau</a></span>
+<span class="requirements">Prérequis: lecture de la page <a href="network-management.md">Couche de gestion réseau</a></span>
 
 Gestion des requêtes en échec et relances
 ==========================================
@@ -66,6 +66,6 @@ Comme améliorations, on peut remplacer le délai fixe par un délai progressif 
 
 ---
 
-[Couche de gestion réseau](#pages/network-management)
+[Couche de gestion réseau](network-management.md)
 
-[Stratégies de gestion du cache réseau](#pages/network-strategies)
+[Stratégies de gestion du cache réseau](network-strategies.md)
