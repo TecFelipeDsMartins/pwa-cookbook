@@ -2,7 +2,7 @@
 
 > A step-by-step guide to Progressive Web Applications
 
-This cookbook itself is a PWA: [sylvainpolletvillard.github.io/pwa-cookbook/](sylvainpolletvillard.github.io/pwa-cookbook/)
+This cookbook itself is a PWA: [sylvainpolletvillard.github.io/pwa-cookbook/](https://sylvainpolletvillard.github.io/pwa-cookbook/)
  
 or you can read the docs in plain text:
 
