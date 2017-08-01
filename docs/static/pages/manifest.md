@@ -26,8 +26,8 @@ Voici un exemple de fichier manifeste:
 			"src": "icon-medium.png",
 			"sizes": "96x96"
 		}, {
-			"src": "icon-large.png", 
-			"sizes": "192x192" 
+			"src": "icon-large.png",
+			"sizes": "192x192"
 		}
 	],
 	"theme_color": "#3F51B5",
