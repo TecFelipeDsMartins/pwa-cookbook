@@ -5,7 +5,7 @@ Qu'est-ce qu'une Progressive Web App (PWA) ?
 
 Les *Progressive Web Apps* ou *PWA* désignent les **sites web** qui offrent une expérience utilisateur et des fonctionnalités proches de celles d'une application **native**.
  
- À cet effet, une PWA doit respecter un ensemble de critères techniques et de contraintes de performance. On peut ainsi considérer les PWA comme un **label  qualité**, ce qui permet de communiquer plus simplement avec les clients plutôt que de lister une multitude de fonctionnalités et détails d'implémentation obscurs.
+ À cet effet, une PWA doit respecter un ensemble de critères techniques et de contraintes de performance. On peut ainsi considérer les PWA comme un **label qualité**, ce qui permet de communiquer plus simplement avec les clients plutôt que de lister une multitude de fonctionnalités et détails d'implémentation obscurs.
  
  Pour faire le parallèle avec l'expérience native, trois objectifs principaux sont identifiés:
   - **Fiabilité**: le site doit se charger instantanément peu importe les conditions réseau
