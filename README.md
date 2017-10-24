@@ -46,6 +46,7 @@ or you can read the docs in plain text:
 - [Check-list d'une PWA](static/pages/checklist.md)
 - [Outillage d'audit qualité](static/pages/audit-tools.md)
 
+<!--- END_INDEX -->
 ---
 
 
