@@ -1,3 +1,16 @@
+<i18n>
+	{
+		"en": {
+			"search": "Search by keyword",
+			"no results": "No results"
+		},
+		"fr": {
+			"search": "Rechercher par mot-clé",
+			"no results": "Aucune page correspondante"
+		}
+	}
+</i18n>
+
 <template>
     <div class="search-bar">
 	    <md-button class="md-icon-button" @click.native="onBtnClick">
@@ -12,7 +25,7 @@
 	          @submit.stop.prevent="submit">
 
 		    <input type="search"
-		           placeholder="Rechercher par mot-clé"
+		           :placeholder="$t('search')"
 		           autocomplete="off"
 		           v-model="query"
 		           ref="input"
@@ -26,7 +39,7 @@
 			    </md-list-item>
 
 			    <li class="no-results" v-if="suggestions.length === 0">
-				    Aucune page correspondante
+				    {{ $t('no results') }}
 			    </li>
 		    </md-list>
 	    </form>
@@ -97,7 +110,7 @@
 
         	submit(){
 		        this.resetSuggestions();
-		        search(this.query).then(pagesMatched => {
+		        search(this.query, this.$i18n.locale).then(pagesMatched => {
 			        this.suggestions = pagesMatched;
 		        });
 	        }

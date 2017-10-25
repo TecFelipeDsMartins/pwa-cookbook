@@ -1,5 +1,6 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
+import VueI18n from 'vue-i18n'
 
 import "vue-material/dist/components/mdCore/index.css";
 import "vue-material/dist/components/mdButton/index.css";
@@ -25,6 +26,7 @@ import App from "./App"
 import { router } from "./routes"
 
 Vue.use(VueRouter);
+Vue.use(VueI18n);
 Vue.use(mdCore);
 Vue.use(mdButton);
 Vue.use(mdIcon);
@@ -39,5 +41,10 @@ Vue.directive("clickaway", onClickaway);
 export default new Vue({
 	el    : '#app',
 	render: h => h(App),
-	router
+	router,
+
+	i18n: new VueI18n({
+		locale: navigator.language === "fr" ? "fr" : "en",
+		fallbackLocale: "en"
+	})
 });

@@ -12,3 +12,12 @@
 	left: 0;
 	top: 0;
 }
+
+.md-select {
+	width: auto;
+}
+
+.md-menu .md-button {
+	margin: 0;
+	cursor: pointer;
+}

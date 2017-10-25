@@ -1,3 +1,16 @@
+<i18n>
+{
+	"en": {
+		"en": "English",
+		"fr" : "Français"
+	},
+	"fr": {
+		"en": "English",
+		"fr": "Français"
+	}
+}
+</i18n>
+
 <template>
 	<md-toolbar>
 		<div class="md-toolbar-container" style="background-color: #5A0FC8">
@@ -9,9 +22,16 @@
 
 			<search-bar/>
 
-			<md-button class="md-icon-button">
-				<md-icon>language</md-icon>
-			</md-button>
+			<md-menu md-direction="bottom left">
+				<md-button md-menu-trigger>
+					<md-icon>language</md-icon>
+					<span>{{ $t($i18n.locale) }}</span>
+				</md-button>
+
+				<md-menu-content>
+					<md-menu-item v-for="l in locales" @click="$root.$i18n.locale = l">{{ $t(l) }}</md-menu-item>
+				</md-menu-content>
+			</md-menu>
 		</div>
 	</md-toolbar>
 </template>
@@ -25,6 +45,13 @@
 		methods: {
 			toggleSidenav(){
 				this.$root.$emit("toggle-sidenav")
+			}
+		},
+
+		computed: {
+			locales(){
+				return  ["fr", "en"]
+					.sort((a,b) => a === this.$i18n.locale ? -1 : a < b ? -1 : 1)
 			}
 		},
 

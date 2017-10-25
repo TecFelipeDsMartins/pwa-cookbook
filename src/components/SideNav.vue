@@ -9,8 +9,8 @@
 			</div>
 		</md-toolbar>
 
-		<md-list>
-			<md-list-item v-for="chapter in pages.chapters" :key="chapter.title">
+		<md-list v-if="index">
+			<md-list-item v-for="chapter in index.chapters" :key="chapter.title">
 				<span>{{ chapter.title }}</span>
 				<md-list-expand v-if="chapter.sections">
 					<md-list-item v-for="section in chapter.sections" :key="section.title">
@@ -28,7 +28,7 @@
 <style src="../style/sidenav.css" />
 
 <script>
-const { pages } = require("../pages");
+import { getIndex } from "../pages"
 
 export default {
 	mounted(){
@@ -37,6 +37,7 @@ export default {
 	},
 
 	created: function () {
+		this.fetchIndex();
 		this.updateSize();
 		window.addEventListener('resize', this.updateSize)
 	},
@@ -48,11 +49,15 @@ export default {
 	data(){
 		return {
 			isModal: null,
-			pages
+			index: null
 		}
 	},
 
 	methods: {
+		fetchIndex(){
+			getIndex(this.$i18n.locale)
+				.then(index => { this.index = index })
+		},
 		close(){
 			return this.$refs.sidenav.close();
 		},
@@ -67,6 +72,12 @@ export default {
 		},
 		updateSize(){
 			this.isModal = window.matchMedia("(max-width: 1280px)").matches;
+		}
+	},
+
+	watch: {
+		'$i18n.locale'() {
+			this.fetchIndex()
 		}
 	}
 

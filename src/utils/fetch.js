@@ -1,3 +1,5 @@
+import fetch from "unfetch";
+
 const delay = (ms=0) => new Promise((resolve) => setTimeout(resolve,ms));
 
 export default function(url, options={}){
@@ -6,6 +8,6 @@ export default function(url, options={}){
 	}, options);
 
 	return delay(options.delay)
-		.then(() => window.fetch(url, options))
-		.then(res => res.text())
+		.then(() => fetch(url, options))
+		.then(res => url.endsWith('json') ? res.json() : res.text())
 }
