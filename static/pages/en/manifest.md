@@ -1,21 +1,23 @@
-<span class="requirements">Prérequis: connaissance du format JSON</span>
+<span class="requirements">Prerequisites: JSON data format</span>
 
-Manifeste d'application web
+Manifest of a PWA
 ===========================
 
-Le manifeste d'application est un simple fichier JSON contenant des métadonnées annexes de l'application qui sont utilisées par en améliorer l'intégration par les plates-formes. Pour lier un manifeste à une application, il suffit d'insérer le lien en HTML:
+The manifest of a PWA is a simple JSON file that contains metadata about the application. These metadata are used to integrate more efficiently the PWA with the target platforms.
+
+To link a manifest to an application, we just need to insert it as an HTML link in the app:
 
 ```html
-<!-- à insérer dans <head> -->
-<link rel="manifest" href="/manifest.json">	
+<!-- insert in <head> -->
+<link rel="manifest" href="/manifest.json">
 ```
 
-Voici un exemple de fichier manifeste:
-
  <figure class="pull-right">
- 	<img style="height: 400px" src="../img/pwa-manifest-demo.jpg" alt="Résultat du manifeste sur Android">
- 	<figcaption>Résultat du manifeste sur Android</figcaption>
+ 	<img style="height: 400px" src="../img/pwa-manifest-demo.jpg" alt="On Android. The manifest allows to see the PWA like a native app">
+ 	<figcaption>On Android. The manifest allows to see the PWA like a native app</figcaption>
  </figure>
+
+ Here is an example of a manifest file:
 
 ```json
 {
@@ -38,23 +40,25 @@ Voici un exemple de fichier manifeste:
 }
 ```
 
-L'existence d'un manifeste d'application est nécessaire pour pouvoir proposer l'installation de la PWA sur l'appareil. Comme vous pouvez le voir, le manifeste contient diverses information comme le nom, la couleur dominante, les icônes ou encore le mode d'orientation préféré pour l'application.
+As you can see, the manifest contains miscellaneous information such as the name, dominant color, icons or the preferred screen orientation.
+
+A manifest file is required by the Android OS so that it can suggest the setup of the PWA on the device.
 
 <figure>
 <iframe style="width: 560px; height: 315px;" src="https://www.youtube.com/embed/P7hNedzAjuk" frameborder="0"></iframe>
-<figcaption>Démonstration vidéo de l'installation d'une PWA sur Android</figcaption>
+<figcaption>Video illustrating how to install a PWA (that has a manifest) on Android</figcaption>
 </figure>
 
-## Liste des propriétés du manifeste
+## Content of a manifest
 
-Le manifeste d'application est un standard évolutif et de nouvelles propriétés viennnent s'ajouter régulièrement. La [liste des propriétés actuellement utilisables peut être retrouvée sur le MDN](https://developer.mozilla.org/fr/docs/Web/Manifest).
+The PWA manifest is an evolving standard and new properties are added regularly. The La [updated list of available properties is available on MDN](https://developer.mozilla.org/fr/docs/Web/Manifest).
 
-## Générateur de manifeste
+## Manifest generator
 
-Pour vous aider à créer rapidement un manifeste pour votre application, il existe [ce générateur](http://www.pwabuilder.com/generator) qui préremplit certains champs et vous guide pour compléter les champs restants.
+Manifest generators allows to quickly and easily create manifests. [This one](http://www.pwabuilder.com/generator) for example pre-fills certain properties and helps defining the others.
 
 ---
 
-[Intégration avec les plates-formes](integration.md)
+[Platform integration](integration.md)
 
-[Tester votre manifeste avec un outil d'audit](audit-tools.md)
+[Test the manifest with auditing tools](audit-tools.md)
