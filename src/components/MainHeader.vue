@@ -13,7 +13,7 @@
 
 <template>
 	<md-toolbar>
-		<div class="md-toolbar-container" style="background-color: #5A0FC8">
+		<div class="md-toolbar-container">
 			<md-button class="md-icon-button toggle-sidenav-btn" @click.native="toggleSidenav">
 				<md-icon>menu</md-icon>
 			</md-button>
@@ -29,7 +29,11 @@
 				</md-button>
 
 				<md-menu-content>
-					<md-menu-item v-for="l in locales" @click="$root.$i18n.locale = l">{{ $t(l) }}</md-menu-item>
+					<md-menu-item v-for="l in locales"
+					              :key="l"
+					              @click="$root.$i18n.locale = l">
+						{{ $t(l) }}
+					</md-menu-item>
 				</md-menu-content>
 			</md-menu>
 		</div>
