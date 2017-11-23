@@ -1,41 +1,44 @@
-<span class="requirements">Prérequis: bonne connaissance de JavaScript, connaissances de base sur les échanges HTTP</span>
+<span class="requirements">Prerequisites: good knowledge of JavaScript, basic knwoledge of exchanges in the HTTP protocol</span>
 
-Usage hors-ligne avec les Service Workers
-===========================================
+# Introduction
 
-Les Service Workers (SW) sont une nouvelle API avec un très grand potentiel. Tout comme les [Web Workers](https://www.w3.org/TR/workers/), ils s'exécutent dans un thread en parallèle de celui de l'application, et peuvent tourner en tâche de fond lorsque le navigateur est fermé. Le Service Worker n'a pas accès au DOM et au scope global de l'application, mais il est possible de communiquer entre SW et application via [l'API `postMessage`](https://developer.mozilla.org/fr/docs/Web/API/Worker/postMessage).
+Service Workers (SW) is a new API with great potential. Like [Web Workers](https://www.w3.org/TR/workers/), they run on a different thread than the application's thread, and can keep running in the background when the browser is closed.
 
-Un Service Worker peut être considéré comme un proxy s'intercalant entre votre application et le réseau, et permettant d'intercepter et de modifier toutes les requêtes en partance du navigateur. Il peut ainsi effectuer des redirections d'URL, ou répondre avec des fichiers et des données en cache. Il s'agit donc de l'élément clé pour l'usage hors-ligne.
- 
-## Comparaison avec Application Cache
- 
-L'usage hors-ligne est également possible avec l'API [Application Cache](https://developer.mozilla.org/fr/docs/Web/HTML/Utiliser_Application_Cache), supportée plus largement mais aujourd"hui **dépréciée**. Cette API permet de lister de manière assez simple toutes les ressources à mettre en cache. Mais elle était également très limitée et les procédés de mises à jour et de listage du contenu étaient très fastidieux, là où les Service Workers offrent beaucoup plus de flexibilité et ouvrent la port à bien d'autres fonctionnalités, comme la synchronisation en arrière-plan ou les [notifications push](push-notifications.md).
+Service Workers do not have access to the DOM and to the global scope. However, they can communicate with the application via [the `postMessage` API](https://developer.mozilla.org/fr/docs/Web/API/Worker/postMessage).
 
-## Installation et cycle de vie d'un Service Worker
+# Offline PWA with Service Workers
 
-Pour installer un Service Worker sur une application, il faut l'enregistrer en JavaScript via `navigator.serviceWorker.register`. Après l'enregistrement du service worker, le navigateur tente d'installer puis d'activer le service worker sur le site. L'événement `install` est déclenché lorsque l'installation se termine avec succès. L'événement `activate` est déclenché peu après, au moment où le SW est prêt à intercepter les événements `fetch` et `message` émis respectivement par une requête serveur ou un appel via l'API `postMessage`. 
+A SW can be considered as a proxy between your PWA and the network. It can intercept and modify all the requests that are sent by the browser. Thus, it can perform URL redirection or generate responses with files and cached data. It is then a key element for adding offline to a PWA.
 
-- Code côté application :
+## Service Workers vs Application Cache
+
+It is also possible to add offline with the [Application Cache](https://developer.mozilla.org/fr/docs/Web/HTML/Utiliser_Application_Cache) API which is largely supported but is **deprecated** nowadays. This API allows to get a simple list of all the resources to cache. However, it is very limited and the update and listing processes are very complicated, as opposed to Service Workers which are more flexible and offer many more possibilities. Some examples are background synchronization and [push notifications](push-notifications.md).
+
+## Setup and life-cycle of a service worker
+
+To install a SW, we need to first register it in Javascript using `navigator.serviceWorker.register`. When the registration completes, the browser tries to install the WS and then activates it for the website. The `install` event is triggered when the setup successfully completes. After that, the `activate` event is fired when the SW is ready to intercept the `fetch` and `message` events. These events are emitted respectively by a web request and a call to the `postMessage` API.
+
+- Application code :
 ```javascript
 if (navigator.serviceWorker) {
   navigator.serviceWorker.register('sw.js')
   .then(function(registration) {
-    // le Service Worker est enregistré    
+    // The service worker is registered
   })
   .catch(function(error){
-    // l'enregistrement du SW a échoué
-    // vérifiez le chemin et la connexion HTTPS
+    // SW registration failed
+    // Check here the path and HTTPS connection
   })
 }
 ```
 
-- Code côté Service Worker `sw.js` :
+- Service Worker code `sw.js` :
 ```javascript
 this.addEventListener('install', function(event) {
-  // le Service Worker est installé	
+  // The service worker is installed
   event.waitUntil(
     caches.open('v1').then(function(cache) {
-      // on charge en cache un ensemble de fichiers pour l'usage offline
+      // Load a set of files for offline usage
       return cache.addAll([
         '/index.html', '/style.css', '/app.js', '/offline.jpg'
       ]);
@@ -44,71 +47,71 @@ this.addEventListener('install', function(event) {
 });
 ```
 
-
 ## Cache API
 
-La mise en cache classique pilotée par le navigateur et par les headers HTTP `cache-control` et `expires` est toujours très utile, mais la marge de contrôle de ce cache par le développeur reste limitée. 
+Traditional caching driven by the browser and the HTTP headers `cache-control` and `expires` are still useful, but the developer has very limited control over this cache.
 
-L'interface Cache de l'API ServiceWorker vient apporter une solution à ce problème, puisqu'elle donne la responsabilité au développeur d'implémenter les mécaniques de mise en cache et de mise à jour. Ce qui permet d'imaginer par la suite différentes [stratégies de gestion du cache réseau](network-strategies.md).
+The Cache interface of the ServiceWorker API brings a solution to this problem. In fact, it gives to the developer the responsibility of implementing the mechanics to add, remove and update the items in the cache. This allows to design different [strategies of network cache management](network-strategies.md).
 
-Cette API permet de gérer plusieurs caches nommés spécifiques au domaine sur lequel est inscrit le Service Worker. Le nom du cache peut notamment être utilisé pour le *versionning*, afin de s'assurer que le contenu d'un cache est toujours exploitable après des modifications sur le code du Service Worker. 
+This API allows to use different named caches on the specific domain for which the SW is registered. The name of the cache may be notably used for *versioning*, in order to handle cache migration if the service worker has been modified.
 
-Le contenu d'un cache est une collection de paires d'objets requête / réponse. A noter qu'il est possible de stocker plusieurs réponses pour une même requête dans un même cache. 
+The content of the cache consists of a dictionary of object request / response pairs. It is worth noting that is it is possible to store multiple responses for the same request on the same cache.
 
-La [documentation de cette API peut être consultée sur le MDN](https://developer.mozilla.org/fr/docs/Web/API/Cache).
+The [documentation of the Cache API is available on MDN](https://developer.mozilla.org/fr/docs/Web/API/Cache).
 
-Voici un exemple d'utilisation classique de l'API Cache
+Here is a typical sample of the Cache API:
 
 ```javascript
-// à l'interception d'une requête réseau en partance du navigateur
+// When a network request sent by the browser is intercepted
 this.addEventListener('fetch', function(event) {
   event.respondWith(
-  	caches.match(event.request) // on cherche dans le cache
-    .catch(() => fetch(event.request)) // non trouvé, on requête le réseau
+  	caches.match(event.request) // Search the cache
+    .catch(() => fetch(event.request)) // Not found, search in the network
     .then(response => {
-      /* une réponse ne peut être lue qu'une seule fois,
-     	 on doit donc la clôner pour la stocker en cache */
+      /* A response can be read only once, 
+      we need to clone it in order to store it in the cache */
       const savedResponse = response.clone(); 
      
-      // on stocke la réponse en cache pour les futurs appels
+      // Store the response in the cache for future calls
       caches.open('v1').then(cache => cache.put(event.request, savedResponse)); 
       
       return response
     })
     .catch(error => {
-      // la requête réseau a échoué et le cache est indisponible      
+      // The network request failed and the cache is unavailable
     })
   )
 });
 ```
 
-Diverses approches pour la gestion de ce cache sont détaillées sur la page [Stratégies de cache réseau](network-strategies.md).
+Different approaches of cache management are detailed on the [network cache strategies](network-strategies.md) page.
 
-### Limite de stockage de l'API Cache
+### Storage limitation of the Cache API
 
-Sur la plupart des navigateurs, la limite de stockage est la même que pour celles des caches de données : voir [la section correspondante](data-cache.md)
+On the majority of browsers, the storage limit is the same as the one for the data cache : see [data cache](data-cache.md) for more details.
 
-### Outils développeur
+## Developer tools
 
-Les navigateurs supportant les Service Workers proposent généralement des raccourcis dans leurs outils développeur pour les déboguer ou les retirer. Sur Chrome et Opera, ils sont accessibles via l'onglet *Application* ou via `chrome://inspect/#service-workers` et `chrome://serviceworker-internals`. Sur Firefox, ils sont disponibles via `about:serviceworkers`.
+Browsers that support Service Workers generally provide buttons or shortcuts in their developer tools to debug or disable Service Workers. On chrome or Opera, they are accessible from the *Application* tab or from `chrome://inspect/#service-workers` et `chrome://serviceworker-internals`. On firefox, they are available by entering `about:serviceworkers` in the address bar.
 
-### Support des navigateurs
+## Browser support
 
-Les SW sont supportés sur Chrome, Firefox et Opera. Leur implémentation est en cours sur Edge et Safari. Vous pouvez trouver des informations plus détaillées et à jour sur [IsServiceWorkerReadyYet](https://jakearchibald.github.io/isserviceworkerready/).
+Service Workers are supported by Chrome, Firefox and Opera. They are under development on Edge and Safari. You can find more detailed and up-to-date information on [IsServiceWorkerReadyYet](https://jakearchibald.github.io/isserviceworkerready/).
 
-## Le champ d'application des Service Workers
+## Applications of Service Workers
 
-Au delà du cache et de l'usage hors-ligne, les Service Workers peuvent potentiellement être utilisés à bien d'autres effets:
-- envoyer des [notifications push](push-notifications.md)
-- synchroniser des données en tâche de fond
-- répondre à des requêtes venant d'autres domaines
-- centraliser la réception de données coûteuses à calculer comme la géolocalisation ou le gyroscope, afin que plusieurs pages puissent partager un seul set de données
-- effectuer des processus de build et de la compilation côté client: TypeScript, PostCSS, Babel etc.
-- gérer des templates personnalisés basés sur des patterns d'URL
-- améliorer les performances, par exemple en préchargeant des ressources
+Beyond caching and adding offline, SW have many other uses:
+
+- Send [push notifications](push-notifications.md).
+- Background data synchronization
+- Reply to requests coming from other domains
+- Centralize the reception of data that is computation expensive, such as the geo-location or the gyroscope. This allows different pages to share the same set of data (which is also computed by a single object)
+- Perform compile and build processes on the client side: TypeScript, PostCSS, Babel, etc.
+- Handle custom templates based on URL patterns
+- Improve performance, by pre-loading resources for example
 
 ---
 
-[Stratégies de gestion de cache réseau](network-strategies.md)
+[Network cache management strategies](network-strategies.md)
 
-[De la nécessité d'une couche de gestion réseau](network-management.md)
+[On the necessity of a network management layer](network-management.md)
