@@ -1,30 +1,31 @@
-<span class="requirements">Prérequis: manipulation des outils développeur sur navigateur</span>
+<span class="requirements">Prerequisites: manipulation of internet borwsers' developer tools</span>
 
-Outillage d'audit
+Audit tools
 ====================
 
 ## Lighthouse
 
 <figure>
-	<img src="../img/pwa-lighthouse.png" alt="Logo de Lighthouse">
+	<img src="../img/pwa-lighthouse.png" alt="Lighthouse Logo">
 </figure>
 
-Lighthouse est l'outil d'audit de référence des Progressive Web Applications. Cet outil open-source développé par Google peut être exécuté en tant que :
-- [extension au navigateur Chrome](https://chrome.google.com/webstore/detail/blipmdconlkpinefehnmjammfjpmpbjk)
-- outil en ligne de commande
-- [module Node.js](https://www.npmjs.com/package/lighthouse)
+Lighthouse is the reference Audit tool for Progressive Web Apps. It is developed by Google and is Open Source. It can be used in many ways:
 
-**Depuis Chrome 60, Lighthouse est directement intégré à l'onglet Audits des Developer Tools.** Vous n'avez plus rien à installer.
+- As a [Chrome extension (built-in since Chrome 60)](https://chrome.google.com/webstore/detail/blipmdconlkpinefehnmjammfjpmpbjk)
+- As a [Command line tool](https://github.com/GoogleChrome/lighthouse)
+- As a [Node.js module](https://www.npmjs.com/package/lighthouse)
 
-Cet outil analyse un domaine particulier en effectuant une série de tests pour générer un rapport avec **un score sur 100**.
+**Since Chrome 60, Lighthouse is built-in and is accessible in the "Audits" tab in the Developer Tools panel.** no need to install anything else to get started.
+
+This tool analyses a particular domain by performing series of tests and generates a report that lists issues and gives **a mark out of 100** to the audited website or PWA.
 
 <figure>
-	<img src="../img/lighthouse-report.png" alt="Exemple de rapport de Lighthouse">
-	<figcaption>Exemple de rapport de Lighthouse</figcaption>
+	<img src="../img/lighthouse-report.png" alt="Example Lighthouse report">
+	<figcaption>Example Lighthouse report</figcaption>
 </figure>
 
-L'objectif est bien entendu d'arriver à ce fameux score de 100 sur 100. Chaque point négatif ou imparfait dans le rapport est accompagné d'un message explicatif et de liens pour en savoir plus. **Lighthouse est donc un excellent moyen pour concevoir pas à pas une PWA en partant d'une application générique.**
+The goal is to reach a score of 100 out of 100. Each issue or imperfect item in the report is accompanied with a descriptive message and links to more details. **Lighthouse is thus an excellent tool for building a PWA step-by-step starting with a generic application.**
 
 ---
 
- [La check-list de développement d'une PWA](checklist.md)
+ [PWA checklist](checklist.md)
