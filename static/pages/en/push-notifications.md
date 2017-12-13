@@ -1,90 +1,97 @@
-<span class="requirements">Prérequis: lecture de la page <a href="service-workers.md">Service Workers</a>, bonne connaissance de JavaScript</span>
+<span class="requirements">Prérequis: reading the page <a href="service-workers.md">Service Workers</a>, good knowledge of JavaScript</span>
 
-Notifications Push
-===================
+# Push Notifications
 
-Il est possible d'émettre des notifications Push en JavaScript, directement via l'application lorsque la page est ouverte, ou bien via un Service Worker enregistré pour votre application web afin d'émettre des notifications même quand le navigateur est fermé. Ces notifications sont multi-plateformes, elles s'adapteront donc à la plate-forme cible: notifications Android ou centre de notifications de Windows 10 par exemple.
+It is possible to send push notifications using Javascript in different ways:
 
-## Bonnes pratiques et recommandations
+- Directly via the application when the web page is opened.
+- Using a Service Worker that is registered for sending push notifications. This works even when the application is closed.
 
-L'usage de notifications peut vite devenir agaçant pour l'utilisateur, c'est pourquoi il convient de respecter certaines bonnes pratiques: 
-- les notifications doivent être utiles et compréhensibles
-- les notifications doivent être affichées aux moments adéquats, à une fréquence convenable
-- l'utilisateur doit pouvoir les activer ou les désactiver via un contrôle dans l'application.
-- l'utilisateur doit avoir passé un certain moment à naviguer sur l'application avant de demander l'autorisation d'émettre des notifications
+These notifications are multi-platform and adapt to the target platform; Android notifications or Windows 10 notifications for example.
 
-## Notifications web
- 
-Ces notifications peuvent être émises via le code applicatif, lorsque le navigateur est ouvert et l'application web chargée.
+## Best practices and recommendations
 
-### Permission de l'utilisateur
+Excessive usage of notifications can quickly become annoying for the user, it is hence recommended to follow some good practices:
 
-L'utilisateur doit autoriser les notifications pour le domaine donné avant que l'application ou le Service Worker soient en mesure d'émettre des notifications push.
+- The notifications must be useful and understandable.
+- They must be displayed at the right times and at an appropriate frequency.
+- The application must provide a way to enable or disable them.
+- The user must have spent some time using the application before asking him for the authorization to receive notifications.
+
+## Web Notifications
+
+These notifications can be sent using the client application code, when the browser is open and the web page is loaded.
+
+### User permission
+
+The user must allow the notifications for a given domain so that the application or the Service Worker can become able to send notifications.
 
 ```javascript
 if (window.Notification && Notification.permission !== "granted") {
   Notification.requestPermission(function (status) {
     if (status === "granted") {
-      // l'utilisateur a accepté, on peut désormais émettre des notifications
+      // The user has given his permission, we can now send notifications
     }
   });
 }
 ```
 
-### Envoyer une notification web
+### Sending a web notification
 
-Le constructeur `Notification` permet de créer simplement une notification avec un titre, une icône et un texte descriptif. Une fois créée, la notification sera immédiatement affichée.
+The `Notification` constructor allow to simply create a notification with a title, an icon and a descriptive text. Once created, the notification is immediately presented.
 
 ```javascript
-var notification = new Notification("Bonjour !", {
-  lang : "fr", // langue de la notif (BCP 47 language tag).
-  body : "Ceci est la description de ma notification",
-  tag : "maNotif", // un identifiant pour récupérer la notification plus tard si besoin
+var notification = new Notification("Hello notification !", {
+  lang : "en", // language of the notification (BCP 47 language tag).
+  body : "The is the description of the notification",
+  tag : "myNotification", // an identifier that allow to get a reference to this notification later if needed
   icon : "icon_url.png"
 })
 ```
 
-### Récupérer des évènements sur la notification
+### Events related to notifications
 
-Il est possible de détecter en JavaScript quand une notification est affichée (`show`), fermée (`close`), cliquée (`click`) ou en erreur (`error`) :
+It is possible in Javascript to trigger an event when a notification is shown(`show`), closed (`close`), clicked (`click`) or has failed (`error`) :
 
 ```javascript
 notification.addEventListener("click", function(){
-  // l'utilisateur a cliqué sur la notification
-}) 
+  // the user has clicked on the notification
+})
 ```
 
-## Notifications push via la Push API
+## Push Notifications using the Push API
 
-La Push API permet via un service worker de pousser des messages à l'utilisateur depuis le serveur, peu importe si la web app est chargée ou non sur l'appareil de l'utilisateur. Cela implique l'utilisation d'un [service de push](http://pushproviders.com/) tel que Google Cloud Messenger. Le processus se déroule de cette manière :
+The push API allows a Service Worker to present push messages from the server to the user, whether the web page is loaded or not. This implies using a [push service](http://pushproviders.com/) such as [Firebase Cloud Messenger](https://firebase.google.com/docs/cloud-messaging/) (FCM, previously GCM).
+
+The process is carried out in the following way:
 
 <figure>
-	<img src="../img/push-server.png" alt="Scénario de notification push">
+	<img src="../img/push-server.png" alt="Push notification scenario">
 </figure>
 
-1. Un Service Worker actif s'inscrit au serveur Push via la méthode `pushManager.subscribe()` qui retourne une `Promise` de `PushSubscription`. 
-2. L'objet `PushSubscription` contient notamment la propriété `endpoint` qui est l'URL d'inscription. On stocke celle-ci sur le serveur applicatif .
-3. Lorsque le serveur souhaite envoyer une notification push, il réutilise l'URL endpoint stockée et envoie une requête au serveur Push
-4. Le serveur Push s'occupe ensuite d'envoyer la notification push à l'utilisateur.
+1. An active service worker subscribes to the push server using the method `pushManager.subscribe()` which returns a `Promise` of `PushSubscription`.
+1. The `PushSubscription` object has the notable property `endpoint` which is the subscription URL. We store this one in the server (back-end).
+1. When the server wants to send a push notification, it reuses the stored endpoint URL and sends a request to the push server.
+1. The push server then takes care of sending the push notification to the user.
 
-Exemple d'implémentation côté client pour les étapes 1 et 2 :
- 
+Here is a code snippet that shows an example implementation of the first two steps:
+
 ```javascript
 navigator.serviceWorker.register('service-worker.js')
 .then(registration => registration.pushManager.getSubscription())
 .then(subscription => subscription || registration.pushManager.subscribe())
 .then(subscription => {
-	// on stocke le endpoint de push de l'utilisateur sur le serveur applicatif
-	fetch('./register-push', {
-		method: "POST",
-		headers: { 'Content-type': 'application/json' },
-        body: JSON.stringify({ endpoint: subscription.endpoint })
-	})
+  // We store the endpoint of the user in the server
+  fetch('./register-push', {
+    method: "POST",
+    headers: { 'Content-type': 'application/json' },
+    body: JSON.stringify({ endpoint: subscription.endpoint }
+    })
 })
-``` 
+```
 
-Bien d'autres options peuvent etre renseignées pour une notification: la langue, une image associée, un pattern de vibration, des actions pouvant être réalisées à partir de la notification...  Des exemples plus complets sont disponibles sur [serviceworke.rs](https://serviceworke.rs/push-rich.html).
+Many more options are can be provided to a notification, such as the language, an associated image or a vibration pattern or the actions that can be performed from the notification. More comprehensive examples are available on [serviceworke.rs](https://serviceworke.rs/push-rich.html).
 
 ---
 
-[Integration avec les plates-formes](integration.md)
+[Platform integration](integration.md)
