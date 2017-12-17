@@ -1,7 +1,6 @@
-<span class="requirements">Prerequisites: manipulation of internet borwsers' developer tools</span>
+<span class="requirements">Prerequisites: manipulation of internet browsers' developer tools</span>
 
-Audit tools
-====================
+# Audit tools
 
 ## Lighthouse
 

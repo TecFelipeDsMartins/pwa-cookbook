@@ -1,17 +1,16 @@
-<span class="requirements">Prérequis: connaissances de base en JavaScript</span>
+<span class="requirements">Prerequisite: Basic knowledge of Javascript</span>
 
-Les caches de données côté client
-====================================
+# Caches on the client side
 
-Les navigateurs disposent de plusieurs API JavaScript  permettant de stocker à court ou long terme des données localement sur le poste client. Utiliser ces caches est évidemment essentiel pour disposer d'un mode hors-ligne dans votre application, mais ces caches peuvent également servir à optimiser votre application en éliminant les requêtes redondantes et en mettant en oeuvre des stratégies de *compensation de latence*.
+Web browsers have different Javascript APIs allowing to store data for a short or long duration, locally on the user's device. Using these caches is obviously essential in order to add offline to a PWA. In addition to that, caches can be used to optimize the application by avoiding redundant request and by implementing strategies for *latency compensation*.
 
-## Les différentes API de stockage local
+## The different local storage APIs
 
-Tous les caches navigateurs sont isolés par navigateur, compte utilisateur et nom de domaine. Il n'est pas possible d'interagir avec le cache d'un autre domaine ou d'un autre navigateur. En revanche, ces caches sont synchronisés si le même domaine est ouvert dans plusieurs onglets.
+All browser caches are isolated by browser, user account and domain name. It is not possible to interact with the cache of another domain or another browser. However, on the other hand, these caches are synchronized if different tabs for the same domain are opened.
 
 ### LocalStorage
 
-Le localStorage est un stockage très simple à l'utilisation mais assez limité. Il stocke les données sous la forme de paires clé-valeur comme une *hashmap* (tableau associatif). Les lectures et écritures sont faites de manière synchrone. Les entrées sont conservées de manière persistante sur le disque utilisateur, sans délai d'expiration.
+The LocalStorage is a very simple but limited storage. It stores data using key-value pairs structure (associative table like a *hashmap*). Read and writes are performed synchronously. LocalStorage entries are persisted on the user's drive, without any expiration delay. 
 
 ```javascript
 // fetch
@@ -23,7 +22,7 @@ localStorage.setItem('userPrefs', JSON.stringify(userPrefs));
 
 ### SessionStorage
 
-Le sessionStorage a une API très similaire au localStorage mais stocke les données temporairement. Le cache est en effet nettoyé à la fermeture du navigateur.
+SessionStorage is an API which is very similar to LocalStorage with the exception that it stores data temporarily. The cache is in fact cleared when the browser is closed.
 
 ```javascript
 sessionStorage.setItem('temporary', JSON.stringify(tempData));
@@ -31,7 +30,9 @@ sessionStorage.setItem('temporary', JSON.stringify(tempData));
 
 ### IndexedDB
 
-Cette API fournit un ersatz de base de données stockée sur le disque dur de l'utilisateur, permettant d'effectuer des requêtes de recherche en JavaScript sur des données structurées. Elle est basée sur les événements, fonctionne avec les *Web Workers* et *Service Workers*, et est aujourd'hui [largement supportée](http://caniuse.com/#feat=indexeddb).
+This API provides a substitute to a database that is stored on the user's hard drive. It allows to perform selection requests in Javascript on structured data. It is event-based, works with *web workers* and *service workers*. It is largely [supported nowadays](http://caniuse.com/#feat=indexeddb).
+
+
 
 Compte-tenu des bugs d'implémentation dans certains navigateurs, il est recommandé de passer par une bibliothèque servant de couche d'abstraction plutôt que d'utiliser directement l'API.
 
