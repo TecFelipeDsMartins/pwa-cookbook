@@ -1,12 +1,14 @@
-<span class="requirements">Prérequis: aucun</span>
+<span class="requirements">Prerequisites: none</span>
 
-L'offre PWA au sein des frameworks web client
-==============================================
+# PWA offer in web client frameworks
 
-Addy Osmani a consacré un talk à ce sujet à la Google IO 2017 : 
+Addy Osmani gave a talk on this subject during Google IO 2017:
+ 
 [Production Progressive Web Apps With JavaScript Frameworks](https://www.youtube.com/watch?v=aCMbSyngXB4)
 
 ## React: [create-react-app](https://github.com/facebookincubator/create-react-app)
+
+Facebook teams are often more advanced concerning the conception of PWA with their React framework. This choice is a safe value but React addresses mainly to experienced Javascript developers which have some knowledge on functional reactive programming.
 
 Les équipes de Facebook ont souvent eu une longueur d'avance en ce qui concerne la conception de Progressive Web Apps avec leur framework React. Ce choix est une valeur sûre mais React s'adresse aux développeurs JavaScript expérimentés et initiés à la programmation réactive fonctionnelle.
 
