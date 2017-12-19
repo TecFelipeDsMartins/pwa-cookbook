@@ -1,8 +1,12 @@
 <span class="requirements">Prerequisite: Basic knowledge of Javascript</span>
 
+# Introduction
+
+A cache consists of the backbend data that is stored locally, either fully or partially. This section tackles the subjects of the different caching possibilities of Progressive Web Apps.
+
 # Caches on the client side
 
-Web browsers have different Javascript APIs allowing to store data for a short or long duration, locally on the user's device. Using these caches is obviously essential in order to add offline to a PWA. In addition to that, caches can be used to optimize the application by avoiding redundant request and by implementing strategies for *latency compensation*.
+Web browsers have different Javascript APIs that allow to store data for a short or long duration, locally on the user's device. Using these caches is obviously essential in order to add offline to a PWA. In addition to that, caches can be used to optimize the application by avoiding redundant request and by implementing strategies for *latency compensation*.
 
 ## The different local storage APIs
 
@@ -10,7 +14,7 @@ All browser caches are isolated by browser, user account and domain name. It is 
 
 ### LocalStorage
 
-The LocalStorage is a very simple but limited storage. It stores data using key-value pairs structure (associative table like a *hashmap*). Read and writes are performed synchronously. LocalStorage entries are persisted on the user's drive, without any expiration delay. 
+The `LocalStorage` is a very simple but limited storage. It stores data using a key-value pair structure (associative table like a *hashmap*). Read and writes are performed synchronously. LocalStorage entries are persisted on the user's drive, without any expiration delay.
 
 ```javascript
 // fetch
@@ -22,7 +26,7 @@ localStorage.setItem('userPrefs', JSON.stringify(userPrefs));
 
 ### SessionStorage
 
-SessionStorage is an API which is very similar to LocalStorage with the exception that it stores data temporarily. The cache is in fact cleared when the browser is closed.
+`SessionStorage` is an API which is very similar to `LocalStorage` with the exception that it stores data temporarily. The cache is in fact cleared when the browser is closed.
 
 ```javascript
 sessionStorage.setItem('temporary', JSON.stringify(tempData));
@@ -30,64 +34,63 @@ sessionStorage.setItem('temporary', JSON.stringify(tempData));
 
 ### IndexedDB
 
-This API provides a substitute to a database that is stored on the user's hard drive. It allows to perform selection requests in Javascript on structured data. It is event-based, works with *web workers* and *service workers*. It is largely [supported nowadays](http://caniuse.com/#feat=indexeddb).
+This API provides a substitute to a database that is stored on the user's hard drive. It allows to perform selection requests on structured data using Javascript . It is event-based and works with *web workers* and *service workers*. It is largely [supported nowadays](http://caniuse.com/#feat=indexeddb).
 
-
-
-Compte-tenu des bugs d'implémentation dans certains navigateurs, il est recommandé de passer par une bibliothèque servant de couche d'abstraction plutôt que d'utiliser directement l'API.
+Since there are implementation bugs in some browsers, it is recommended to use a library that plays the role of an abstraction layer rather than directly using the API.
 
 ```javascript
-// Avec la bibliothèque Dexie.js
+// With Dexie.js library
 const db = new Dexie('MyDatabase');
 
-// Definition d'un schéma
+// Definition of a schema
 db.version(1).stores({ friends: 'name, age' });
 
-// Ouvre la base de données
+// Opening the database
 db.open().catch(error => console.error('Oups: ' + error));
 
-// Requête de recherche
+// Search query
 db.friends
   .where('age').above(75)
   .each(friend => console.log(friend.name));    		
 
-// Requête d'ajout
+// Add query
 db.friends.add({ name: 'Camilla', age: 25 });
 ```
 
 ### Cache API
 
-Dédié aux couples requêtes/réponses. Voir la section [Service Workers](service-workers.md)
+Dedicated to the (request, response) couples. See section [Service Workers](service-workers.md)
 
-## Combien peut-on stocker de données localement ?
+## How much local data can we store
 
-La limite de stockage dans ces caches dépend de divers critères : le navigateur, le système d'exploitation, l'espace physique restant sur l'appareil... De plus, les navigateurs peuvent décider de supprimer tous les caches d'une origine lorsque cela s'avère nécessaire. Voici les règles identifiées en août 2016 pour les différents navigateurs, sachant qu'elles sont susceptibles d'évoluer à tout moment:
-- **Chrome et Opera** : il y a un quota partagé par toutes les API de stockage et spécifique à chaque nom de domaine
-- **Firefox** : il n'y a pas de limite, mais un message de confirmation est affiché à l'utilisateur au delà de 50 Mo
-- **Safari Desktop** : illimité et message de confirmation après 5 Mo
-- **Safari Mobile** : 50 Mo max
-- **Internet Explorer 10+** : maximum 250 Mo avec confirmation à partir de 10 Mo
-  
-Il est possible de requêter le quota disponible et utilisé en JavaScript via la [Quota Management API](https://www.w3.org/TR/quota-api/) sur les navigateurs qui la supportent.
-  
-## Bibliothèques notables
+The storage limit of the different caches depend on different criteria: the browser, the operating system, the remaining storage space on the device, etc. In addition to that, browsers can decide to remove all the caches of an origin when it becomes necessary. Here are the identified rules of the different browsers on august 2016. Beware that they may change at any time:
 
-- [Store.js](https://github.com/marcuswestin/store.js/) : un wrapper autour des diverses API de stockage simple (hors IndexedDB) ; il choisit le meilleur stockage parmi les disponibles sur le navigateur et fournit quelques nouvelles fonctionnalités (temps d'expiration, événements, opérations push/shift etc...)
+- **Chrome and Opera**: there is a shared quota between all the storage APIs which is specific for each domain.
+- **Firefox**: there is no storage limit, but a confirmation message is presented to the user when the storage exceeds 50 MB.
+- **Safari desktop**: Unlimited with a confirmation message beyond 5 MB.
+- **Safari Mobile** : 50 MB max.
+- **Internet Explorer**: maximum of 250 MB with a confirmation after reaching 10 MB.
 
-- [Dexie.js](http://dexie.org/) : un wrapper minimaliste autour de IndexedDB qui fournit une API simplifiée et lisse les différences d'implémentation des navigateurs.
+It is possible to request the available and used quota using Javascript thanks to the [Quota Management API](https://www.w3.org/TR/quota-api/) on browsers that support it.
 
-- [Lovefield](https://github.com/google/lovefield) : une base de données relationnelle sur navigateur maintenue par Google ; elle fournit une API proche de SQL par-dessus IndexedDB.
+## Notable libraries
 
-## Quel stockage utiliser et dans quelles circonstances ?
+- [Store.js](https://github.com/marcuswestin/store.js/): a wrapper for the different storage APIs, except for IndexedDB. It chooses the best storage among the options available on the browser and provides some new features such as expiration time, events, push/shift operations, and so on.
+- [Dexie.js](http://dexie.org/): a minimal wrapper around IndexDB that provides a simplified API and handles the different browsers' implementations.
+- [Lovefield](https://github.com/google/lovefield): a relational database running on browsers which is maintained by Google. It relies on IndexedDB an provides API that is similar to SQL.
 
-Pour stocker des ressources adressables par URL, utilisez un [Service Worker et la Cache API](service-workers.md)
+## Which storage to use and in which circumstances
 
-Pour du stockage temporaire, le `sessionStorage` est adapté notamment pour décharger certaines informations que vous aviez l'habitude de faire transiter par cookies, et qui encombraient inutilement chaque requête. 
+Here are some elements to help you answer this question:
 
-Enfin, pour les autres données dynamiques, cela dépend de leur volume et de leur complexité. S'il n'y en a pas beaucoup (moins de 500 Ko) et qu'elles sont sérialisables en JSON, le `localStorage` est le choix de la simplicité. 
+For storing resources reachable by a URL, use [Service Workers and the Cache API](service-workers.md)
 
-Sinon, utiliser une bibliothèque autour de IndexedDB comme Dexie ou Lovefield vous fournira beaucoup plus de fonctionnalités pour chercher/trier des données. C'est par exemple utile quand la connexion est indisponible et que vous voulez reproduire côté client certaines requêtes normalement faites en back avec les données dont vous disposez localement. 
- 
+For temporary storage, the `sessionStorage` can handle some information that were usually stored as cookies and that were uselessly making requests heavier.
+
+Finally, for dynamic data, this depends on their size and complexity. If there are not a lot of them (less than 500 KB) and can be serialized to JSON, then the `localStorage` is the choice of simplicity.
+
+For other situations, using an IndexedDB library or wrapper such as *Dexie* or *Lovefield* will provide much more possibilities for manipulating the data. It is useful for example when the internet connection is unavailable and you want to reproduce on the client side some requests normally handled by the back-end using locally stored data.
+
  ---
- 
- [Mode hors-ligne et Service Workers](service-workers.md)
+
+ [Offline and Service Workers](service-workers.md)
