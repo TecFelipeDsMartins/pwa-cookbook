@@ -1,44 +1,46 @@
-<span class="requirements">Prérequis: lecture de la page <a href="network-management.md">Couche de gestion réseau</a></span>
+<span class="requirements">Prerequisites: reading the page <a href="network-management.md">Network management layer</a></span>
 
-Gestion des requêtes en échec et relances
-==========================================
+# Handling and retrying failed requests
 
-Les fonctions `http` décrites dans les codes ci-dessous sont des surcouches à l'API `fetch` et sont à utiliser pour tous les appels AJAX dans le code applicatif. Le rôle de cette surcouche est de traiter les erreurs de requête que les stratégies de cache du Service Worker n'ont pas suffit à régler. 
+The different `http` functions described in the above code snippets are wrappers over the `fetch` API. They will be used in all AJAX calls in the application code. The function of this additional layer is to handle requests errors that could not be handled by the Service Worker.
 
-## Relance au choix de l'utilisateur
+The next paragraphs will give some strategies for handling and retrying failed requests.
 
-Cet exemple basique bloque l'utilisateur en cas d'erreur réseau et lui demande s'il souhaite relancer la requête en échec ou abandonner.
+## Retry at the user initiative
+
+This basic example blocks the user when an error occurs and then asks him to retry the failed request or abandon it.
 
 ```javascript
 function http(...args){
     return fetch(...args).catch(err => {
-       	if(confirm(`La requête a échoué: ${err.message} ; Réessayer ?`))
-       		return http(...args)
-       	else throw err
+		if(confirm(`The request failed: ${err.message} . Retry ?`)){
+			return http(...args)
+		}
+		else throw err
     })
 }
 ```
 
-Cette boîte de dialogue bloquante est une solution très limitée et agaçante pour l'utilisateur, nous allons donc voir comment améliorer cela.
+This dialog box is blocking and is a very limited and annoying solution for the user. Let's see how to improve this.
 
-## Relance automatique avec délai progressif
+## Automatic retry with a progressive delay
 
-Ici, les requêtes en échec sont automatiquement relancées en attendant un délai de plus en plus long entre chaque tentative. Dans cet exemple, ce délai s'étend indéfiniment, mais on peut bien sûr ajouter une condition d'arrêt qui rejette la Promise.
+Here, failed requests are automatically relaunched after waiting for a delay which increases progressively after each attempt. In the following example, the delay extends indefinitely, but we can of course add a termination condition that rejects the `Promise`.
 
 ```javascript
 const wait = time => new Promise(resolve => setTimeout(resolve, time));
 
 function http(url, params, delay=1000){
     return fetch(url, params).catch(err => {
-    	 // wait 1 second then increase the delay (fibonacci style)       	
-       	return wait(delay).then(() => http(url, params, delay * 21/13))
+		// wait 1 second then increase the delay (fibonacci style)
+		return wait(delay).then(() => http(url, params, delay * 21/13))
     })
 }
 ```
 
-## Pile de requêtes en échec
+## Queue of failed requests
 
-Les deux startégies précédentes ne se soucient pas de l'ordre d'appel des callbacks. S'il est important de traiter les réponses dans l'ordre dans lequel les requêtes ont été effectué, on stocke les requêtes dans une file d'attente et on exécute chaque requête l'une après l'autre. En cas d'échec, on attend 5 secondes avant de réessayer la même requête.
+The two previous strategies do not take into account the order in which the callbacks are called. If it is important for your PWA to process responses in the same order of emission their respective requests, then we need to store these requests in a waiting queue and we execute each request in order one by one. In case of failure, we wait for 5 seconds before retrying the same request.
 
 ```javascript
 const requestQueue = [];
@@ -60,12 +62,12 @@ function tryNextRequest(){
 }
 ```
 
-Cette stratégie convient bien aux modes offline plus complexes où on permet à l'utilisateur d'effectuer certaines actions qui dépendent d'actions précédentes n'ayant pas encore été traitées côté serveur: lorsque la connexion est retrouvée, il est alors essentiel de relancer ces requêtes dans l'ordre.
+This strategy is appropriate for complex offline modes where we allow the user to perform actions that depend on previous actions that where not processed by the server. When the connection is recovered, it is then essential to launch again these order in the correct order.
 
-Comme améliorations, on peut remplacer le délai fixe par un délai progressif comme pour la solution précédente, ou encore détecter les doublons dans la file d'attente. A vous de consolider votre stratégie progressivement.
+For further improvement, we can replace the fixed delay by a progressive one such as the previous solution. We can also detect duplicates in the waiting queue. It is up to you to progressively choose your strategy :).
 
 ---
 
-[Couche de gestion réseau](network-management.md)
+[Network management layer](network-management.md)
 
-[Stratégies de gestion du cache réseau](network-strategies.md)
+[Cache strategies](network-strategies.md)
