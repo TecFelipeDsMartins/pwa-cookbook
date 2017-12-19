@@ -1,13 +1,13 @@
-<span class="requirements">Prérequis: aucun</span>
+<span class="requirements">Prerequisites: none</span>
 
-Exemples de Progressive Web Apps
-================================
+# Examples of Progressive Web Apps
 
-Une liste de PWA peut être retrouvée sur ces sites:
+A list of PWA can be found in these links:
+
 - <a target="_blank" href="http://pwa.rocks">PWA.rocks</a>
 - <a target="_blank" href="https://pwa-directory.appspot.com">pwa-directory</a>
 
-Voici une sélection de PWA parmi les grosses compagnies et sites à fort traffic:
+Here is a selection of PWA among the biggest companies and high traffic websites:
 
 <div class="gallery">
 	<ul>
@@ -47,10 +47,11 @@ Voici une sélection de PWA parmi les grosses compagnies et sites à fort traffi
                 <p>Housing.com</p>
             </a>
         </li>
-    </ul>    
+    </ul>
 </div>
 
-Et voici une sélection de démonstrations techniques / show-off :
+Below, we present a selection of technical demos / show-offs:
+
 <div class="gallery">
 	<ul> 
 		<li>
