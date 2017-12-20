@@ -4,14 +4,17 @@
 			<transition name="fadein">
 				<loader :state="loading" v-if="loading"/>
 			</transition>
-			<p class="error" v-if="error">{{ error }}</p>
+			<div class="error" v-if="error">
+				<p>{{ $t('an error occured') }}</p>
+				<p>{{ error }}</p>
+			</div>
 			<vue-markdown :source="content || ''"></vue-markdown>
 		</div>
 	</main>
 </template>
 
-<style src="../style/page.css"/>
-<style src="prismjs/themes/prism.css"/>
+<style src="../style/page.css" />
+<style src="prismjs/themes/prism.css" />
 
 <script>
 	import VueMarkdown from 'vue-markdown'
@@ -74,12 +77,8 @@
 				})
 				.catch(error => {
 					vm.loading = null;
-					if (error.status === 404) {
-						vm.error = "Page introuvable :("
-					} else {
-						console.error(error);
-						vm.error = `Une erreur est survenue: ${error.status} - ${error.statusText}`;
-					}
+					console.error(error);
+					vm.error = error.status === 404 ? vm.$t("404") : error;
 					vm.content = null;
 				})
 			},
@@ -109,3 +108,16 @@
 		}
 	}
 </script>
+
+<i18n>
+{
+	"en": {
+		"an error occured": "An error occured:",
+		"404": "Page not found :("
+	},
+	"fr": {
+		"an error occured": "Une erreur est survenue:",
+		"404": "Page introuvable :("
+	}
+}
+</i18n>
