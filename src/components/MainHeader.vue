@@ -44,7 +44,7 @@
 
 <script>
 	import SearchBar from "./SearchBar.vue";
-	import {localStore} from "../store";
+	import {localStore} from "../utils/store";
 
 	export default {
 		methods: {

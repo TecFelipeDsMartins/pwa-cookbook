@@ -23,8 +23,8 @@ import mdMenu from "vue-material/dist/components/mdMenu/index";
 import { directive as onClickaway } from 'vue-clickaway';
 
 import App from "./App"
-import { router } from "./routes"
-import { localStore} from "./store";
+import {router} from "./routes"
+import {localStore} from "./utils/store";
 
 Vue.use(VueRouter);
 Vue.use(VueI18n);
