@@ -31,7 +31,7 @@
 				<md-menu-content>
 					<md-menu-item v-for="l in locales"
 					              :key="l"
-					              @click="$root.$i18n.locale = l">
+					              @click="switchLocale(l)">
 						{{ $t(l) }}
 					</md-menu-item>
 				</md-menu-content>
@@ -44,11 +44,17 @@
 
 <script>
 	import SearchBar from "./SearchBar.vue";
+	import {localStore} from "../store";
 
 	export default {
 		methods: {
 			toggleSidenav(){
 				this.$root.$emit("toggle-sidenav")
+			},
+
+			switchLocale(l){
+				this.$root.$i18n.locale = l;
+				localStore.set(localStore.keys.PREF_LOCALE, l)
 			}
 		},
 

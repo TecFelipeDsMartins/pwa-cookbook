@@ -24,6 +24,7 @@ import { directive as onClickaway } from 'vue-clickaway';
 
 import App from "./App"
 import { router } from "./routes"
+import { localStore} from "./store";
 
 Vue.use(VueRouter);
 Vue.use(VueI18n);
@@ -44,7 +45,7 @@ export default new Vue({
 	router,
 
 	i18n: new VueI18n({
-		locale: navigator.language === "fr" ? "fr" : "en",
+		locale: localStore.get(localStore.keys.PREF_LOCALE) || (navigator.language === "fr" ? "fr" : "en"),
 		fallbackLocale: "en"
 	})
 });
