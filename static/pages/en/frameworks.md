@@ -1,6 +1,6 @@
 <span class="requirements">Prerequisites: none</span>
 
-# PWA offer in web client frameworks
+# PWA features in popular JS frameworks
 
 Addy Osmani gave a talk on this subject during Google IO 2017:
  
@@ -8,9 +8,7 @@ Addy Osmani gave a talk on this subject during Google IO 2017:
 
 ## React: [create-react-app](https://github.com/facebookincubator/create-react-app)
 
-Facebook teams are often more advanced concerning the conception of PWA with their React framework. This choice is a safe value but React addresses mainly to experienced Javascript developers which have some knowledge on functional reactive programming.
-
-Les équipes de Facebook ont souvent eu une longueur d'avance en ce qui concerne la conception de Progressive Web Apps avec leur framework React. Ce choix est une valeur sûre mais React s'adresse aux développeurs JavaScript expérimentés et initiés à la programmation réactive fonctionnelle.
+Facebook teams are often ahead of the field regarding PWA development with their React framework. This choice is a safe bet but React is used at its best in the hands of experienced Javascript developers who have some knowledge of functional reactive programming.
 
 Cet outil permettant de démarrer très rapidement un projet React avec tout l'outillage adéquat propose depuis sa version 1.0 une expérience PWA par défaut. Cela comprend notamment un manifeste d'application autogénéré et un Service Worker proposant une stratégie de cache Offline-First.
 
