@@ -94,7 +94,7 @@ Les navigateurs supportant les Service Workers proposent généralement des racc
 
 ### Support des navigateurs
 
-Les SW sont supportés sur Chrome, Firefox et Opera. Leur implémentation est en cours sur Edge et Safari. Vous pouvez trouver des informations plus détaillées et à jour sur [IsServiceWorkerReadyYet](https://jakearchibald.github.io/isserviceworkerready/).
+Les Service Workers sont supportés sur Chrome, Firefox et Opera, et plus récemment Edge. Leur implémentation est en cours sur Safari. Vous pouvez trouver des informations plus détaillées et à jour sur [IsServiceWorkerReadyYet](https://jakearchibald.github.io/isserviceworkerready/).
 
 ## Le champ d'application des Service Workers
 

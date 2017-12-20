@@ -13,7 +13,7 @@ Each page of this cookbook contains tools to assist you during navigation:
 - The **table of contents** on the left allows to quickly navigate between pages.
 - A **search box** is always available on the top right corner of the page **prerequisites**. It allows you to quickly find content.
 
-On final note, **this cookbook is itself a PWA** (built with vue.js). In fact, you can read this cookbook while being offline. If you are using an Android device, you can ask Chrome to add this cookbook to the home screen of your Android launcher.
+On final note, **this cookbook is itself a PWA**. In fact, you can now read this cookbook while being offline. If you are using an Android device, you can ask Chrome to add this cookbook to the home screen of your Android launcher.
 
 -------------------------------------------
 

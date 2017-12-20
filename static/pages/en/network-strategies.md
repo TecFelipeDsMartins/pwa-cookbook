@@ -100,4 +100,4 @@ Other strategies are provided by Mozilla along with their commented code in [ser
 
 [Optimistic UI](optimistic-ui.md)
 
-[Browser data cache](data-cache.md)
+[Browser data caches](data-cache.md)

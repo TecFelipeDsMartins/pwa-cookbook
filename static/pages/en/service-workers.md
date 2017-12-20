@@ -8,15 +8,15 @@ Service Workers do not have access to the DOM and to the global scope. However, 
 
 # Offline PWA with Service Workers
 
-A SW can be considered as a proxy between your PWA and the network. It can intercept and modify all the requests that are sent by the browser. Thus, it can perform URL redirection or generate responses with files and cached data. It is then a key element for adding offline to a PWA.
+A SW can be considered as a proxy between your PWA and the network. It can intercept and modify all the requests that are sent by the browser. Thus, it can perform URL redirection or generate responses with files and cached data. Therefore, it is a key element for offline usage.
 
 ## Service Workers vs Application Cache
 
-It is also possible to add offline with the [Application Cache](https://developer.mozilla.org/fr/docs/Web/HTML/Utiliser_Application_Cache) API which is largely supported but is **deprecated** nowadays. This API allows to get a simple list of all the resources to cache. However, it is very limited and the update and listing processes are very complicated, as opposed to Service Workers which are more flexible and offer many more possibilities. Some examples are background synchronization and [push notifications](push-notifications.md).
+It is also possible to bring offline usage with the [Application Cache](https://developer.mozilla.org/fr/docs/Web/HTML/Utiliser_Application_Cache) API which is largely supported but is **deprecated** today. This API allows to set a simple list of all the resources to cache. However, it is very limited and the updates and resources listing are often tricky, contrary to Service Workers which are more flexible and offer many more possibilities. Some examples are background synchronization and [push notifications](push-notifications.md).
 
 ## Setup and life-cycle of a service worker
 
-To install a SW, we need to first register it in Javascript using `navigator.serviceWorker.register`. When the registration completes, the browser tries to install the WS and then activates it for the website. The `install` event is triggered when the setup successfully completes. After that, the `activate` event is fired when the SW is ready to intercept the `fetch` and `message` events. These events are emitted respectively by a web request and a call to the `postMessage` API.
+To install a SW, we first need to register it with Javascript using `navigator.serviceWorker.register`. When the registration is completed, the browser tries to install the SW and then activate it on the website. The `install` event is triggered when the setup successfully completes. After that, the `activate` event is fired when the SW is ready to intercept the `fetch` and `message` events. These events are emitted respectively by a web request and a call to the `postMessage` API.
 
 - Application code :
 ```javascript
@@ -53,20 +53,20 @@ Traditional caching driven by the browser and the HTTP headers `cache-control` a
 
 The Cache interface of the ServiceWorker API brings a solution to this problem. In fact, it gives to the developer the responsibility of implementing the mechanics to add, remove and update the items in the cache. This allows to design different [strategies of network cache management](network-strategies.md).
 
-This API allows to use different named caches on the specific domain for which the SW is registered. The name of the cache may be notably used for *versioning*, in order to handle cache migration if the service worker has been modified.
+This API let us use different named caches on the specific domain for which the SW is registered. The name of the cache may be notably used for *versioning*, in order to handle cache migration if the service worker has been modified.
 
-The content of the cache consists of a dictionary of object request / response pairs. It is worth noting that is it is possible to store multiple responses for the same request on the same cache.
+The content of the cache consists of a dictionary of object request / response pairs. It is worth noting that it is possible to store multiple responses for the same request on the same cache.
 
 The [documentation of the Cache API is available on MDN](https://developer.mozilla.org/fr/docs/Web/API/Cache).
 
-Here is a typical sample of the Cache API:
+Here is a typical example of using the Cache API:
 
 ```javascript
 // When a network request sent by the browser is intercepted
 this.addEventListener('fetch', function(event) {
   event.respondWith(
   	caches.match(event.request) // Search the cache
-    .catch(() => fetch(event.request)) // Not found, search in the network
+    .catch(() => fetch(event.request)) // Not found, lookup on the network
     .then(response => {
       /* A response can be read only once, 
       we need to clone it in order to store it in the cache */
@@ -88,7 +88,7 @@ Different approaches of cache management are detailed on the [network cache stra
 
 ### Storage limitation of the Cache API
 
-On the majority of browsers, the storage limit is the same as the one for the data cache : see [data cache](data-cache.md) for more details.
+On most of browsers, the storage limit is the same as the one for local data caches : see [data cache](data-cache.md) for more details.
 
 ## Developer tools
 
@@ -96,7 +96,7 @@ Browsers that support Service Workers generally provide buttons or shortcuts in 
 
 ## Browser support
 
-Service Workers are supported by Chrome, Firefox and Opera. They are under development on Edge and Safari. You can find more detailed and up-to-date information on [IsServiceWorkerReadyYet](https://jakearchibald.github.io/isserviceworkerready/).
+Service Workers are supported by Chrome, Firefox, Opera, and recently Edge. They are under development on Safari. You can find more detailed and up-to-date information on [IsServiceWorkerReadyYet](https://jakearchibald.github.io/isserviceworkerready/).
 
 ## Applications of Service Workers
 
