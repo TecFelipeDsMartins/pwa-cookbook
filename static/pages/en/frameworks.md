@@ -20,15 +20,13 @@ Preact is a lightweight alternative (3kb) to React and is baed on the same API, 
 
 We recommend it to React developers that want to further optimize and simplify their tooling.
 
-## Vue.js: [Template PWA](https://github.com/vuejs-templates/pwa)
+## Vue.js: [PWA Template](https://github.com/vuejs-templates/pwa)
 
+Vue.js is a framework which is more accessible than React and Angular. It takes the best features of concurrent frameworks and merges them into a simple and minimalist solution which is modular and flexible enough to adapt to advanced uses. Vue.js is advised to beginners and for those who quickly want to get results; such as a POC.
 
+To easily initiate a Vue project, [divers templates](https://github.com/vuejs-templates) are made available via the `vue-cli` CLI tool. The PWA template - as its name implies - is dedicated to Progressive Web Apps. Its goal is to help us automate, as much as possible, the setup of PWA features.
 
-Vue.js est un framework beaucoup plus facile d'accès comparé à React et Angular. Il copie les meilleures fonctionnalités des frameworks concurrents pour les regrouper dans une solution simple et minimaliste, mais suffisamment modulaire et flexible pour s'adapter aux usages avancés. Vue.js est à conseiller aux débutants et à ceux qui veulent rapidement un résultat, pour la réalisation de preuves de concept par exemple.
-
-Pour démarrer facilement un projet Vue, [divers templates](https://github.com/vuejs-templates) de projet sont proposés via l'outil en ligne de commande `vue-cli`. Le template PWA comme son nom l'indique est dédié aux Progressive Web Apps et a pour but d'automatiser pour vous la mise en place d'un maximum des fonctionnalités propres aux PWA.
-
-De la même manière que Next.js apporte le rendu côté serveur à React, il existe [Nuxt pour Vue](https://nuxtjs.org/) qui propose quasiment les mêmes fonctionnalités et la même approche. Sébastien et Alexandre Chopin, les deux frères français à l'origine de Nuxt, ont fait savoir leur fort intérêt pour les PWA et veulent proposer une expérience Offline-ready par défaut pour tous les projets Nuxt. 
+In the same way that Next.je brings server side rendering to React, [Nuxt pour Vue](https://nuxtjs.org/) offers practically the same features and the same approach. Sébastien and Alexandre Chopin, the two brothers behind Nuxt, have announced their interest for PWA and want to offer an offline-ready experience by default on Nuxt projects.
 
 ## [Angular Mobile Toolkit](https://mobile.angular.io/)
 
