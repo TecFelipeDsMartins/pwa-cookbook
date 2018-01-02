@@ -1,37 +1,38 @@
-<span class="requirements">Prérequis: lecture des pages <a href="optimistic-ui.md">Compensation de latence</a> et <a href="service-workers.md">Service Workers</a></span>
+<span class="requirements">Prerequisites: read the pages <a href="optimistic-ui.md">Optimistic UI</a> and <a href="service-workers.md">Service Workers</a></span>
 
-La couche de gestion de réseau
-================================
+# Network management layer
 
-## Différentes situations de conditions réseau
+## Different network conditions
 
-On a tendance à oublier que la disponibilité du réseau n'est pas quelque-chose de binaire. En réalité, et particulièrement avec l'usage mobile, les conditions réseau peuvent beaucoup varier et présenter un caractère très incertain. On peut regrouper ces situations en trois catégories principales:
-- **Faible signal**: l'appareil a connaissance de la mauvaise réception, qu'il s'agisse de Wi-Fi ou de réseaux mobiles. Il y a donc une faible bande-passante ainsi qu'un risque plus élevé d'échec de la requête.
-- **Lie-Fi**: l'appareil affiche une connexion fonctionnelle et de bonne qualité, mais en pratique, aucune requête n'aboutit et reste bloquée sur de très longs timeouts. Ces cas de désinformation surviennent souvent à cause de problèmes de configuration réseau ou de matériel défaillant.
-- **Déconnecté**: l'appareil ne trouve aucune connexion au réseau, ou les a désactivé (mode avion par exemple). Les requêtes sont immédiatement rejetées, et l'état offline est détectable en JavaScript sur les navigateurs le supportant.
+We tend to forget that network availability is not a binary thing. In reality, and particularly on mobile, network conditions may vary a lot and show uncertainty. We can group these situations into three main categories:
 
-## De la nécessité d'une couche de gestion de réseau
+- **Weak signal**: the device knows of the the bad reception quality, either in WiFi or mobile networks. There is therefore a low bandwidth and a higher risk of request failure.
+- **Lie-Fi**: the device show a working connection with good quality, but in practice, all requests fail and hang in very long timeouts. These cases of being of misinformed often occur because of problems in the network configuration or defective hardware.
+- **Disconnected**: the device does not find any network connection, or has disabled them (plane mode for example). The requests are immediately rejected. This disconnected state can be detected using JavaScript on browsers that support it.
 
-Ces situations de conditions réseau incertaines sont donc variées mais peuvent aussi passer de l'une à l'autre au cours d'une même session. 
+# On the necessity of a network management layer
 
-Pour palier au problème de faible signal qui occasionne des temps de requêtes longs et irréguliers, la solution la plus directe est [la compensation de latence](optimistic-ui.md). Son principe est simple mais la gestion d'erreurs peut vite se complexifier selon les cas: empilement des requêtes, relances à intervalles croissants, gestion des rollbacks et de la resynchronisation à la récupération de la connexion...
+The situations where we have uncertain network conditions are diverse and can also move from one to other in the same session.
 
-Dans le cas du Lie-Fi, les timeouts par défaut sont souvent insuffisants pour repérer le problème suffisamment rapidement pour ne pas trop perturber le scénario utilisateur. Il faut donc faire diagnostiquer l'état réseau par l'application elle-même, sur la base de ses propres contraintes de fonctionnement.
- 
- Enfin, le passage de l'état connecté à déconnecté doit être géré de manière totalement fluide, sans rupture dans le scénario utilisateur autre qu'un simple feedback visuel. C'est typiquement quelque-chose qui doit être géré à un niveau global pour toute l'application.
- 
- Pour toutes ces raisons, les PWA s'accompagnent souvent d'une **couche de gestion de réseau** qui vient s'intercaler entre la logique applicative et les requêtes AJAX. Codée en JavaScript au sein du bundle applicatif et des service workers enregistrés, elle joue le rôle de chef d'orchestre:
-  - en exploitant au maximum [les API de cache disponibles](data-cache.md)
-  - en interceptant et en gérant de la manière la plus autonome possible [les erreurs liées au réseau](error-management.md)
-  - en prenant soin de ne pas fausser l'ordre d'exécution d'appels asynchrones
-  - en évitant autant que possible les blocages et ruptures dans tous les scénarios utilisateur
+To tackle the weak signal problem which causes long and irregular latencies, the most direct solution is [optimistic UI](optimistic-ui.md). Its principle is simple but error handling can quickly become complicated depending on the case: request stacking, retrying at growing intervals, rollback management and the re-synchronization on network recovery...
 
-Cette couche de gestion réseau implique divers mécanismes et stratégies que nous aborderons dans les sections suivantes.
+In case of Lie-Fi, the default timeouts are often insufficient to quickly react to this problem while preserving the user experience. The application must thus check the network quality by itself, based on its own constraints.
+
+Finally, switching from connected state to disconnected state, and vice-versa, has to be handled smoothly without breaking the user experience other than a simple visual feedback. This is typically something that must be handled on a global level for the hole application.
+
+For all these reasons, PWA are often accompanied by a **network management layer** which is inserted between the application logic and AJAX requests. It is written in JavaScript within the app bundle and the registered Service Workers. It plays the role of a conductor for the following reasons:
+
+- By fully exploiting [the available data cache APIs](data-cache.md)
+- By autonomously intercepting and managing, as much as possible, [the different network errors](error-management.md)
+- By taking care of not altering the order in which asynchronous network requests are executed.
+- By avoiding as much as possible the freezes and interruptions on all users' scenarios.
+
+The network management layer involves designing different strategies and mechanisms that we will address in the following sections.
 
 ---
 
-[Usage hors-ligne avec les Service Workers](service-workers.md)
+[Offline with Service Workers](service-workers.md)
 
-[Stratégies de gestion de cache réseau](network-strategies.md)
+[Network cache management strategies](network-strategies.md)
 
-[Stratégies de gestion des requêtes en échec](error-management.md)
+[Failed requests management strategies](error-management.md)
