@@ -7,7 +7,7 @@
 We tend to forget that network availability is not a binary thing. In reality, and particularly on mobile, network conditions may vary a lot and show uncertainty. We can group these situations into three main categories:
 
 - **Weak signal**: the device knows of the the bad reception quality, either in WiFi or mobile networks. There is therefore a low bandwidth and a higher risk of request failure.
-- **Lie-Fi**: the device show a working connection with good quality, but in practice, all requests fail and hang in very long timeouts. These cases of being of misinformed often occur because of problems in the network configuration or defective hardware.
+- **Lie-Fi**: the device shows a working connection with good quality, but in practice, all requests fail and hang in very long timeouts. These cases of being of misinformed often occur because of problems in the network configuration or defective hardware.
 - **Disconnected**: the device does not find any network connection, or has disabled them (plane mode for example). The requests are immediately rejected. This disconnected state can be detected using JavaScript on browsers that support it.
 
 # On the necessity of a network management layer

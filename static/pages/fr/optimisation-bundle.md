@@ -30,7 +30,7 @@ bundle.js  544 kB       0  [emitted]  [big]  main
    [3] ./app/index.js 278 bytes {0} [built]
 ````
 
-Si vous avez découplé votre code applicatif en utilisant les [modules ES2015](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/import) et `import` / `export`, Webpack est capable d'effectuer une analyse statique de votre arbre de dépendances et de regrouper le tout en un seul fichier tout en gérant l'ordre d'exécution et les duplicats. Si vous utilisez les [import() dynamiques](https://webpack.js.org/guides/code-splitting/), Webpack effectue une scission de code automatique pour générer de plus petits bundles, qui sont chargés de manière asynchrone à l'exécution selon la page/section en cours de consultation par l'utilisateur.
+Si vous avez découplé votre code applicatif en utilisant les [modules ES2015](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/import) et `import` / `export`, Webpack est capable d'effectuer une analyse statique de votre arbre de dépendances et de regrouper le tout en un seul fichier tout en gérant l'ordre d'exécution et les duplicats.
 
 Avec l'outil [webpack-bundle-analyzer](https://github.com/th0r/webpack-bundle-analyzer), il est possible d'analyser a posteriori le contenu d'un bundle et la répartition en taille des différents modules afin d'identifier les modules trop lourds ou superflus.
 
@@ -49,13 +49,13 @@ Concernant la minification du CSS, il existe [cssnano](http://cssnano.co/) qui e
 
 ## Activer `gzip`
 
-[gzip](http://www.gnu.org/software/gzip/) est une autre amélioration essentielle pour optimiser la taille de vos bundles, à mettre en place côté serveur cette fois. Cet algorithme de compression remplace les  chaînes de caractères récurrentes dans vos fichiers par des pointeurs. Selon les fichiers, on peut observer des gains très significatifs : parfois moins de 30% de la taille originale en sortie.
+[gzip](http://www.gnu.org/software/gzip/) est une autre amélioration essentielle pour optimiser la taille de vos bundles, à mettre en place côté serveur cette fois. Cet algorithme de compression remplace les  chaînes de caractères récurrentes dans vos fichiers par des pointeurs. Selon les fichiers, on peut observer des gains très significatifs : parfois moins de 70% de la taille originale en sortie.
 
 ## Images: compression et Data URL
 
 Les images sont souvent les ressources les plus lourdes à télécharger dans un site web, mais on dispose aujourd'hui d'excellents algorithmes de compression. 
 
-Vous pouvez compresser manuellement chacune de vos images, ou utiliser un outil à la chaîne de build tel que [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) qui utilise `imagemin` pour minifier PNG, JPEG, GIF et SVG.
+Vous pouvez compresser manuellement chacune de vos images, ou utiliser un outil à la chaîne de build tel que [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) qui utilise `imagemin` pour minifier PNG, JPEF, GIF et SVG.
 
 Dans le cas des petites images telles que les pictogrammes, il peut être intéressant de remplacer l'URL vers l'image par le code de cette image sous forme de Data URL. Cela réduit le nombre de requêtes HTTP à effectuer et vous prémunit des éventuelles erreurs de chargement. Le plug-in Webpack [url-loader](https://webpack.js.org/loaders/url-loader/) sert justement à ça et remplacera automatiquement les URL vers de petites images par une Data URL, en dessous d'une certaine taille limite.
 

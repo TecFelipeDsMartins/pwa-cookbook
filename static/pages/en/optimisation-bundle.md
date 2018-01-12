@@ -1,11 +1,10 @@
 <span class="requirements">Prerequisites: experience with build chains, compilers and minifiers</span>
 
-Bundle and reduce application size
-===================================
+# Bundle and reduce application size
 
-In order to achieve performance goals (initial loading time less than 5 seconds on low end phone and 3G), PWA often require a full build process that is used to bundle, optimize and compress all dependencies. At the output, we get some highly optimized files called **bundles**. The performance gain is only applicable at first application load, then the Service Worker goes into action, caching everything and ensuring the next loadings will be almost instant.
+In order to achieve performance goals (initial loading time less than 5 seconds on low end phone and 3G), PWA often requires a full build process that is used to bundle, optimize and compress all dependencies. The output of this process is a kind of highly optimized files called **bundles**. The performance gain is only applicable at first application load, then the Service Worker takes over, caching everything and ensuring the next loadings will be almost instantaneous.
 
-## Bundle ressources with Webpack
+## Bundle resources with Webpack
 
 There are numerous tools and build chains for front-end projects, but one of them stands out for being the most complete and popular so far: [Webpack](https://webpack.js.org/)
 
@@ -14,7 +13,7 @@ There are numerous tools and build chains for front-end projects, but one of the
 	<figcaption>How Webpack works</figcaption>
 </figure>
 
-Webpack strength is its versality. Indeed, it can bundle all kind of files (JavaScript, CSS, images, templates...), while we used to require many different tools in the past to get a complete working setup. Its popularity also helps to grow a large ecosystem of third party plugins. Today, Webpack is used and recommended by most JavaScript frameworks: React, Vue, Angular...
+Webpack strength is its versatility. Indeed, it can bundle all kind of files (JavaScript, CSS, images, templates...), while we used to require many different tools in the past to get a complete working setup. Its popularity also helps to grow a large ecosystem of third party plugins. Today, Webpack is used and recommended by most JavaScript frameworks: React, Vue, Angular...
 
 ````bash
 ./node_modules/.bin/webpack app/index.js dist/bundle.js
@@ -53,19 +52,19 @@ Regarding CSS minification, there is [cssnano](http://cssnano.co/) which is also
 
 ## Images: compression and Data URL
 
-Images are often the heaviest resources to download in a website, but today we have excellent compression algorithms. 
+Images are often the heaviest resources to download in a website, but today we have excellent compression algorithms.
 
 You can manually compress each of your images, or use an automated tool during the build process such as [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) that uses `imagemin` to minify PNG, JPEG, GIF and SVG.
 
-For small images such as icons, it may be interesting to replace the image URL by an inline data URL. This reduces the number of HTTP requests and prevent potential network errors during image loading. The Webpack plugin [url-loader](https://webpack.js.org/loaders/url-loader/) automatically replace some of the images URL by data URL, based on a file size limit.
+For small images such as icons, it may be interesting to replace the image URL by an inline data URL. This reduces the number of HTTP requests and prevents potential network errors during image loading. The Webpack plugin [url-loader](https://webpack.js.org/loaders/url-loader/) automatically replaces some of the image URLs by data URLs, based on a file size limit.
 
 ## Code splitting
 
 Bundling the whole application code in a single bundle file is not always the best idea. It can result in a huge JavaScript file that slows down the initial loading of your application.
 
-Webpack has a very popular feature called *code splitting*. It is used to produce a set of smaller bundles that are loaded asynchonously when they are required: specifically for one route or after a user event for example.
+Webpack has a very popular feature called *code splitting*. It is used to produce a set of smaller bundles that are loaded asynchronously when they are required: specifically for one route or after a user event for example.
 
-Some tools can be used to do this splitting automatically, but doing it explicitely often leads to better results. Some [very detailed guides](https://webpack.js.org/guides/code-splitting/) are available in the official Webpack documentation to help you set up this feature.
+Some tools can be used to do this splitting automatically, but doing it explicitly often leads to better results. Some [very detailed guides](https://webpack.js.org/guides/code-splitting/) are available in the official Webpack documentation to help you set up this feature.
 
 Our recommendation is to avoid bundles over 500kb.
 
