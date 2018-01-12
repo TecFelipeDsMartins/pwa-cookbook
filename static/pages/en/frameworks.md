@@ -12,7 +12,7 @@ Facebook teams are often ahead of the field regarding PWA development with their
 
 This framework provides a tool that allows to very quickly setup a React project. Since its version 1.0, this tool provides a PWA experience by default. This notably includes an auto generated app manifest and a Service Worker configured with an offline-first cache strategy.
 
-On the server side, [Next.js](https://learnnextjs.com/) from Zeit is the most popular option and the simplest to apprehend. Following the example of create-react-app, the team wishes to offer an offline-first approach by default. However, It is not yet the case for the version 4.3.0 which is the latest version at the time of writing.
+On the server side, [Next.js](https://learnnextjs.com/) from Zeit is the most popular option and the simplest to apprehend. Following the example of create-react-app, the team may want to offer an offline-first approach by default. This [may happen](https://github.com/zeit/next.js/issues/861) in the next major version of the framework.
 
 ## Preact: [Preact CLI](https://github.com/developit/preact-cli)
 
