@@ -73,6 +73,12 @@ main .content {
 	}
 }
 
+aside {
+	color: $COLOR_ASIDE_TEXT;
+	text-align: right;
+	font-size: 0.8em;
+}
+
 .requirements {
 	color: $COLOR_ASIDE_TEXT;
 	display: block;

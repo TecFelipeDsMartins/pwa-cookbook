@@ -3,7 +3,7 @@
 What is a Progressive Web App (PWA)
 ============================================
 
-*Progressive Web Apps* or *PWA* are **web sites** that use modern web capabilities to deliver a **native app-like** user experience.
+*Progressive Web Apps* or *PWA* are **websites** that use modern web capabilities to deliver a **native app-like** user experience.
 
 In order to achieve that, PWA must enforce a certain number of technical criterion and performance constraints.
 
