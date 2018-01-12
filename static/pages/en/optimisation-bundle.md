@@ -13,7 +13,7 @@ There are numerous tools and build chains for front-end projects, but one of the
 	<figcaption>How Webpack works</figcaption>
 </figure>
 
-Webpack strength is its versatiklity. Indeed, it can bundle all kind of files (JavaScript, CSS, images, templates...), while we used to require many different tools in the past to get a complete working setup. Its popularity also helps to grow a large ecosystem of third party plugins. Today, Webpack is used and recommended by most JavaScript frameworks: React, Vue, Angular...
+Webpack strength is its versatility. Indeed, it can bundle all kind of files (JavaScript, CSS, images, templates...), while we used to require many different tools in the past to get a complete working setup. Its popularity also helps to grow a large ecosystem of third party plugins. Today, Webpack is used and recommended by most JavaScript frameworks: React, Vue, Angular...
 
 ````bash
 ./node_modules/.bin/webpack app/index.js dist/bundle.js
