@@ -28,13 +28,9 @@ To easily initiate a Vue project, [many templates](https://github.com/vuejs-temp
 
 In the same way that `Next.js` brings server side rendering to React, [Nuxt for Vue](https://nuxtjs.org/) offers practically the same features and the same approach. Sébastien and Alexandre Chopin, the two brothers behind Nuxt, have announced their interest for PWA and want to offer an offline-ready experience by default on Nuxt projects.
 
-## [Angular Mobile Toolkit](https://mobile.angular.io/)
+## Angular
 
-Google is a major player in PWA, therefore, it is not surprising that the Angluar team showed its interest on the subject. If the server side rendering has appeared very early on the framework's road map, offline feature is not yet natively available in the framework.
-
-Angluar is more complex to decrypt with regard to PWA. The [Angular Mobile Toolkit](https://github.com/angular/mobile-toolkit) project, which is actually in beta, is the closest that we can get to an Angluar PWA setup. unfortunately, they strangely decided to focus on mobile. In fact, even if network quality and processing performance are particularly felt on mobile platforms, and adding the fact that Android is the most advanced PWA platform to this day, PWA were never intended to be mobile only. Thus, it is advised to step back and think this through, especially since Angular is designed for large scale projects.
-
-On the server side, the [Angular Universal](https://universal.angular.io/) project has been incorporated into Angular 4.0 and presents and API dedicated to server side rendering (SSR). We can therefore add this feature to any Angular 4.0+ project, provided that the used components do not require browser specific APIs (`window`, `document`, `navigator`...)
+Angular is more complex to decrypt with regard to PWA. The [Angular Mobile Toolkit](https://github.com/angular/mobile-toolkit) project is the closest thing we can get to an PWA Angular setup, but unfortunately the project looks inactive, perhaps abandonned. Also, they strangely decided to focus on mobile. Even if network quality and processing performance are particularly problematic on mobile platforms, and considering that Android has the most advanced PWA integration to the platform to this day, PWA were never intended to be mobile only. Thus, it is advised to step back and wait a bit longer before considering Angular for a PWA.
 
 ## [Polymer](https://news.polymer-project.org/list/top_stories)
 
