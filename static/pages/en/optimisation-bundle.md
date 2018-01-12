@@ -1,9 +1,8 @@
-<span class="requirements">Prérequis: expérience avec les chaînes de build, les compilateurs et les minifieurs</span>
+<span class="requirements">Prerequisites: knowledge of toolchains, comilers and minifiers</span>
 
-Empaqueter et réduire la taille de l'application
-===================================
+# Packaging and reducing the size of the application
 
-Pour atteindre les objectifs de performance (chargement initial sur un mobile bas de gamme en 3G en moins de 5 secondes), les PWA disposent très souvent d'un setup de build chargé d'empaqueter, optimiser et compresser toutes les dépendances. En sortie de ce processus, on trouve un petit nombre de fichiers paquets aussi appelés **bundles**. Le gain de performance est uniquement valable au premier chargement de l'application, ensuite la mise en cache par le Service Worker prend le relais et assure des chargements quasi-instantanés.
+In order to reach the performance goals (first load of the page on 3G in less than 5 seconds), PWA often make use of a builder that compresses and optimises all the dependencies. The result of this process is a small number of packet files also called **bundles**. The performance gain is only valid for the initial applicaiton loading. After that, the Service Worker caching takes over in order to load pages almost instantaneously.
 
 ## Empaqueter les ressources avec Webpack
 
