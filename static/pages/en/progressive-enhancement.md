@@ -1,11 +1,12 @@
-<span class="requirements">Prérequis: connaissances de base sur les langages du Web</span>
+<span class="requirements">Prerequisites: basic knowledge about Web languages</span>
 
-La démarche d'amélioration progressive
-=======================================
+# Progressive enhancement
 
-Le mot *Progressive* est une référence à la démarche d'amélioration progressive (**Progressive Enhancement**). Avec le temps, ce mot a pris un sens plus large tout comme *Responsive* est aujourd'hui utilisé dans d'autres contextes que le *Responsive Web Design*.
+The word *Progressive* in *Progressive Web Apps* is a reference to the **Progressive Enhancement** strategy. over time, this term has gained a wider meaning in the same way that *Responsive* is nowadays used in contexts other than the *Responsive Web Design*.
 
-L' objectif de cette démarche est de rendre le contenu et le service accessible au plus grand nombre. En effet, pour exploiter tout leur potentiel, les PWA ont recours à diverses technologies et API très récentes disponible seulement sur les dernières versions des navigateurs et plates-formes. Or, la grande force du Web qui fait l'intérêt stratégique et économique des PWA est son **universalité** et son ouverture au plus grand panel d'utilisateurs connectés au monde: les internautes.
+The objective of this strategy is to make the content and the services accessible to a every audience. In fact, in order to exploit all their potential, PWA resort to diverse technologies and recent API that are only available on recent versions of web browsers. But, the most important aspect of the Web that makes PWA interesting is its **universality** and being open to the largest group of connected users: the internet users.
+
+This is why **it is essential to not discriminate the users and to not introduce a technological break**: all the users no matter what browser they use and their degree of software and hardware obsolescence.
 
 C'est pourquoi **il est essentiel de ne pas discriminer les utilisateurs et d'introduire une fracture technologique**: tous les internautes peu importe leur navigateur et leur dégré d'obscolescence logicielle et matérielle devraient être en mesure d'utiliser le service et d'exploiter le contenu fourni par une PWA.
 
