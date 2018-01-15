@@ -1,29 +1,29 @@
-<span class="requirements">Prérequis: connaissance du mode de fonctionnement des Single Page Apps</span>
+<span class="requirements">Prerequisites: Knowing how single page webapps work</span>
 
-La compensation de latence (ou *Optimistic UI*)
-============================================================
+# Latency compensation (or *Optimistic UI*)
 
-## Principe de fonctionnement
+## Operating principle
 
-Le principe de la compensation de latence est de considérer que les requêtes serveur vont finir en succès dans la grande majorité des cas, et donc qu'il n'est pas nécessaire d'attendre le retour serveur pour continuer dans la navigation et mettre à jour l'affichage côté client. C'est une technique assez couramment utilisée dans les webmails et les messageries instantanées, là où la fluidité dans les actions est essentielle pour une bonne expérience utilisateur.
+The principle behind latency compensation is that all server requests will succeed in the vast majority of cases. Thus, it is not necessary to wait for the server response to continue the navigation and update the display on the client side. It is a frequently used technique in web-mails and instant messaging, where smoothness in the action flow is essential for a good user experience.
 
 <figure>
-	<img src="../img/optimistic-ui.png" alt="Schématisation de la compensation de latence">
+	<img src="../img/optimistic-ui.png" alt="Schematic representration of Latency compensation">
 </figure>
- 
- Pour pouvoir mettre en place ce principe, il faut quelques conditions:
- - le modèle client doit pouvoir être mis à jour sans avoir besoin du retour du serveur, en admettant un succès de la requête ; cela concerne donc presque toujours les requêtes POST / PUT et non les GET
- - en cas d'erreur, l'action doit pouvoir être réversible ; en sachant que d'autres actions peuvent avoir eu lieu entre temps.
- - le feedback utilisateur en cas d'erreur doit être réfléchi de telle sorte qu'une erreur imprévue ne prenne pas l'utilisateur au dépourvu dans son action en cours ; *exemple: si l'utilisateur est en train de modifier une fiche qui a mal été créée, l'action de modification doit pouvoir se substituer à l'action de création* 
-  
-## Gestion des erreurs  
-  
- Un des pièges courants de cette technique est lorsque l'action de réversibilité (le *rollback*) vient écraser des données plus récentes ou actuellement utilisées par l'utilisateur. Pour éviter ce genre de tracas, une bibliothèque JavaScript de gestion d'état comme Redux ou Vuex peut aider à résoudre ces conflits. Dans les cas les plus compliqués, quelques connaissances sur les transformations opérationnelles et la gestion de conflits d'écriture peuvent aussi s'avérer utiles. 
- 
- Vous pouvez bien sûr opter pour mettre en place de la compensation de latence uniquement pour les cas les plus simples à gérer, et heureusement ils sont encore nombreux.
- 
-## Avantages de cette méthodologie
- 
- L'avantage le plus évident est que la navigation pour ces actions optimisées devient quasiment instantanée pour l'utilisateur final. Si le temps des requêtes est inchangé, celles-ci se déroulent en tâche de fond et ne viennent pas bloquer l'utilisateur dans son élan. C'est donc un élément clé pour donner une sensation de fluidité à votre application et satisfaire vos utilisateurs.
- 
- La compensation de latence est également utile pour le développeur pour mettre au point une gestion de ses modèles de données de façon asynchrone et résistante aux conflits, et ainsi préparer le terrain pour d'autres fonctionnalités tels qu'un mode hors-ligne ou un mode d'édition collaborative. En effet, si l'on considère qu'une requête en erreur est un cas ponctuel, les mécaniques de synchronisation et les scénarios utilisateur sont relativement similaires à ceux de l'usage hors-ligne. Seule la durée et le caractère prédictif de ces échecs de requêtes viennent changer l'équation. 
+
+To setup this principle, there are some conditions:
+
+- The client model must be able to be updated without the server response, by assuming a success of the request. This affects nearly all POST / REQUESTS and the GET ones.
+- In case of an error, the actions must be reversible; knowing that other actions may happen at the same time.
+- The user feedback on errors must be reflected in a way that an unexpected error does not interrupt the user while performing actions. *Example: if the user is modifying a sheet that was badly created, the modification action must not substitute to the creation one*
+
+## Error management
+
+One of the common traps of this technique is that the rollback action may override more recent or currently used data. To avoid this problem, a JavaScript library for state management like Redux or Vuex can be used. On the most complicated situations, some knowledge on operational transformations and write conflict management may turn out to be helpful.
+
+You can of course choose to implement latency compensation only for the simplest cases, and hopefully there are still many of them.
+
+## Advantages of this methodology
+
+The most obvious advantage is that the navigation is nearly instantaneous for the optimized actions. Even if the duration of the requests does not change, they are executed in background and dot not bloc the user experience and his momentum. It is thus a key element for providing a feeling of smoothness and fluidity to your app and satisfy your users.
+
+The compensation of latency is also useful for the developers that want to manage their data model in a way that is asynchronous and resistant to conflicts. This allows to lay the foundations for other features such as offline or a collaborative edition mode. In fact, if we consider that failed request are not frequent, the mechanics of synchronization and the user scenarios are relatively similar to those in offline mode. Only the duration of the failures and the fact that they are predictable change the equation.
