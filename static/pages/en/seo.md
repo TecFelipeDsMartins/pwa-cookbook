@@ -1,17 +1,17 @@
-<span class="requirements">Prérequis: connaissances de base en SEO</span>
+<span class="requirements">Prerequisites: basic knowledge of SEO</span>
 
-Optimisation du référencement
+Search Engine Optimization
 =============================
 
-Les techniques de Search Engine Optimization (SEO) ne diffèrent pas trop entre une Progressive Web App et une application web monopage. Quelques règles simples sont à retenir pour garantir une bonne indexation du contenu de votre PWA:
+The Search Engine Optimization (SEO) technioques do not differ too much between a Progressive Web App and a regular single page web application. There are some simple rules to remember to ensure your PWA content will be indexed properly:
 
-## Assurez-vous que chaque page à indexer dispose de sa propre URL
+## Make sure every page to index has its own URL
  
- Pour que chaque page soit indexée distinctement, il faut qu'elle dispose de sa propre URL. Pensez donc à utiliser un routeur côté client et à attribuer à chaque ressource une URL dédiée, par exemple `https://www.example.com/product/25/`
+Each page needs to have its own URL in order to be indexed separately. Remember to use a client-side router and give a dedicated URL to every page, for example: `https://www.example.com/product/25/`
  
- Ces URL doivent être le plus simple et le plus descriptif possible. Evitez l'emploi de query params s'ils ne sont pas essentiels pour la page en cours.
+ These URL should be as simple and descriptive as possible. Avoid using query parameters if they are not necessary for the current page.
  
-## Utiliser l'API History plutôt que les hash pour vos URL
+## Use the History API instead of hashbangs
 
 L'API History permet de manipuler l'historique du navigateur en JavaScript en modifiant l'URL sans pour autant déclencher le changement de page par le navigateur. Cette API a été déterminante pour les applications web monopage qui utilisaient auparavant des hash `#` dans l'URL. <a href="http://googlewebmastercentral.blogspot.com/2009/10/proposal-for-making-ajax-crawlable.html" target="_blank">Google avait même modifié à l'époque son crawler</a> pour explorer les sites AJAX avec des URL contenant `/#!/`, technique dite du *hashbang*.  
 
