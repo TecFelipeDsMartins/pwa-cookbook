@@ -12,7 +12,7 @@ Les équipes de Facebook ont souvent eu une longueur d'avance en ce qui concerne
 
 Cet outil permettant de démarrer très rapidement un projet React avec tout l'outillage adéquat propose depuis sa version 1.0 une expérience PWA par défaut. Cela comprend notamment un manifeste d'application autogénéré et un Service Worker proposant une stratégie de cache Offline-First.
 
-Pour une solution avec rendu côté serveur, [Next.js](https://learnnextjs.com/) de Zeit est l'option la plus populaire et la plus simple à appréhender. L'équipe souhaite à l'instar de create-react-app proposer une approche Offline-First par défaut. Cela devrait se concrétiser dans la version 3.0 du framework.
+Pour une solution avec rendu côté serveur, [Next.js](https://learnnextjs.com/) de Zeit est l'option la plus populaire et la plus simple à appréhender. L'équipe souhaite à l'instar de create-react-app proposer une approche Offline-First par défaut. Cela devrait [se concrétiser](https://github.com/zeit/next.js/issues/861) dans une prochaine version majeure du framework.
 
 ## Preact: [Preact CLI](https://github.com/developit/preact-cli)
 
@@ -27,13 +27,9 @@ Pour démarrer facilement un projet Vue, [divers templates](https://github.com/v
 
 De la même manière que Next.js apporte le rendu côté serveur à React, il existe [Nuxt pour Vue](https://nuxtjs.org/) qui propose quasiment les mêmes fonctionnalités et la même approche. Sébastien et Alexandre Chopin, les deux frères français à l'origine de Nuxt, ont fait savoir leur fort intérêt pour les PWA et veulent proposer une expérience Offline-ready par défaut pour tous les projets Nuxt. 
 
-## [Angular Mobile Toolkit](https://mobile.angular.io/)
+## Angular
 
-Google est un acteur majeur dans le domaine des PWA, il n'est donc pas étonnant que l'équipe Angular ait montré de l'intérêt pour le sujet. Si le rendu côté serveur a été évoqué très tôt dans la roadmap du framework, l'usage offline ne fait pas encore partie des fonctionnalités de base proposées par le framework. 
-
-L'offre Angular est un peu plus complexe à décrypter concernant les PWA. Le projet [Angular Mobile Toolkit](https://mobile.angular.io/), actuellement en beta, est ce qui se rapproche le plus d'un setup dédié PWA pour Angular. Mais ils ont curieusement fait ce choix de se focaliser sur le mobile. Même si les besoins en performance et fiabilité réseau se font particulièrement ressentir pour l'usage mobile, et que Android est la plate-forme proposant l'intégration la plus avancée à ce jour pour les PWA, ces dernières n'ont jamais eu vocation à être réservées au mobile. Il convient donc de prendre du recul avant de partir sur cette solution, d'autant que Angular est adapté aux projets de grande envergure.
-  
-Concernant le rendu côté serveur, le projet [Angular Universal](https://universal.angular.io/) a été intégré à Angular 4.0 et propose une API dédiée au SSR. On peut donc ajouter cette fonctionnalité à tous les projets Angular à partir de cette version, sous réserve que les composants utilisés ne requièrent pas d'API propres aux navigateurs (`window`, `document`, `navigator`...)
+L'offre Angular est un peu plus complexe à décrypter concernant les PWA. Le projet [Angular Mobile Toolkit](https://github.com/angular/mobile-toolkit) est ce qui se rapproche le plus d'un setup dédié PWA pour Angular, mais le projet semble inactif voire abandonné. Aussi, ils ont curieusement fait ce choix de se focaliser sur le mobile. Même si les besoins en performance et fiabilité réseau se font particulièrement ressentir pour l'usage mobile, et que Android est la plate-forme proposant l'intégration la plus avancée à ce jour pour les PWA, ces dernières n'ont jamais eu vocation à être réservées au mobile. Il convient donc d'attendre encore un peu avant de songer à faire une PWA avec Angular.
 
 A noter que l'équipe de Polymer, un autre framework JS made-in Google, a été très proactive récemment sur le sujet des PWA. Cela peut aussi être une option à envisager, bien que le cadre d'utilisation de Polymer est plus restreint que celui d'autres frameworks généralistes.
 
