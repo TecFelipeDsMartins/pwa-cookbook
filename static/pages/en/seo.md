@@ -1,55 +1,56 @@
 <span class="requirements">Prerequisites: basic knowledge of SEO</span>
 
-Search Engine Optimization
-=============================
+# Search Engine Optimization
 
-The Search Engine Optimization (SEO) technioques do not differ too much between a Progressive Web App and a regular single page web application. There are some simple rules to remember to ensure your PWA content will be indexed properly:
+The Search Engine Optimization (SEO) techniques do not differ too much between a Progressive Web App and a regular single page web application. There are some simple rules to remember to ensure your PWA content will be indexed properly. The following paragraphs provides the most important ones.
 
 ## Make sure every page to index has its own URL
- 
+
 Each page needs to have its own URL in order to be indexed separately. Remember to use a client-side router and give a dedicated URL to every page, for example: `https://www.example.com/product/25/`
- 
- These URL should be as simple and descriptive as possible. Avoid using query parameters if they are not necessary for the current page.
- 
+
+These URL should be as simple and descriptive as possible. Avoid using query parameters if they are not necessary for the current page.
+
 ## Use the History API instead of hashbangs
 
-L'API History permet de manipuler l'historique du navigateur en JavaScript en modifiant l'URL sans pour autant déclencher le changement de page par le navigateur. Cette API a été déterminante pour les applications web monopage qui utilisaient auparavant des hash `#` dans l'URL. <a href="http://googlewebmastercentral.blogspot.com/2009/10/proposal-for-making-ajax-crawlable.html" target="_blank">Google avait même modifié à l'époque son crawler</a> pour explorer les sites AJAX avec des URL contenant `/#!/`, technique dite du *hashbang*.  
+The history API allows to manipulate the history of the browser with Javascript by modifying the URL without triggering a page change on the browser. This API was decisive for single page web apps that were using a has `#` in the URL. <a href="http://googlewebmastercentral.blogspot.com/2009/10/proposal-for-making-ajax-crawlable.html" target="_blank">Google has even modified its crawler at that time</a> in order to index AJAX websites that uses URL containing `/#!/`, also known as *hashbang*.
 
-Maintenant que l'API History est correctement supportée, il n'y a plus besoin de recourir aux hash dans les URL. Google a d'ailleurs indiqué que Googlebot indexait rarement les URL avec des `#`. Vous pouvez utiliser des URL classiques, en prenant soin toutefois à configurer votre serveur web de fichiers correctement pour toujours renvoyer la base HTML adéquate pour chaque URL.
+Now that History API is correctly supported, there is no more need to use hashes in URLs. Google has even indicated that Googlebot rarely indexes URLs containing `#`. You can use normal URLs, by taking care of correctly configuring the web server so that it always returns the adequate HTML base for each URL.
 
-## Utiliser le Server-Side Rendering
+## User Server-Side Rendering
 
-Le rendu côté serveur ou Server-Side Rendering (SSR) permet d'indexer le contenu par les crawlers ne supportant pas JavaScript ou la navigation AJAX. C'est encore le cas pour de nombreux robots indexeurs notamment sur les plates-formes de blogs, réseaux sociaux et messageries instantanées, qui récupèrent une description et des métadonnées lorsque vous partagez une URL.
+The Server-Side Rendering (SSR) enables indexing for crawlers that do not support JavaScript or AJAX. It is still the case for many indexing robots especially on blogging platforms, social networks and instant messaging, which retrieve a description and metadata when we share a URL.
 
-La plupart des frameworks JavaScript modernes disposent d'une solution de rendu côté serveur. Consultez la page [PWA et Frameworks](frameworks.md) pour plus de détails. 
+The majority of modern JavaScript frameworks provide ways to do SSR. Please refer to [PWA and Frameworks](frameworks.md) page for more details.
 
-Si vous ne pouvez implémenter du SSR, pensez à vérifier que votre contenu est correctement indexable par Google via <a href="https://www.google.com/webmasters/tools/home?hl=en">Google Search Console > Fetch as Google</a>.
+If you do not want to implement SSR, you should preferably check if your content is indexable by Google using <a href="https://www.google.com/webmasters/tools/home?hl=en">Google Search Console > Fetch as Google</a>.
 
-## Suivre les recommandations de Responsive Web Design
+## Follow responsive web design recommendations
 
-Google pénalise à l'indexation les sites web qui ne sont pas adaptés à l'usage mobile, en effectuant une série de tests sur les pages. Assurez-vous donc que votre application web est pleinement utilisable sur mobile. Vous pouvez vous aider des [outils d'audit](audit-tools.md) à cet effet.
+Google indexing algorithms perform series of tests that penalizes websites that do not work well on mobiles. Thus, you should make certain that your web app is fully usable on mobiles. You can get some help with that regard on the [audit tools](audit-tools.md) page.
 
-## Suivre la méthodologie d'amélioration progressive
+# Follow the progressive enhancement strategy
 
-[L'amélioration progressive](progressive-enhancement.md) vous permet d'étendre le support de votre application à un plus grand nombre de navigateurs et d'agents, et donc d'optimiser les chances que le contenu puisse être accessible et indexable.
+[Progressive enhancement](progressive-enhancement.md) allows to make your web app work on many more browsers and user agents, and thus increases the chances that the content will be accessed and indexed.
 
-Utilisez des codes de détection de fonctionnalité tels que 
+You can use code like this in order to detect the availability of a certain API and to progressively enable additional features.
+
 ```javascript
 if ('serviceWorker' in navigator) { ... }
 ```
- pour activer progressivement les fonctionnalités supplémentaires. Surtout, **n'utilisez pas les User Agent des navigateurs** comme tests de support : c'est le meilleur moyen d'avoir des faux positifs ou négatifs et d'empêcher toute évolutivité à long terme.
 
-## Pour aller plus loin
+Above all, **do not rely on User Agents** in your tests : it is the best way to get false positives or negatives and to prevent any evolution in the long term.
 
-- Un article complet sur le sujet a été [publié sur le Google Webmaster Central Blog](https://webmasters.googleblog.com/2016/11/building-indexable-progressive-web-apps.html)
-- John Muller de l'équipe Google Trends donne [une liste de recommandations techniques pour la SEO et les PWA ici](https://plus.google.com/u/0/+JohnMueller/posts/LT4fU7kFB8W).
+## To go further
+
+- A comprehensive article on the subject has been [published on the Google Webmaster Central Blog](https://webmasters.googleblog.com/2016/11/building-indexable-progressive-web-apps.html)
+- John Muller from Google Trends gives [a list of technical recommendation for SEO and PWA](https://plus.google.com/u/0/+JohnMueller/posts/LT4fU7kFB8W).
 
 ---
 
-[PWA et Frameworks](frameworks.md)
+[PWA and Frameworks](frameworks.md)
 
-[Outillage d'audit](audit-tools.md)
+[Audit tools](audit-tools.md)
 
-[La démarche d'amélioration progressive](progressive-enhancement.md)
+[Progressive enhancement](progressive-enhancement.md)
 
-[Checklist d'une PWA](checklist.md)
+[Checklist of a PWA](checklist.md)
