@@ -28,7 +28,7 @@ If you do not want to implement SSR, you should preferably check if your content
 
 Google indexing algorithms perform series of tests that penalizes websites that do not work well on mobiles. Thus, you should make certain that your web app is fully usable on mobiles. You can get some help with that regard on the [audit tools](audit-tools.md) page.
 
-# Follow the progressive enhancement strategy
+## Follow the progressive enhancement strategy
 
 [Progressive enhancement](progressive-enhancement.md) allows to make your web app work on many more browsers and user agents, and thus increases the chances that the content will be accessed and indexed.
 
