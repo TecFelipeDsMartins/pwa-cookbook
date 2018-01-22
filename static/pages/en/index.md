@@ -1,11 +1,3 @@
-# PWA Cookbook
-
-> A step-by-step guide to Progressive Web Applications
-
-This cookbook itself is a PWA: [sylvainpolletvillard.github.io/pwa-cookbook/](https://sylvainpolletvillard.github.io/pwa-cookbook/)
- 
-or you can read the docs in plain text:
-
 ## Index
 
 ### Introduction
@@ -49,22 +41,3 @@ or you can read the docs in plain text:
 Ce cookbook est aussi disponible [en Français](static/pages/fr/index.md).
 
 <!--- END_INDEX -->
----
-
-
-## Run the cookbook PWA locally
-
-``` bash
-# install dependencies with yarn (or NPM)
-yarn
-
-# serve with hot reload at localhost:8080
-yarn run dev
-
-# build for production with minification
-yarn run build
-```
-
----
-
-<p class="license"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
