@@ -46,7 +46,7 @@ or you can read the docs in plain text:
 - [PWA Checklist](static/pages/en/checklist.md)
 - [Quality Audit Tools](static/pages/en/audit-tools.md)
 
-Ce cookbook est aussi disponible [en Français](static/pages/en/index.md).
+Ce cookbook est aussi disponible [en Français](static/pages/fr/index.md).
 
 <!--- END_INDEX -->
 

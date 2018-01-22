@@ -7,19 +7,19 @@ const localesMessages = {
 
 const foreach = (arr, fn) => arr.map(fn).join('\n');
 
-const generateIndex = (locale, relativePath=".") => {
+const generateIndex = (locale, relativePathToPages) => {
 	const index = require(`../static/pages/${locale}/index.json`);
 	return `## Index
 ${foreach(index.chapters, chapter => `
 ### ${ chapter.title }
 
 ${foreach(chapter.sections, section =>
-	`- [${section.title}](${relativePath}/${section.link}.md)`
+	`- [${section.title}](${relativePathToPages}/${locale}/${section.link}.md)`
 )}`)}
 
 ${Object.keys(localesMessages)
-	.filter(loc => loc !== locale)
-	.map(l => `${localesMessages[l]}(${relativePath}/index.md).`)
+	.filter(otherLocale => otherLocale !== locale)
+	.map(otherLocale => `${localesMessages[otherLocale]}(${relativePathToPages}/${otherLocale}/index.md).`)
 	.join('\n')
 }`
 }
@@ -31,6 +31,6 @@ const replaceContent = (file, content) => {
 	);
 }
 
-replaceContent('README.md', generateIndex("en", "static/pages/en"))
-replaceContent('static/pages/en/index.md', generateIndex("en"))
-replaceContent('static/pages/fr/index.md', generateIndex("fr"))
+replaceContent('README.md', generateIndex("en", "static/pages"))
+replaceContent('static/pages/en/index.md', generateIndex("en", ".."))
+replaceContent('static/pages/fr/index.md', generateIndex("fr", ".."))
