@@ -1,16 +1,27 @@
 const fs = require('fs');
 
+const localesMessages = {
+	"fr": "Ce cookbook est aussi disponible [en Français]",
+	"en": "This cookbook is also available [in English]"
+}
+
 const foreach = (arr, fn) => arr.map(fn).join('\n');
 
-const generateIndex = locale => {
-	const pages = require(`../static/pages/${locale}/index.json`);
+const generateIndex = (locale, relativePath=".") => {
+	const index = require(`../static/pages/${locale}/index.json`);
 	return `## Index
-${foreach(pages.chapters, chapter => `
+${foreach(index.chapters, chapter => `
 ### ${ chapter.title }
 
 ${foreach(chapter.sections, section =>
-	`- [${section.title}](static/pages/${section.link}.md)`
-)}`)}`
+	`- [${section.title}](${relativePath}/${section.link}.md)`
+)}`)}
+
+${Object.keys(localesMessages)
+	.filter(loc => loc !== locale)
+	.map(l => `${localesMessages[l]}(${relativePath}/index.md).`)
+	.join('\n')
+}`
 }
 
 const replaceContent = (file, content) => {
@@ -20,14 +31,6 @@ const replaceContent = (file, content) => {
 	);
 }
 
-const indexEn = generateIndex("en") + `
-
-Ce cookbook est aussi disponible [en Français](static/pages/fr/index.md).`
-
-const indexFr = generateIndex("fr") + `
-
-This cookbook is also available [in English](static/pages/en/index.md).`
-
-replaceContent('README.md', indexEn)
-replaceContent('static/pages/en/index.md', indexEn)
-replaceContent('static/pages/fr/index.md', indexFr)
+replaceContent('README.md', generateIndex("en", "static/pages/en"))
+replaceContent('static/pages/en/index.md', generateIndex("en"))
+replaceContent('static/pages/fr/index.md', generateIndex("fr"))
