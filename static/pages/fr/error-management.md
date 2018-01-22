@@ -38,7 +38,7 @@ function http(url, params, delay=1000){
 
 ## Pile de requêtes en échec
 
-Les deux startégies précédentes ne se soucient pas de l'ordre d'appel des callbacks. S'il est important de traiter les réponses dans l'ordre dans lequel les requêtes ont été effectué, on stocke les requêtes dans une file d'attente et on exécute chaque requête l'une après l'autre. En cas d'échec, on attend 5 secondes avant de réessayer la même requête.
+Les deux stratégies précédentes ne se soucient pas de l'ordre d'appel des callbacks. S'il est important de traiter les réponses dans l'ordre dans lequel les requêtes ont été effectuées, on stocke les requêtes dans une file d'attente et on exécute chaque requête l'une après l'autre. En cas d'échec, on attend 5 secondes avant de réessayer la même requête.
 
 ```javascript
 const requestQueue = [];
