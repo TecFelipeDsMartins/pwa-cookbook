@@ -1,6 +1,6 @@
 <span class="requirements">Prérequis: aucun</span>
 
 Templates de projet dédiés aux PWA
-=================================================
+=======================================
 
-SOON: templates de projets fait maison
+PROCHAINEMENT: des templates de projets fait maison

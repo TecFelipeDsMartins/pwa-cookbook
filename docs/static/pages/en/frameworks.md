@@ -6,7 +6,7 @@ Addy Osmani gave a talk on this subject during Google IO 2017:
 
 [Production Progressive Web Apps With JavaScript Frameworks](https://www.youtube.com/watch?v=aCMbSyngXB4)
 
-## React: [create-react-app](https://github.com/facebookincubator/create-react-app)
+## React: [create-react-app](https://github.com/facebook/create-react-app)
 
 Facebook teams are often ahead of the field regarding PWA development with their React framework. This choice is a safe bet but React is used at its best in the hands of experienced Javascript developers who have some knowledge of functional reactive programming.
 
