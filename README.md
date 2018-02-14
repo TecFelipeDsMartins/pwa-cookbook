@@ -42,7 +42,7 @@ or you can read the docs in plain text:
 ### Frameworks and Tooling
 
 - [PWA and Frameworks](static/pages/en/frameworks.md)
-- [Project Start Templates](static/pages/en/project-templates.md)
+- [Project Starter Templates](static/pages/en/project-templates.md)
 - [PWA Checklist](static/pages/en/checklist.md)
 - [Quality Audit Tools](static/pages/en/audit-tools.md)
 

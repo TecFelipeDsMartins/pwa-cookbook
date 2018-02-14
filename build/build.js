@@ -1,4 +1,4 @@
-require('./check-versions')()
+//require('./check-versions')() // freeze sur mon poste
 
 process.env.NODE_ENV = 'production'
 

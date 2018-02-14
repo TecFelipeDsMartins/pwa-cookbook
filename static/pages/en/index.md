@@ -34,7 +34,7 @@
 ### Frameworks and Tooling
 
 - [PWA and Frameworks](../en/frameworks.md)
-- [Project Start Templates](../en/project-templates.md)
+- [Project Starter Templates](../en/project-templates.md)
 - [PWA Checklist](../en/checklist.md)
 - [Quality Audit Tools](../en/audit-tools.md)
 

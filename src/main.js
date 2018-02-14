@@ -11,7 +11,7 @@ import "vue-material/dist/components/mdToolbar/index.css";
 import "vue-material/dist/components/mdList/index.css";
 import "vue-material/dist/components/mdMenu/index.css";
 
-import mdCore from "vue-material/dist/components/mdCore/index";
+import mdCore from "vue-material/dist/components/mdCore/index"; /* FORK: supprimer appel à changeHtmlMetaColor */
 import mdButton from "vue-material/dist/components/mdButton/index";
 import mdIcon from "vue-material/dist/components/mdIcon/index";
 import mdSidenav from "vue-material/dist/components/mdSidenav/index";
