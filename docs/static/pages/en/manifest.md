@@ -55,7 +55,7 @@ The PWA manifest is an evolving standard and new properties are added regularly.
 
 ## Manifest generator
 
-Manifest generators allows to quickly and easily create manifests. [This one](http://www.pwabuilder.com/generator) for example pre-fills certain properties and helps defining the others.
+Manifest generators allows to quickly and easily create manifests. [This one](https://app-manifest.firebaseapp.com/) for example pre-fills certain properties and helps defining the others.
 
 ---
 

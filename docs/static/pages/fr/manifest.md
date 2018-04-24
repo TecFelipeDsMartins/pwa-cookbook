@@ -51,7 +51,7 @@ Le manifeste d'application est un standard évolutif et de nouvelles propriété
 
 ## Générateur de manifeste
 
-Pour vous aider à créer rapidement un manifeste pour votre application, il existe [ce générateur](http://www.pwabuilder.com/generator) qui préremplit certains champs et vous guide pour compléter les champs restants.
+Pour vous aider à créer rapidement un manifeste pour votre application, il existe [ce générateur](https://app-manifest.firebaseapp.com/) qui préremplit certains champs et vous guide pour compléter les champs restants.
 
 ---
 
