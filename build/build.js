@@ -4,6 +4,7 @@ process.env.NODE_ENV = 'production'
 
 var ora = require('ora')
 var rm = require('rimraf')
+var fs = require('fs')
 var path = require('path')
 var chalk = require('chalk')
 var webpack = require('webpack')
@@ -25,6 +26,8 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       chunks: false,
       chunkModules: false
     }) + '\n\n')
+
+	fs.copyFileSync("./CNAME", "./docs/CNAME");
 
     console.log(chalk.cyan('  Build complete.\n'))
     console.log(chalk.yellow(
