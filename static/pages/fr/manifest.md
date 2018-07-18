@@ -1,13 +1,12 @@
 <span class="requirements">Prérequis: connaissance du format JSON</span>
 
-Manifeste d'application web
-===========================
+# Manifeste d'application web
 
 Le manifeste d'application est un simple fichier JSON contenant des métadonnées annexes de l'application qui sont utilisées par en améliorer l'intégration par les plates-formes. Pour lier un manifeste à une application, il suffit d'insérer le lien en HTML:
 
 ```html
 <!-- à insérer dans <head> -->
-<link rel="manifest" href="/manifest.json">	
+<link rel="manifest" href="/manifest.json">
 ```
 
 Voici un exemple de fichier manifeste:
@@ -51,7 +50,13 @@ Le manifeste d'application est un standard évolutif et de nouvelles propriété
 
 ## Générateur de manifeste
 
-Pour vous aider à créer rapidement un manifeste pour votre application, il existe [ce générateur](http://www.pwabuilder.com/generator) qui préremplit certains champs et vous guide pour compléter les champs restants.
+Pour vous aider à créer rapidement un manifeste pour votre application, il existe [ce générateur](https://app-manifest.firebaseapp.com/) qui préremplit certains champs et vous guide pour compléter les champs restants.
+
+## Compatibilité avec les meta tags
+
+Avant les manifestes d'application, les navigateurs utilisaient des balises `<meta>` plus ou moins standards ou complètement propriétaires pour renseigner les icônes, couleurs ou particularités d'un site. Renseigner ces balises est toujours utile pour ces navigateurs mais fait doublon avec le manifeste. Heureusement, il existe un outil qui le fait pour vous: [PWACompat](https://developers.google.com/web/updates/2018/07/pwacompat)
+
+Ajouté sous la forme d'un script externe aux côtés de votre balise `<link>` pointant vers le manifeste, le script analysera votre manifeste et ajoutera automatiquement les balises `<meta>` correspondantes. Il respecte également le principe d'amélioration progressive puisque l'échec de chargement de ce script n'aura aucune incidence sur le fonctionnement de votre application.
 
 ---
 

@@ -1,7 +1,6 @@
 <span class="requirements">Prerequisites: JSON data format</span>
 
-Manifest of a PWA
-===========================
+# Manifest of a PWA
 
 The manifest of a PWA is a simple JSON file that contains metadata about the application. These metadata are used to integrate more efficiently the PWA with the target platforms.
 
@@ -55,7 +54,13 @@ The PWA manifest is an evolving standard and new properties are added regularly.
 
 ## Manifest generator
 
-Manifest generators allows to quickly and easily create manifests. [This one](http://www.pwabuilder.com/generator) for example pre-fills certain properties and helps defining the others.
+Manifest generators allows to quickly and easily create manifests. [This one](https://app-manifest.firebaseapp.com/) for example pre-fills certain properties and helps defining the others.
+
+## Compatibility with meta tags
+
+Prior to web app manifests, browsers used more or less standard or completely proprietary `<meta>` tags to specify icons, colors, or application properties. Declaring these tags is still useful for these older browsers but it duplicates the information that is already in the manifest. Fortunately, there is a tool that does the job automatically for you at runtime: [PWACompat](https://developers.google.com/web/updates/2018/07/pwacompat)
+
+Added as an external script next to your `<link>` tag pointing to the manifest, the script will parse your manifest and automatically add the corresponding `<meta>` tags. It also respects the principle of progressive enhancement because if the script fails to load, it will not affect the rest of your application.
 
 ---
 
