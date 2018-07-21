@@ -17,6 +17,24 @@ Here is a selection of PWA among the biggest companies and high traffic websites
 				<p>Twitter Lite</p>
 			</a>
 		</li>
+        <li>
+			<a href="https://medium.com/@Pinterest_Engineering/a-one-year-pwa-retrospective-f4a2f4129e05" target="_blank">
+				<img src="../img/gallery/pinterest.jpg" alt="Pinterest">
+				<p>Pinterest</p>
+			</a>
+		</li>
+        <li>
+			<a href="https://https://developers.google.com/web/showcase/2016/alibaba" target="_blank">
+				<img src="../img/gallery/alibaba.jpg" alt="Alibaba.com">
+				<p>Alibaba Express</p>
+			</a>
+		</li>
+        <li>
+			<a href="https://medium.com/@addyosmani/a-tinder-progressive-web-app-performance-case-study-78919d98ece0" target="_blank">
+				<img src="../img/gallery/tinder.jpg" alt="Tinder Online">
+				<p>Tinder</p>
+			</a>
+		</li>
 		<li>
             <a href="https://www.flipkart.com/" target="_blank">
                 <img src="../img/gallery/flipkart.jpg" alt="Flipkart">
@@ -53,7 +71,7 @@ Here is a selection of PWA among the biggest companies and high traffic websites
 Below, we present a selection of technical demos / show-offs:
 
 <div class="gallery">
-	<ul> 
+	<ul>
 		<li>
 			<a href="https://paperplanes.world/" target="_blank">
 				<img src="../img/gallery/paper-planes.jpg" alt="Paper Planes">
